@@ -1,0 +1,6 @@
+# Local rendering and visual QA artifacts
+/tmp/
+
+# Python caches
+__pycache__/
+*.pyc
