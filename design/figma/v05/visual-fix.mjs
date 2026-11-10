@@ -1,0 +1,6 @@
+import fs from 'node:fs/promises';import{command}from'../v2/export-previews.mjs';
+const root=new URL('./',import.meta.url),read=async p=>JSON.parse(await fs.readFile(new URL(p,root),'utf8')),save=(p,x)=>fs.writeFile(new URL(p,root),JSON.stringify(x,null,2));
+const scene=await read('iphone-scene.json'),r=await read('iphone-result.json'),other=await read('second-snapshot-scene.json'),or=await read('second-snapshot-result.json'),append=await read('append-result.json'),nodes=[];
+for(const n of scene.nodes){const oldTitle=n.children[8];if(oldTitle.props.characters!=='下次，可以更顺手。')throw Error('Unexpected legacy title');oldTitle.props.visible=false;nodes.push({id:r.refs[oldTitle.ref],props:{visible:false}});}
+const oldTitle=other.nodes[0].children[8];oldTitle.props.visible=false;nodes.push({id:or.refs[oldTitle.ref],props:{visible:false}});nodes.push({id:append.createdNodeIds[0],props:{y:711}});
+await save('iphone-scene.json',scene);await save('second-snapshot-scene.json',other);const row=await read('settings-row.json');row.props.y=711;await save('settings-row.json',row);await save('visual-fix.json',{nodes});await save('visual-fix-result.json',await command('patch',{nodes}));console.log('Removed inherited duplicate titles; adjusted settings row spacing');

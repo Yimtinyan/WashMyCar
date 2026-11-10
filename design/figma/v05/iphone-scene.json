@@ -1,0 +1,5761 @@
+{
+  "pageId": "26:1517",
+  "nodes": [
+    {
+      "ref": "P32",
+      "type": "FRAME",
+      "props": {
+        "name": "P32 / 洗前提醒",
+        "x": 100,
+        "y": 7020,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-1",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-2",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-3",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-4",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-5",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-6",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-7",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1597"
+            }
+          ]
+        },
+        {
+          "ref": "v05-8",
+          "type": "TEXT",
+          "props": {
+            "name": "洗前提醒",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "洗前提醒",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-9",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-10",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-11",
+          "type": "TEXT",
+          "props": {
+            "name": "这辆车，别忘了这些。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "这辆车，别忘了这些。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-12",
+          "type": "TEXT",
+          "props": {
+            "name": "2024 乐道 L60 · 上次周末洗护",
+            "x": 28,
+            "y": 221,
+            "width": 384,
+            "height": 20.8,
+            "characters": "2024 乐道 L60 · 上次周末洗护",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-13",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 276,
+            "width": 384,
+            "height": 252,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-14",
+          "type": "TEXT",
+          "props": {
+            "name": "留给下次的两件小事",
+            "x": 48,
+            "y": 300,
+            "width": 344,
+            "height": 28.8,
+            "characters": "留给下次的两件小事",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 29
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-15",
+          "type": "TEXT",
+          "props": {
+            "name": "多带一条干燥巾。 / 右后轮有残留水渍，下次复查。",
+            "x": 48,
+            "y": 350,
+            "width": 344,
+            "height": 29,
+            "characters": "多带一条干燥巾。\n右后轮有残留水渍，下次复查。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 16,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 29
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-16",
+          "type": "TEXT",
+          "props": {
+            "name": "只关联这辆车，已处理的事项不再重复提醒。",
+            "x": 28,
+            "y": 570,
+            "width": 384,
+            "height": 20.8,
+            "characters": "只关联这辆车，已处理的事项不再重复提醒。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-17",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 已处理",
+            "x": 28,
+            "y": 662,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-18",
+              "type": "TEXT",
+              "props": {
+                "name": "已处理",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "已处理",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P40"
+            }
+          ]
+        },
+        {
+          "ref": "v05-19",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 下次再提醒",
+            "x": 28,
+            "y": 734,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-20",
+              "type": "TEXT",
+              "props": {
+                "name": "下次再提醒",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "下次再提醒",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.13333333333333333,
+                      "g": 0.18823529411764706,
+                      "b": 0.19607843137254902
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P40"
+            }
+          ]
+        },
+        {
+          "ref": "v05-21",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 查看原记录",
+            "x": 28,
+            "y": 848,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-22",
+              "type": "TEXT",
+              "props": {
+                "name": "查看原记录",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "查看原记录",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.13333333333333333,
+                      "g": 0.18823529411764706,
+                      "b": 0.19607843137254902
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:2968"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "P33",
+      "type": "FRAME",
+      "props": {
+        "name": "P33 / 资料与备份",
+        "x": 620,
+        "y": 7020,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-23",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-24",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-25",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-26",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-27",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-28",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-29",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:2162"
+            }
+          ]
+        },
+        {
+          "ref": "v05-30",
+          "type": "TEXT",
+          "props": {
+            "name": "资料与备份",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "资料与备份",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-31",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-32",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-33",
+          "type": "TEXT",
+          "props": {
+            "name": "给每一次用心，留底。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "给每一次用心，留底。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-34",
+          "type": "TEXT",
+          "props": {
+            "name": "资料保存在此设备，由你决定何时带走。",
+            "x": 28,
+            "y": 220,
+            "width": 384,
+            "height": 22.400000000000002,
+            "characters": "资料保存在此设备，由你决定何时带走。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-35",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 286,
+            "width": 384,
+            "height": 224,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-36",
+          "type": "TEXT",
+          "props": {
+            "name": "完整备份",
+            "x": 48,
+            "y": 310,
+            "width": 344,
+            "height": 33.6,
+            "characters": "完整备份",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 21,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 34
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-37",
+          "type": "TEXT",
+          "props": {
+            "name": "车辆 · 药剂与购买标签 / 洗车方案 · 取用履历 / 每次洗车的记录与备注",
+            "x": 48,
+            "y": 359,
+            "width": 344,
+            "height": 31,
+            "characters": "车辆 · 药剂与购买标签\n洗车方案 · 取用履历\n每次洗车的记录与备注",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 31
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-38",
+          "type": "TEXT",
+          "props": {
+            "name": "包含你填写的地点与备注，请自行保管。 / 本版不包含照片附件与健康明细。",
+            "x": 28,
+            "y": 553,
+            "width": 384,
+            "height": 25,
+            "characters": "包含你填写的地点与备注，请自行保管。\n本版不包含照片附件与健康明细。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 25
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-39",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 导出完整备份",
+            "x": 28,
+            "y": 690,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-40",
+              "type": "TEXT",
+              "props": {
+                "name": "导出完整备份",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "导出完整备份",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ]
+        },
+        {
+          "ref": "v05-41",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 选择备份文件",
+            "x": 28,
+            "y": 762,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-42",
+              "type": "TEXT",
+              "props": {
+                "name": "选择备份文件",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "选择备份文件",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.13333333333333333,
+                      "g": 0.18823529411764706,
+                      "b": 0.19607843137254902
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P34"
+            }
+          ]
+        },
+        {
+          "ref": "v05-43",
+          "type": "TEXT",
+          "props": {
+            "name": "恢复前先核验文件，再由你确认替换。",
+            "x": 28,
+            "y": 849,
+            "width": 384,
+            "height": 20.8,
+            "characters": "恢复前先核验文件，再由你确认替换。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ref": "P34",
+      "type": "FRAME",
+      "props": {
+        "name": "P34 / 恢复预览",
+        "x": 1140,
+        "y": 7020,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-44",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-45",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-46",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-47",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-48",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-49",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-50",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:2162"
+            }
+          ]
+        },
+        {
+          "ref": "v05-51",
+          "type": "TEXT",
+          "props": {
+            "name": "恢复预览",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "恢复预览",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-52",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-53",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-54",
+          "type": "TEXT",
+          "props": {
+            "name": "先核对，再恢复。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "先核对，再恢复。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-55",
+          "type": "TEXT",
+          "props": {
+            "name": "备份文件已通过版本、单位与关联检查。",
+            "x": 28,
+            "y": 220,
+            "width": 384,
+            "height": 22.400000000000002,
+            "characters": "备份文件已通过版本、单位与关联检查。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-56",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 286,
+            "width": 384,
+            "height": 250,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-57",
+          "type": "TEXT",
+          "props": {
+            "name": "这份备份包含",
+            "x": 48,
+            "y": 314,
+            "width": 344,
+            "height": 28.8,
+            "characters": "这份备份包含",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 29
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-58",
+          "type": "TEXT",
+          "props": {
+            "name": "1 辆爱车       7 瓶药剂 / 3 个方案       2 次洗车",
+            "x": 48,
+            "y": 367,
+            "width": 344,
+            "height": 44,
+            "characters": "1 辆爱车       7 瓶药剂\n3 个方案       2 次洗车",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 21,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-59",
+          "type": "TEXT",
+          "props": {
+            "name": "恢复将替换本机全部资料，不合并重复记录。 / 建议先导出当前资料；当前洗车未结束时禁止恢复。",
+            "x": 28,
+            "y": 584,
+            "width": 384,
+            "height": 26,
+            "characters": "恢复将替换本机全部资料，不合并重复记录。\n建议先导出当前资料；当前洗车未结束时禁止恢复。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 26
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-60",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 确认替换本机资料",
+            "x": 28,
+            "y": 762,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-61",
+              "type": "TEXT",
+              "props": {
+                "name": "确认替换本机资料",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "确认替换本机资料",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P33"
+            }
+          ]
+        },
+        {
+          "ref": "v05-62",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 取消恢复",
+            "x": 28,
+            "y": 840,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-63",
+              "type": "TEXT",
+              "props": {
+                "name": "取消恢复",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "取消恢复",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.13333333333333333,
+                      "g": 0.18823529411764706,
+                      "b": 0.19607843137254902
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "P35",
+      "type": "FRAME",
+      "props": {
+        "name": "P35 / 余量可信度",
+        "x": 1660,
+        "y": 7020,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-64",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-65",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-66",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-67",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-68",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-69",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-70",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1821"
+            }
+          ]
+        },
+        {
+          "ref": "v05-71",
+          "type": "TEXT",
+          "props": {
+            "name": "余量可信度",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "余量可信度",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-72",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-73",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-74",
+          "type": "TEXT",
+          "props": {
+            "name": "知道多少，就记录多少。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "知道多少，就记录多少。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-75",
+          "type": "TEXT",
+          "props": {
+            "name": "Gentle Snow Foam · 瓶装 1,000 mL",
+            "x": 28,
+            "y": 222,
+            "width": 384,
+            "height": 22.400000000000002,
+            "characters": "Gentle Snow Foam · 瓶装 1,000 mL",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-76",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 279,
+            "width": 384,
+            "height": 108,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-77",
+          "type": "TEXT",
+          "props": {
+            "name": "已核对 · 精确记录",
+            "x": 48,
+            "y": 299,
+            "width": 344,
+            "height": 30.400000000000002,
+            "characters": "已核对 · 精确记录",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 19,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 30
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-78",
+          "type": "TEXT",
+          "props": {
+            "name": "手动核对当前余量，仍由你确认。",
+            "x": 48,
+            "y": 340,
+            "width": 344,
+            "height": 20.8,
+            "characters": "手动核对当前余量，仍由你确认。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-79",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 405,
+            "width": 384,
+            "height": 108,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-80",
+          "type": "TEXT",
+          "props": {
+            "name": "估算 · 按取用量推算",
+            "x": 48,
+            "y": 425,
+            "width": 344,
+            "height": 30.400000000000002,
+            "characters": "估算 · 按取用量推算",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 19,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 30
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-81",
+          "type": "TEXT",
+          "props": {
+            "name": "展示“约”，取用后继续计算。",
+            "x": 48,
+            "y": 466,
+            "width": 344,
+            "height": 20.8,
+            "characters": "展示“约”，取用后继续计算。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-82",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 531,
+            "width": 384,
+            "height": 108,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-83",
+          "type": "TEXT",
+          "props": {
+            "name": "未知 · 暂不填写余量",
+            "x": 48,
+            "y": 551,
+            "width": 344,
+            "height": 30.400000000000002,
+            "characters": "未知 · 暂不填写余量",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 19,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 30
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-84",
+          "type": "TEXT",
+          "props": {
+            "name": "不显示液位，准备前需核对。",
+            "x": 48,
+            "y": 592,
+            "width": 344,
+            "height": 20.8,
+            "characters": "不显示液位，准备前需核对。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-85",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 保存为未知余量",
+            "x": 28,
+            "y": 762,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-86",
+              "type": "TEXT",
+              "props": {
+                "name": "保存为未知余量",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "保存为未知余量",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P41"
+            }
+          ]
+        },
+        {
+          "ref": "v05-87",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 返回药剂检视",
+            "x": 28,
+            "y": 840,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-88",
+              "type": "TEXT",
+              "props": {
+                "name": "返回药剂检视",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "返回药剂检视",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.13333333333333333,
+                      "g": 0.18823529411764706,
+                      "b": 0.19607843137254902
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1821"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "P36",
+      "type": "FRAME",
+      "props": {
+        "name": "P36 / 当时的这瓶药剂",
+        "x": 100,
+        "y": 8150,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-89",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-90",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-91",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-92",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-93",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-94",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-95",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:2107"
+            }
+          ]
+        },
+        {
+          "ref": "v05-96",
+          "type": "TEXT",
+          "props": {
+            "name": "当时的这瓶药剂",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "当时的这瓶药剂",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-97",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-98",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-99",
+          "type": "TEXT",
+          "props": {
+            "name": "这一次，原样留存。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "这一次，原样留存。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-100",
+          "type": "TEXT",
+          "props": {
+            "name": "历史快照 · 准备时版本",
+            "x": 28,
+            "y": 222,
+            "width": 384,
+            "height": 20.8,
+            "characters": "历史快照 · 准备时版本",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-101",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 278,
+            "width": 384,
+            "height": 156,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-102",
+          "type": "TEXT",
+          "props": {
+            "name": "Gentle Snow Foam",
+            "x": 48,
+            "y": 302,
+            "width": 344,
+            "height": 35.2,
+            "characters": "Gentle Snow Foam",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 22,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 35
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-103",
+          "type": "TEXT",
+          "props": {
+            "name": "原液取用 20 mL · PA 壶 / 另加清水 1,000 mL",
+            "x": 48,
+            "y": 351,
+            "width": 344,
+            "height": 28,
+            "characters": "原液取用 20 mL · PA 壶\n另加清水 1,000 mL",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-104",
+          "type": "TEXT",
+          "props": {
+            "name": "个人记录的使用方法",
+            "x": 28,
+            "y": 477,
+            "width": 384,
+            "height": 28.8,
+            "characters": "个人记录的使用方法",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 29
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-105",
+          "type": "TEXT",
+          "props": {
+            "name": "保持板面湿润，按这瓶标签及时冲洗。 / 此处为用户手动记录，不作为厂商核验结论。",
+            "x": 28,
+            "y": 524,
+            "width": 384,
+            "height": 27,
+            "characters": "保持板面湿润，按这瓶标签及时冲洗。\n此处为用户手动记录，不作为厂商核验结论。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 27
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-106",
+          "type": "TEXT",
+          "props": {
+            "name": "pH 待核实 · 当时未填写依据",
+            "x": 28,
+            "y": 634,
+            "width": 384,
+            "height": 22.400000000000002,
+            "characters": "pH 待核实 · 当时未填写依据",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-107",
+          "type": "TEXT",
+          "props": {
+            "name": "以后修改药剂资料，不会改写这次记录。",
+            "x": 28,
+            "y": 708,
+            "width": 384,
+            "height": 20.8,
+            "characters": "以后修改药剂资料，不会改写这次记录。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-108",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 返回本次记录",
+            "x": 28,
+            "y": 848,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-109",
+              "type": "TEXT",
+              "props": {
+                "name": "返回本次记录",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "返回本次记录",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:2107"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "P37",
+      "type": "FRAME",
+      "props": {
+        "name": "P37 / 手表方案准备",
+        "x": 620,
+        "y": 8150,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-110",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-111",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-112",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-113",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-114",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-115",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-116",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1597"
+            }
+          ]
+        },
+        {
+          "ref": "v05-117",
+          "type": "TEXT",
+          "props": {
+            "name": "手表方案准备",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "手表方案准备",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-118",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-119",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-120",
+          "type": "TEXT",
+          "props": {
+            "name": "还差一次接收确认。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "还差一次接收确认。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-121",
+          "type": "TEXT",
+          "props": {
+            "name": "APPLE WATCH · 本机交互模拟",
+            "x": 28,
+            "y": 222,
+            "width": 384,
+            "height": 19.200000000000003,
+            "characters": "APPLE WATCH · 本机交互模拟",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 12,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 19
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-122",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 280,
+            "width": 384,
+            "height": 256,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-123",
+          "type": "TEXT",
+          "props": {
+            "name": "01  准备清单已保存 / 02  等待模拟手表接收 / 03  离线演示尚未就绪",
+            "x": 48,
+            "y": 314,
+            "width": 344,
+            "height": 54,
+            "characters": "01  准备清单已保存\n02  等待模拟手表接收\n03  离线演示尚未就绪",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 17,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 54
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-124",
+          "type": "TEXT",
+          "props": {
+            "name": "已记录取用，不会因为重新接收再次扣库存。 / 接收完成后，再在表盘开始计时。",
+            "x": 28,
+            "y": 590,
+            "width": 384,
+            "height": 28,
+            "characters": "已记录取用，不会因为重新接收再次扣库存。\n接收完成后，再在表盘开始计时。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-125",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 模拟接收至手表",
+            "x": 28,
+            "y": 762,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-126",
+              "type": "TEXT",
+              "props": {
+                "name": "模拟接收至手表",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "模拟接收至手表",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P38"
+            }
+          ]
+        },
+        {
+          "ref": "v05-127",
+          "type": "TEXT",
+          "props": {
+            "name": "尚未连接真实手表；原生版需收到保存确认。",
+            "x": 28,
+            "y": 849,
+            "width": 384,
+            "height": 19.200000000000003,
+            "characters": "尚未连接真实手表；原生版需收到保存确认。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 12,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 19
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ref": "P38",
+      "type": "FRAME",
+      "props": {
+        "name": "P38 / 方案核验完成",
+        "x": 1140,
+        "y": 8150,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-128",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-129",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-130",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-131",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-132",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-133",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-134",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1597"
+            }
+          ]
+        },
+        {
+          "ref": "v05-135",
+          "type": "TEXT",
+          "props": {
+            "name": "方案核验完成",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "方案核验完成",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-136",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-137",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-138",
+          "type": "TEXT",
+          "props": {
+            "name": "准备好了，从容出发。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "准备好了，从容出发。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-139",
+          "type": "TEXT",
+          "props": {
+            "name": "APPLE WATCH · 本机交互模拟",
+            "x": 28,
+            "y": 222,
+            "width": 384,
+            "height": 19.200000000000003,
+            "characters": "APPLE WATCH · 本机交互模拟",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 12,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 19
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-140",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 280,
+            "width": 384,
+            "height": 256,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-141",
+          "type": "TEXT",
+          "props": {
+            "name": "01  准备清单已保存 / 02  方案版本与内容已核验 / 03  本机离线演示已就绪",
+            "x": 48,
+            "y": 314,
+            "width": 344,
+            "height": 54,
+            "characters": "01  准备清单已保存\n02  方案版本与内容已核验\n03  本机离线演示已就绪",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 17,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 54
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-142",
+          "type": "TEXT",
+          "props": {
+            "name": "此时尚未计时。 / 到达洗车地点后，在手表点击“开始洗车”。",
+            "x": 28,
+            "y": 590,
+            "width": 384,
+            "height": 28,
+            "characters": "此时尚未计时。\n到达洗车地点后，在手表点击“开始洗车”。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-143",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 返回本次洗车",
+            "x": 28,
+            "y": 762,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-144",
+              "type": "TEXT",
+              "props": {
+                "name": "返回本次洗车",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "返回本次洗车",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1522"
+            }
+          ]
+        },
+        {
+          "ref": "v05-145",
+          "type": "TEXT",
+          "props": {
+            "name": "本机模拟确认不代表真实 Apple Watch 已收到方案。",
+            "x": 28,
+            "y": 849,
+            "width": 384,
+            "height": 19.200000000000003,
+            "characters": "本机模拟确认不代表真实 Apple Watch 已收到方案。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 12,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 19
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ref": "P39",
+      "type": "FRAME",
+      "props": {
+        "name": "P39 / 备份无法恢复",
+        "x": 1660,
+        "y": 8150,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-146",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-147",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-148",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-149",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-150",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-151",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-152",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:2162"
+            }
+          ]
+        },
+        {
+          "ref": "v05-153",
+          "type": "TEXT",
+          "props": {
+            "name": "备份无法恢复",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "备份无法恢复",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-154",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-155",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-156",
+          "type": "TEXT",
+          "props": {
+            "name": "原资料，好好留着。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "原资料，好好留着。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-157",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 280,
+            "width": 384,
+            "height": 240,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-158",
+          "type": "TEXT",
+          "props": {
+            "name": "这份备份未通过检查",
+            "x": 48,
+            "y": 311,
+            "width": 344,
+            "height": 33.6,
+            "characters": "这份备份未通过检查",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 21,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 34
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-159",
+          "type": "TEXT",
+          "props": {
+            "name": "可能是版本不兼容、单位不同、重复 ID / 或关联资料缺失。原库存与记录保持原样。",
+            "x": 48,
+            "y": 371,
+            "width": 344,
+            "height": 28,
+            "characters": "可能是版本不兼容、单位不同、重复 ID\n或关联资料缺失。原库存与记录保持原样。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-160",
+          "type": "TEXT",
+          "props": {
+            "name": "可以重新选择一份完整的 WashMyCar 备份。 / 检查失败时不会执行部分导入。",
+            "x": 28,
+            "y": 576,
+            "width": 384,
+            "height": 28,
+            "characters": "可以重新选择一份完整的 WashMyCar 备份。\n检查失败时不会执行部分导入。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-161",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 重新选择备份",
+            "x": 28,
+            "y": 762,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-162",
+              "type": "TEXT",
+              "props": {
+                "name": "重新选择备份",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "重新选择备份",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P34"
+            }
+          ]
+        },
+        {
+          "ref": "v05-163",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 返回资料与备份",
+            "x": 28,
+            "y": 840,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-164",
+              "type": "TEXT",
+              "props": {
+                "name": "返回资料与备份",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "返回资料与备份",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.13333333333333333,
+                      "g": 0.18823529411764706,
+                      "b": 0.19607843137254902
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "P40",
+      "type": "FRAME",
+      "props": {
+        "name": "P40 / 提醒已收好",
+        "x": 100,
+        "y": 9280,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-165",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-166",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-167",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-168",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-169",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-170",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-171",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1597"
+            }
+          ]
+        },
+        {
+          "ref": "v05-172",
+          "type": "TEXT",
+          "props": {
+            "name": "提醒已收好",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "提醒已收好",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-173",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-174",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-175",
+          "type": "TEXT",
+          "props": {
+            "name": "专注洗好今天这一遍。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "专注洗好今天这一遍。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-176",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 280,
+            "width": 384,
+            "height": 200,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-177",
+          "type": "TEXT",
+          "props": {
+            "name": "这次暂时没有待处理提醒",
+            "x": 48,
+            "y": 314,
+            "width": 344,
+            "height": 32,
+            "characters": "这次暂时没有待处理提醒",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 20,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 32
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-178",
+          "type": "TEXT",
+          "props": {
+            "name": "已处理：不再重复提醒。 / 下次再提醒：本轮完成后重新出现。",
+            "x": 48,
+            "y": 370,
+            "width": 344,
+            "height": 28,
+            "characters": "已处理：不再重复提醒。\n下次再提醒：本轮完成后重新出现。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-179",
+          "type": "TEXT",
+          "props": {
+            "name": "原备注仍保留在对应的洗车记录里。",
+            "x": 28,
+            "y": 548,
+            "width": 384,
+            "height": 22.400000000000002,
+            "characters": "原备注仍保留在对应的洗车记录里。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-180",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 回到本次流程",
+            "x": 28,
+            "y": 848,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-181",
+              "type": "TEXT",
+              "props": {
+                "name": "回到本次流程",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "回到本次流程",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1597"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "P41",
+      "type": "FRAME",
+      "props": {
+        "name": "P41 / 余量未知",
+        "x": 620,
+        "y": 9280,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "v05-182",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-183",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "v05-184",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "v05-185",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "v05-186",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "v05-187",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "v05-188",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1821"
+            }
+          ]
+        },
+        {
+          "ref": "v05-189",
+          "type": "TEXT",
+          "props": {
+            "name": "余量未知",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "余量未知",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "v05-190",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "v05-191",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "v05-192",
+          "type": "TEXT",
+          "props": {
+            "name": "留一点余地，给核对。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "留一点余地，给核对。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-193",
+          "type": "TEXT",
+          "props": {
+            "name": "Koch-Chemie · Gentle Snow Foam",
+            "x": 28,
+            "y": 222,
+            "width": 384,
+            "height": 22.400000000000002,
+            "characters": "Koch-Chemie · Gentle Snow Foam",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-194",
+          "type": "TEXT",
+          "props": {
+            "name": "余量未知",
+            "x": 28,
+            "y": 302,
+            "width": 384,
+            "height": 64,
+            "characters": "余量未知",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 44,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 64
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-195",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 405,
+            "width": 384,
+            "height": 5,
+            "cornerRadius": 2,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.8784313725490196,
+                  "g": 0.9019607843137255,
+                  "b": 0.8745098039215686
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-196",
+          "type": "TEXT",
+          "props": {
+            "name": "没有余量数字，就不绘制液位。 / 准备取用前，请先核对当前库存。",
+            "x": 28,
+            "y": 456,
+            "width": 384,
+            "height": 32,
+            "characters": "没有余量数字，就不绘制液位。\n准备取用前，请先核对当前库存。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 16,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 32
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "v05-197",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 核对余量可信度",
+            "x": 28,
+            "y": 762,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-198",
+              "type": "TEXT",
+              "props": {
+                "name": "核对余量可信度",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "核对余量可信度",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "P35"
+            }
+          ]
+        },
+        {
+          "ref": "v05-199",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 返回药剂馆",
+            "x": 28,
+            "y": 840,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "v05-200",
+              "type": "TEXT",
+              "props": {
+                "name": "返回药剂馆",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "返回药剂馆",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.13333333333333333,
+                      "g": 0.18823529411764706,
+                      "b": 0.19607843137254902
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:1719"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

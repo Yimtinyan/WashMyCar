@@ -1,0 +1,279 @@
+{
+  "mutatedNodeIds": [
+    "28:3346",
+    "28:3384",
+    "28:3421",
+    "28:3457",
+    "28:3498",
+    "28:3535",
+    "28:3569",
+    "28:3603",
+    "28:3638",
+    "28:3671",
+    "28:3745",
+    "28:3707"
+  ],
+  "nodes": [
+    {
+      "id": "28:3346",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3321",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3384",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3359",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3421",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3396",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3457",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3432",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3498",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3473",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3535",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3510",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3569",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3544",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3603",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3578",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3638",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3613",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3671",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3646",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3745",
+      "name": "下次，可以更顺手。",
+      "type": "TEXT",
+      "parentId": "28:3720",
+      "x": 28,
+      "y": 145,
+      "width": 384,
+      "height": 44,
+      "visible": false,
+      "characters": "下次，可以更顺手。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "28:3707",
+      "name": "Row / 资料与备份",
+      "type": "FRAME",
+      "parentId": "26:2162",
+      "x": 28,
+      "y": 711,
+      "width": 384,
+      "height": 64,
+      "visible": true,
+      "clipsContent": true,
+      "layoutMode": "NONE",
+      "itemSpacing": 0,
+      "paddingTop": 0,
+      "paddingRight": 0,
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "childCount": 3
+    }
+  ]
+}

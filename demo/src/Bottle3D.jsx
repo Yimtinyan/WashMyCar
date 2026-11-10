@@ -1,3 +1,4 @@
+import {stockKind,stockText} from './reliability.js';
 import React,{useEffect,useRef,useState,memo} from 'react';
 import * as T from 'three';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
@@ -33,7 +34,7 @@ const Bottle3D=memo(function Bottle3D({product,large=false,liquidPreview=false})
   const panel=mesh(new T.CylinderGeometry(.704,.704,koch?1.25:1.05,64,1,true,-.99,1.98),lm,0,1.08,0);panel.rotation.y=.05;panel.renderOrder=10;
   const liquidMaterial=new T.MeshPhysicalMaterial({color:product.color,roughness:.08,metalness:0,transparent:true,opacity:.93,transmission:.18,envMapIntensity:.55});let liquid;
   const draw=()=>renderer.render(scene,camera);
-  function update(p){if(liquid){group.remove(liquid);liquid.geometry.dispose();}const h=liquidHeight(p.remaining/p.capacity);let pts=[new T.Vector2(0,.09)];for(let y=.09;y<h;y+=.025)pts.push(new T.Vector2(Math.max(0,radius(y)-.035),y));pts.push(new T.Vector2(Math.max(0,radius(h)-.035),h),new T.Vector2(0,h));liquid=new T.Mesh(new T.LatheGeometry(pts,64),liquidMaterial);liquid.visible=p.remaining>0&&!opaque;group.add(liquid);draw();}
+  function update(p){if(liquid){group.remove(liquid);liquid.geometry.dispose();}const h=liquidHeight(p.remaining/p.capacity);let pts=[new T.Vector2(0,.09)];for(let y=.09;y<h;y+=.025)pts.push(new T.Vector2(Math.max(0,radius(y)-.035),y));pts.push(new T.Vector2(Math.max(0,radius(h)-.035),h),new T.Vector2(0,h));liquid=new T.Mesh(new T.LatheGeometry(pts,64),liquidMaterial);liquid.visible=stockKind(p)!=='unknown'&&p.remaining>0&&!opaque;group.add(liquid);draw();}
   const resize=()=>{const {width,height}=node.getBoundingClientRect();renderer.setSize(width||250,height||250);camera.aspect=(width||250)/(height||250);camera.updateProjectionMatrix();draw();};
   const observer=new ResizeObserver(resize);observer.observe(node);sceneRef.current={update,draw,group};update(product);resize();
   let dragging=false,startX=0,startRot=0;const down=e=>{dragging=true;startX=e.clientX;startRot=group.rotation.y;node.setPointerCapture(e.pointerId);};const move=e=>{if(dragging){group.rotation.y=startRot+(e.clientX-startX)/100;draw();}};const up=()=>dragging=false;
@@ -41,7 +42,7 @@ const Bottle3D=memo(function Bottle3D({product,large=false,liquidPreview=false})
   node.addEventListener('pointerdown',down);node.addEventListener('pointermove',move);node.addEventListener('pointerup',up);node.addEventListener('pointercancel',up);node.addEventListener('keydown',keyboard);
   return()=>{observer.disconnect();node.removeEventListener('pointerdown',down);node.removeEventListener('pointermove',move);node.removeEventListener('pointerup',up);node.removeEventListener('pointercancel',up);node.removeEventListener('keydown',keyboard);sceneRef.current=null;scene.traverse(o=>{if(o.isMesh){o.geometry.dispose();const mats=Array.isArray(o.material)?o.material:[o.material];mats.forEach(m=>m.dispose());}});label.dispose();map.dispose();env.dispose();pmrem.dispose();renderer.dispose();renderer.forceContextLoss();renderer.domElement.remove();};
  },[product.id,product.brand,product.name,product.capacity,product.shape,product.label,product.code,product.color,liquidPreview]);
- useEffect(()=>{sceneRef.current?.update(product);},[product.remaining]);
- return <div className={'bottle-model '+(large?'large':'')} ref={host} role="img" aria-label={`${product.brand} ${product.name} 立体瓶型，剩余${product.remaining}毫升；拖动或方向键旋转`} tabIndex={large?0:-1}>{unavailable?<div className="model-fallback">{product.name}<br/>当前设备无法显示3D模型<br/>剩余 {product.remaining} / {product.capacity} mL</div>:null}</div>;
+ useEffect(()=>{sceneRef.current?.update(product);},[product.remaining,product.stockStatus]);
+ return <div className={'bottle-model '+(large?'large':'')} ref={host} role="img" aria-label={`${product.brand} ${product.name} 立体瓶型，${stockText(product)}；拖动或方向键旋转`} tabIndex={large?0:-1}>{unavailable?<div className="model-fallback">{product.name}<br/>当前设备无法显示3D模型<br/>{stockText(product)} / {product.capacity} mL</div>:null}</div>;
 });
 export default Bottle3D;

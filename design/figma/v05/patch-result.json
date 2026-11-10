@@ -1,0 +1,319 @@
+{
+  "mutatedNodeIds": [
+    "26:1972",
+    "26:2003",
+    "26:2004",
+    "26:2024",
+    "26:2997",
+    "26:3064",
+    "26:3069",
+    "26:3076",
+    "26:1848",
+    "26:2740",
+    "26:2744",
+    "26:2748",
+    "26:2229",
+    "26:2233"
+  ],
+  "nodes": [
+    {
+      "id": "26:1972",
+      "name": "P08 / 待接收方案",
+      "type": "FRAME",
+      "parentId": "26:1517",
+      "x": 1140,
+      "y": 1310,
+      "width": 440,
+      "height": 956,
+      "visible": true,
+      "clipsContent": true,
+      "layoutMode": "NONE",
+      "itemSpacing": 0,
+      "paddingTop": 0,
+      "paddingRight": 0,
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "childCount": 16
+    },
+    {
+      "id": "26:2003",
+      "name": "抬腕，就能继续。",
+      "type": "TEXT",
+      "parentId": "26:1972",
+      "x": 28,
+      "y": 310,
+      "width": 384,
+      "height": 44,
+      "visible": true,
+      "characters": "还差一次接收确认。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 29,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "26:2004",
+      "name": "本次流程已准备好。 / 手机收进口袋，按手表上的步骤来。",
+      "type": "TEXT",
+      "parentId": "26:1972",
+      "x": 28,
+      "y": 379,
+      "width": 384,
+      "height": 58,
+      "visible": true,
+      "characters": "取用清单已保存，等待手表接收。\n本机演示，尚未连接真实手表。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 14,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 29
+      }
+    },
+    {
+      "id": "26:2024",
+      "name": "返回本次洗车",
+      "type": "TEXT",
+      "parentId": "26:2023",
+      "x": 12,
+      "y": 15,
+      "width": 360,
+      "height": 26,
+      "visible": true,
+      "characters": "查看方案接收状态",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 17,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 26
+      }
+    },
+    {
+      "id": "26:2997",
+      "name": "自动保存，下次编排时会提醒你。",
+      "type": "TEXT",
+      "parentId": "26:2968",
+      "x": 28,
+      "y": 542,
+      "width": 384,
+      "height": 52,
+      "visible": true,
+      "characters": "自动保存，仅对同一辆车提醒。\n已处理的事项不会重复出现。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 14,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 21
+      }
+    },
+    {
+      "id": "26:3064",
+      "name": "活动能量     — kcal",
+      "type": "TEXT",
+      "parentId": "26:3037",
+      "x": 48,
+      "y": 258,
+      "width": 344,
+      "height": 36,
+      "visible": true,
+      "characters": "同期活动能量   — kcal",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 23,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 36
+      }
+    },
+    {
+      "id": "26:3069",
+      "name": "经授权后显示实际样本与心率变化",
+      "type": "TEXT",
+      "parentId": "26:3067",
+      "x": 0,
+      "y": 37,
+      "width": 352,
+      "height": 20,
+      "visible": true,
+      "characters": "经授权读取洗车时段已有样本",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 12,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "26:3076",
+      "name": "系统触感与真实桌面组件需要原生实现。",
+      "type": "TEXT",
+      "parentId": "26:3037",
+      "x": 28,
+      "y": 782,
+      "width": 384,
+      "height": 48,
+      "visible": true,
+      "characters": "同期活动可能含步行或休息；缺失数据不补零。",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 12,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "26:1848",
+      "name": "720 mL / 1,000 mL",
+      "type": "TEXT",
+      "parentId": "26:1821",
+      "x": 28,
+      "y": 415,
+      "width": 384,
+      "height": 44,
+      "visible": true,
+      "characters": "约 720 mL / 1,000 mL",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 25,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 44
+      }
+    },
+    {
+      "id": "26:2740",
+      "name": "4 步 · 已保存的药剂与工具",
+      "type": "TEXT",
+      "parentId": "26:2738",
+      "x": 0,
+      "y": 37,
+      "width": 352,
+      "height": 20,
+      "visible": true,
+      "characters": "内置参考 · 选择后编辑，另存个人方案",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 12,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "26:2744",
+      "name": "泥沙预冲检查 + 日常洗护",
+      "type": "TEXT",
+      "parentId": "26:2742",
+      "x": 0,
+      "y": 37,
+      "width": 352,
+      "height": 20,
+      "visible": true,
+      "characters": "先检查泥沙，不自动增加强力去污",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 12,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "26:2748",
+      "name": "轮毂检查、车身洗护与细节收尾",
+      "type": "TEXT",
+      "parentId": "26:2746",
+      "x": 0,
+      "y": 37,
+      "width": 352,
+      "height": 20,
+      "visible": true,
+      "characters": "按需要增加细节清洁，非每周强制去污",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 12,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "26:2229",
+      "name": "Row / Apple 健康与体验",
+      "type": "FRAME",
+      "parentId": "26:2162",
+      "x": 28,
+      "y": 777,
+      "width": 384,
+      "height": 64,
+      "visible": true,
+      "clipsContent": true,
+      "layoutMode": "NONE",
+      "itemSpacing": 0,
+      "paddingTop": 0,
+      "paddingRight": 0,
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "childCount": 3
+    },
+    {
+      "id": "26:2233",
+      "name": "Row / 桌面小组件",
+      "type": "FRAME",
+      "parentId": "26:2162",
+      "x": 28,
+      "y": 851,
+      "width": 384,
+      "height": 64,
+      "visible": true,
+      "clipsContent": true,
+      "layoutMode": "NONE",
+      "itemSpacing": 0,
+      "paddingTop": 0,
+      "paddingRight": 0,
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "childCount": 3
+    }
+  ]
+}

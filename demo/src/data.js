@@ -16,6 +16,6 @@ export const seedPlan={name:'周末日常洗车',vehicle:'2024款乐道 L60 · �
  {id:'s4',name:'擦干收尾',productId:'',amount:0,water:0,tools:['长绒擦车巾'],note:'使用干净的擦车巾，轻柔擦干。'}
 ]};
 export const STORE_KEY='washmycar-demo-v2';
-export function initialState(){try{const x=JSON.parse(localStorage.getItem(STORE_KEY));if([2,3,4].includes(x?.version)&&Array.isArray(x.products)&&x.plan?.steps?.length)return x;}catch{}return {version:2,products:structuredClone(seedProducts),plan:structuredClone(seedPlan),history:[],session:null};}
+export function initialState(){try{const x=JSON.parse(localStorage.getItem(STORE_KEY));if([2,3,4,5].includes(x?.version)&&Array.isArray(x.products)&&x.plan?.steps?.length)return x;}catch{}return {version:2,products:structuredClone(seedProducts),plan:structuredClone(seedPlan),history:[],session:null};}
 export const ml=n=>Number(Number(n).toFixed(2)).toLocaleString('zh-CN',{maximumFractionDigits:2});
 export const uid=()=>globalThis.crypto?.randomUUID?.()||'id'+Date.now()+Math.random().toString(16).slice(2);

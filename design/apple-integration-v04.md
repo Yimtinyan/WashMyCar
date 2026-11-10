@@ -17,11 +17,12 @@
 
 ## 健康数据
 
-原生Watch在用户明确开始洗车时启动采集，以同一个sessionId关联记录。分别请求心率、活动能量读取权限；只有选择保存Workout时才请求相应写权限。使用HKWorkoutSession与HKLiveWorkoutBuilder，按设备实际样本显示活动能量kcal、带时间轴的心率、平均/最低/最高心率、采样覆盖率。明确“活动能量”与“总能量”区别，不从洗车分钟数推断卡路里，也不重复相加Workout汇总和底层能量样本。
+v0.5 修订：第一阶段优先在洗车结束后，经用户授权读取 startedAt—finishedAt 时段内已有的活动能量与心率样本，不默认开启 WorkoutSession 或写入运动记录。界面使用“同期活动能量”，明确可能包含同一时段的步行、休息或其他活动，不能等同于精确的洗车消耗。显示可用样本的时间范围、来源与覆盖情况；不重复相加 Workout 汇总和底层能量样本。读取能力、权限与聚合方式仍需原生真机验证。
 
+后续只有在明确需要实时心率、并验证适用活动类型、权限、电量和生命周期后，才评估 HKWorkoutSession / HKLiveWorkoutBuilder；不将开启运动会话作为后台保活手段。
 拒绝、缺失、离腕、采样中断、同步延迟均显示无数据或缺口，不补零、不编造连续曲线；HealthKit读取没有数据不能单独证明用户拒绝。暂停的洗车操作时长与Workout时间范围分别记录。中断/来电/崩溃恢复必须幂等，结束一次只保存一份。健康数据默认不出现在桌面组件中。
 
-依据：[Apple HealthKit workout sessions](https://developer.apple.com/documentation/healthkit/running-workout-sessions)、[构建Watch运动应用](https://developer.apple.com/documentation/healthkit/building-a-workout-app-for-apple-watch)、[WWDC26 HealthKit zones](https://developer.apple.com/videos/play/wwdc2026/207/)。iOS/watchOS27有相关能力，但不表示洗车已被系统定义为独立运动类别。
+依据：[Apple HealthKit 授权](https://developer.apple.com/documentation/healthkit/authorizing-access-to-health-data)、[读取健康样本](https://developer.apple.com/documentation/healthkit/reading-data-from-healthkit)、[运动会话](https://developer.apple.com/documentation/healthkit/running-workout-sessions)。这些资料支持读取和授权机制；“同期活动能量”及事后读取优先级是本项目的产品决策。
 
 ## 实体按钮与拍摄
 

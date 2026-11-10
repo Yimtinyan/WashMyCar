@@ -1,0 +1,22 @@
+{
+  "phonePage": {
+    "id": "26:1517",
+    "name": "05 · v0.5 iPhone · 个人洗护",
+    "type": "PAGE",
+    "parentId": "0:0",
+    "childCount": 42,
+    "depth": 0
+  },
+  "phoneFrames": 41,
+  "watchPage": {
+    "id": "26:3195",
+    "name": "06 · v0.5 Watch · 接收与确认",
+    "type": "PAGE",
+    "parentId": "0:0",
+    "childCount": 14,
+    "depth": 0
+  },
+  "watchFrames": 13,
+  "newEditablePhoneStates": 11,
+  "newEditableWatchStates": 2
+}

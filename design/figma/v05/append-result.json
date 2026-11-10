@@ -1,0 +1,34 @@
+{
+  "createdNodeIds": [
+    "28:3707",
+    "28:3708",
+    "28:3709",
+    "28:3710",
+    "28:3711",
+    "28:3712",
+    "28:3713",
+    "28:3714"
+  ],
+  "wires": [
+    {
+      "nodeId": "28:3707",
+      "reactions": [
+        {
+          "trigger": "ON_CLICK",
+          "navigation": "NAVIGATE",
+          "targetId": "28:3359"
+        }
+      ]
+    },
+    {
+      "nodeId": "28:3711",
+      "reactions": [
+        {
+          "trigger": "ON_CLICK",
+          "navigation": "NAVIGATE",
+          "targetId": "28:3321"
+        }
+      ]
+    }
+  ]
+}

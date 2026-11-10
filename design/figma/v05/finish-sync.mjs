@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';import{command}from'../v2/export-previews.mjs';
+const root=new URL('./',import.meta.url),read=async p=>JSON.parse(await fs.readFile(new URL(p,root),'utf8')),save=(p,x)=>fs.writeFile(new URL(p,root),JSON.stringify(x,null,2));
+const old=await read('../v04/iphone-result.json'),result=await read('iphone-result.json'),a=await read('append-result.json');
+const wires=a.wires.map(w=>({id:w.nodeId||w.id,reactions:w.reactions}));
+wires.push({id:a.createdNodeIds.at(-2),reactions:[{trigger:'ON_CLICK',navigation:'NAVIGATE',targetId:result.refs.P35}]},{id:old.refs['frame-309'],reactions:[{trigger:'ON_CLICK',navigation:'NAVIGATE',targetId:result.refs.P37}]},{id:old.refs['frame-382'],reactions:[{trigger:'ON_CLICK',navigation:'NAVIGATE',targetId:result.refs.P36}]});
+await save('wire-result.json',await command('wire',{pageId:result.pageId,nodes:wires}));console.log('Recovered existing-page links without reimporting');
+const second=await command('compose',await read('second-snapshot-scene.json'));await save('second-snapshot-result.json',second);
+await save('snapshot-wire-result.json',await command('wire',{pageId:result.pageId,nodes:[{id:old.refs['frame-387'],reactions:[{trigger:'ON_CLICK',navigation:'NAVIGATE',targetId:second.refs.P42}]}]}));
+const watch=await command('compose',await read('watch-scene.json'));await save('watch-result.json',watch);
+const wr=await read('../v04/watch-result.json');await save('watch-wire-result.json',await command('wire',{pageId:watch.pageId,nodes:[{id:wr.refs['frame-12']||'26:3208',reactions:[{trigger:'ON_CLICK',navigation:'NAVIGATE',targetId:watch.refs.W11}]}]}));
+await save('watch-patch-result.json',await command('patch',{nodes:[{id:'26:3214',props:{characters:'本机方案已核验',fontName:{family:'Noto Sans SC',style:'Regular'},fontSize:18}},{id:'26:3216',props:{characters:'4 步 · 模拟副本已就绪',fontName:{family:'Noto Sans SC',style:'Regular'},fontSize:11}},{id:'26:1517',props:{name:'05 · v0.5 iPhone · 个人洗护'}},{id:'26:3195',props:{name:'06 · v0.5 Watch · 接收与确认'}}]}));
+console.log(JSON.stringify({phone:result.pageId,addedPhoneStates:11,watch:watch.pageId,addedWatchStates:2}));

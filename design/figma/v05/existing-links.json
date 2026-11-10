@@ -1,0 +1,150 @@
+[
+  {
+    "ref": "v05-204",
+    "type": "FRAME",
+    "props": {
+      "name": "Action / 这辆车，上次留下的提醒",
+      "x": 28,
+      "y": 726,
+      "width": 384,
+      "height": 56,
+      "cornerRadius": 16,
+      "fills": [
+        {
+          "type": "SOLID",
+          "color": {
+            "r": 0.9294117647058824,
+            "g": 0.9450980392156862,
+            "b": 0.9294117647058824
+          }
+        }
+      ],
+      "layoutMode": "HORIZONTAL",
+      "primaryAxisAlignItems": "CENTER",
+      "counterAxisAlignItems": "CENTER",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingTop": 12,
+      "paddingBottom": 12
+    },
+    "children": [
+      {
+        "ref": "v05-205",
+        "type": "TEXT",
+        "props": {
+          "name": "这辆车，上次留下的提醒",
+          "x": 0,
+          "y": 0,
+          "width": 352,
+          "height": 26,
+          "characters": "这辆车，上次留下的提醒",
+          "fontName": {
+            "family": "Noto Sans SC",
+            "style": "Regular"
+          },
+          "fontSize": 16,
+          "lineHeight": {
+            "unit": "PIXELS",
+            "value": 26
+          },
+          "textAutoResize": "HEIGHT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "r": 0.13333333333333333,
+                "g": 0.18823529411764706,
+                "b": 0.19607843137254902
+              }
+            }
+          ],
+          "textAlignHorizontal": "CENTER"
+        }
+      }
+    ],
+    "reactions": [
+      {
+        "trigger": "ON_CLICK",
+        "navigation": "NAVIGATE",
+        "targetRef": "P32"
+      }
+    ],
+    "parentId": "26:1597"
+  },
+  {
+    "ref": "v05-206",
+    "type": "FRAME",
+    "props": {
+      "name": "Action / 余量可信度 · 估算",
+      "x": 28,
+      "y": 770,
+      "width": 384,
+      "height": 56,
+      "cornerRadius": 16,
+      "fills": [
+        {
+          "type": "SOLID",
+          "color": {
+            "r": 0.9294117647058824,
+            "g": 0.9450980392156862,
+            "b": 0.9294117647058824
+          }
+        }
+      ],
+      "layoutMode": "HORIZONTAL",
+      "primaryAxisAlignItems": "CENTER",
+      "counterAxisAlignItems": "CENTER",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingTop": 12,
+      "paddingBottom": 12
+    },
+    "children": [
+      {
+        "ref": "v05-207",
+        "type": "TEXT",
+        "props": {
+          "name": "余量可信度 · 估算",
+          "x": 0,
+          "y": 0,
+          "width": 352,
+          "height": 26,
+          "characters": "余量可信度 · 估算",
+          "fontName": {
+            "family": "Noto Sans SC",
+            "style": "Regular"
+          },
+          "fontSize": 16,
+          "lineHeight": {
+            "unit": "PIXELS",
+            "value": 26
+          },
+          "textAutoResize": "HEIGHT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "r": 0.13333333333333333,
+                "g": 0.18823529411764706,
+                "b": 0.19607843137254902
+              }
+            }
+          ],
+          "textAlignHorizontal": "CENTER"
+        }
+      }
+    ],
+    "reactions": [
+      {
+        "trigger": "ON_CLICK",
+        "navigation": "NAVIGATE",
+        "targetRef": "P35"
+      }
+    ],
+    "parentId": "26:2341"
+  }
+]

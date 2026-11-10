@@ -1,0 +1,68 @@
+{
+  "mutatedNodeIds": [
+    "26:3214",
+    "26:3216",
+    "26:1517",
+    "26:3195"
+  ],
+  "nodes": [
+    {
+      "id": "26:3214",
+      "name": "准备好了。",
+      "type": "TEXT",
+      "parentId": "26:3210",
+      "x": 14,
+      "y": 58,
+      "width": 180,
+      "height": 34,
+      "visible": true,
+      "characters": "本机方案已核验",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 18,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 34
+      }
+    },
+    {
+      "id": "26:3216",
+      "name": "4 步 · 2 瓶药剂",
+      "type": "TEXT",
+      "parentId": "26:3210",
+      "x": 14,
+      "y": 147,
+      "width": 180,
+      "height": 18,
+      "visible": true,
+      "characters": "4 步 · 模拟副本已就绪",
+      "charactersTruncated": false,
+      "fontName": {
+        "family": "Noto Sans SC",
+        "style": "Regular"
+      },
+      "fontSize": 11,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 18
+      }
+    },
+    {
+      "id": "26:1517",
+      "name": "05 · v0.5 iPhone · 个人洗护",
+      "type": "PAGE",
+      "parentId": "0:0",
+      "childCount": 42
+    },
+    {
+      "id": "26:3195",
+      "name": "06 · v0.5 Watch · 接收与确认",
+      "type": "PAGE",
+      "parentId": "0:0",
+      "childCount": 14
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "pageId": "26:3195",
+  "nodes": [
+    {
+      "ref": "W11",
+      "type": "FRAME",
+      "props": {
+        "name": "W11 / 等待接收",
+        "x": 380,
+        "y": 870,
+        "width": 208,
+        "height": 248,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.043137254901960784,
+              "g": 0.08235294117647059,
+              "b": 0.08235294117647059
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 46,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "W11-brand",
+          "type": "TEXT",
+          "props": {
+            "name": "WashMyCar · 演示",
+            "characters": "WashMyCar · 演示",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 10,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 18
+            },
+            "x": 16,
+            "y": 12,
+            "width": 176,
+            "height": 18,
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.6627450980392157,
+                  "g": 0.7450980392156863,
+                  "b": 0.6941176470588235
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "W11-title",
+          "type": "TEXT",
+          "props": {
+            "name": "等待方案。",
+            "characters": "等待方案。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 22,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 32
+            },
+            "x": 16,
+            "y": 55,
+            "width": 176,
+            "height": 32,
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9411764705882353,
+                  "g": 0.9568627450980393,
+                  "b": 0.9372549019607843
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "W11-sub",
+          "type": "TEXT",
+          "props": {
+            "name": "4 个步骤 / 尚未核验离线副本",
+            "characters": "4 个步骤\n尚未核验离线副本",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 12,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "x": 16,
+            "y": 101,
+            "width": 176,
+            "height": 22,
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.6627450980392157,
+                  "g": 0.7450980392156863,
+                  "b": 0.6941176470588235
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "W11-action",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 模拟接收方案",
+            "x": 12,
+            "y": 190,
+            "width": 184,
+            "height": 44,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.8313725490196079,
+                  "g": 0.8980392156862745,
+                  "b": 0.8509803921568627
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED"
+          },
+          "children": [
+            {
+              "ref": "W11-label",
+              "type": "TEXT",
+              "props": {
+                "name": "模拟接收方案",
+                "characters": "模拟接收方案",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 13,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 22
+                },
+                "width": 166,
+                "height": 22,
+                "textAutoResize": "HEIGHT",
+                "textAlignHorizontal": "CENTER",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.08627450980392157,
+                      "g": 0.24313725490196078,
+                      "b": 0.23529411764705882
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:3210"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "W12",
+      "type": "FRAME",
+      "props": {
+        "name": "W12 / 版本核验失败",
+        "x": 660,
+        "y": 870,
+        "width": 208,
+        "height": 248,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.043137254901960784,
+              "g": 0.08235294117647059,
+              "b": 0.08235294117647059
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 46,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "W12-brand",
+          "type": "TEXT",
+          "props": {
+            "name": "WashMyCar · 演示",
+            "characters": "WashMyCar · 演示",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 10,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 18
+            },
+            "x": 16,
+            "y": 12,
+            "width": 176,
+            "height": 18,
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.6627450980392157,
+                  "g": 0.7450980392156863,
+                  "b": 0.6941176470588235
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "W12-title",
+          "type": "TEXT",
+          "props": {
+            "name": "需要重试。",
+            "characters": "需要重试。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 22,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 32
+            },
+            "x": 16,
+            "y": 55,
+            "width": 176,
+            "height": 32,
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9411764705882353,
+                  "g": 0.9568627450980393,
+                  "b": 0.9372549019607843
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "W12-sub",
+          "type": "TEXT",
+          "props": {
+            "name": "方案版本不一致 / 请回到手机重新核验",
+            "characters": "方案版本不一致\n请回到手机重新核验",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 12,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "x": 16,
+            "y": 101,
+            "width": 176,
+            "height": 22,
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.6627450980392157,
+                  "g": 0.7450980392156863,
+                  "b": 0.6941176470588235
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "W12-action",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 重新接收",
+            "x": 12,
+            "y": 190,
+            "width": 184,
+            "height": 44,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.8313725490196079,
+                  "g": 0.8980392156862745,
+                  "b": 0.8509803921568627
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED"
+          },
+          "children": [
+            {
+              "ref": "W12-label",
+              "type": "TEXT",
+              "props": {
+                "name": "重新接收",
+                "characters": "重新接收",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 13,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 22
+                },
+                "width": 166,
+                "height": 22,
+                "textAutoResize": "HEIGHT",
+                "textAlignHorizontal": "CENTER",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 0.08627450980392157,
+                      "g": 0.24313725490196078,
+                      "b": 0.23529411764705882
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetRef": "W11"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

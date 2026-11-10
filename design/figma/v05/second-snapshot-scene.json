@@ -1,0 +1,609 @@
+{
+  "pageId": "26:1517",
+  "nodes": [
+    {
+      "ref": "P42",
+      "type": "FRAME",
+      "props": {
+        "name": "P42 / 当时的另一瓶药剂",
+        "x": 1140,
+        "y": 9280,
+        "width": 440,
+        "height": 956,
+        "layoutMode": "NONE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.9686274509803922,
+              "g": 0.9725490196078431,
+              "b": 0.9607843137254902
+            },
+            "opacity": 1
+          }
+        ],
+        "cornerRadius": 44,
+        "clipsContent": true
+      },
+      "children": [
+        {
+          "ref": "second-v05-89",
+          "type": "TEXT",
+          "props": {
+            "name": "9:41",
+            "x": 30,
+            "y": 22,
+            "width": 50,
+            "height": 22,
+            "fontName": {
+              "family": "Inter",
+              "style": "Medium"
+            },
+            "characters": "9:41",
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-90",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 158,
+            "y": 15,
+            "width": 124,
+            "height": 35,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.09411764705882353,
+                  "g": 0.13725490196078433,
+                  "b": 0.13333333333333333
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 18
+          }
+        },
+        {
+          "ref": "second-v05-91",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Signal",
+            "x": 330,
+            "y": 23,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 20h.01\"></path><path d=\"M7 20v-4\"></path><path d=\"M12 20v-8\"></path><path d=\"M17 20V8\"></path><path d=\"M22 4v16\"></path></svg>"
+        },
+        {
+          "ref": "second-v05-92",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / Wifi",
+            "x": 353,
+            "y": 22,
+            "width": 18,
+            "height": 18
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h.01\"></path><path d=\"M2 8.82a15 15 0 0 1 20 0\"></path><path d=\"M5 12.859a10 10 0 0 1 14 0\"></path><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"></path></svg>"
+        },
+        {
+          "ref": "second-v05-93",
+          "type": "SVG",
+          "props": {
+            "name": "Icon / BatteryFull",
+            "x": 378,
+            "y": 21,
+            "width": 24,
+            "height": 24
+          },
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"10\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" x2=\"22\" y1=\"11\" y2=\"13\"></line><line x1=\"6\" x2=\"6\" y1=\"11\" y2=\"13\"></line><line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"13\"></line><line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"13\"></line></svg>"
+        },
+        {
+          "ref": "second-v05-94",
+          "type": "FRAME",
+          "props": {
+            "name": "Tap / ChevronLeft",
+            "x": 16,
+            "y": 72,
+            "width": 44,
+            "height": 44,
+            "layoutMode": "NONE",
+            "fills": [],
+            "cornerRadius": 0,
+            "clipsContent": false
+          },
+          "children": [
+            {
+              "ref": "second-v05-95",
+              "type": "SVG",
+              "props": {
+                "name": "Icon / ChevronLeft",
+                "x": 11,
+                "y": 11,
+                "width": 22,
+                "height": 22
+              },
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#223032\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg>"
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:2107"
+            }
+          ]
+        },
+        {
+          "ref": "second-v05-96",
+          "type": "TEXT",
+          "props": {
+            "name": "当时的这瓶药剂",
+            "x": 72,
+            "y": 82,
+            "width": 296,
+            "height": 28,
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Medium"
+            },
+            "characters": "当时的这瓶药剂",
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "letterSpacing": {
+              "unit": "PIXELS",
+              "value": 0
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "textAlignHorizontal": "CENTER"
+          }
+        },
+        {
+          "ref": "second-v05-97",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 151,
+            "y": 941,
+            "width": 138,
+            "height": 5,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                },
+                "opacity": 1
+              }
+            ],
+            "cornerRadius": 3
+          }
+        },
+        {
+          "ref": "second-v05-98",
+          "type": "TEXT",
+          "props": {
+            "name": "下次，可以更顺手。",
+            "x": 28,
+            "y": 145,
+            "width": 384,
+            "height": 44,
+            "characters": "下次，可以更顺手。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 44
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ],
+            "visible": false
+          }
+        },
+        {
+          "ref": "second-v05-99",
+          "type": "TEXT",
+          "props": {
+            "name": "这一次，原样留存。",
+            "x": 28,
+            "y": 146,
+            "width": 384,
+            "height": 42,
+            "characters": "这一次，原样留存。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 29,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 42
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-100",
+          "type": "TEXT",
+          "props": {
+            "name": "历史快照 · 准备时版本",
+            "x": 28,
+            "y": 222,
+            "width": 384,
+            "height": 20.8,
+            "characters": "历史快照 · 准备时版本",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-101",
+          "type": "RECTANGLE",
+          "props": {
+            "name": "Surface",
+            "x": 28,
+            "y": 278,
+            "width": 384,
+            "height": 156,
+            "cornerRadius": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.9294117647058824,
+                  "g": 0.9450980392156862,
+                  "b": 0.9294117647058824
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-102",
+          "type": "TEXT",
+          "props": {
+            "name": "Fireball · HydroShampoo",
+            "x": 48,
+            "y": 302,
+            "width": 344,
+            "height": 35.2,
+            "characters": "Fireball · HydroShampoo",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 22,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 35
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-103",
+          "type": "TEXT",
+          "props": {
+            "name": "原液取用 30 mL · 洗车桶\n另加清水 15,000 mL",
+            "x": 48,
+            "y": 351,
+            "width": 344,
+            "height": 28,
+            "characters": "原液取用 30 mL · 洗车桶\n另加清水 15,000 mL",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 15,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 28
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-104",
+          "type": "TEXT",
+          "props": {
+            "name": "个人记录的使用方法",
+            "x": 28,
+            "y": 477,
+            "width": 384,
+            "height": 28.8,
+            "characters": "个人记录的使用方法",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 18,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 29
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.13333333333333333,
+                  "g": 0.18823529411764706,
+                  "b": 0.19607843137254902
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-105",
+          "type": "TEXT",
+          "props": {
+            "name": "保持板面湿润，按这瓶标签及时冲洗。\n此处为用户手动记录，不作为厂商核验结论。",
+            "x": 28,
+            "y": 524,
+            "width": 384,
+            "height": 27,
+            "characters": "保持板面湿润，按这瓶标签及时冲洗。\n此处为用户手动记录，不作为厂商核验结论。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 27
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-106",
+          "type": "TEXT",
+          "props": {
+            "name": "pH 待核实 · 当时未填写依据",
+            "x": 28,
+            "y": 634,
+            "width": 384,
+            "height": 22.400000000000002,
+            "characters": "pH 待核实 · 当时未填写依据",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 14,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 22
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-107",
+          "type": "TEXT",
+          "props": {
+            "name": "以后修改药剂资料，不会改写这次记录。",
+            "x": 28,
+            "y": 708,
+            "width": 384,
+            "height": 20.8,
+            "characters": "以后修改药剂资料，不会改写这次记录。",
+            "fontName": {
+              "family": "Noto Sans SC",
+              "style": "Regular"
+            },
+            "fontSize": 13,
+            "lineHeight": {
+              "unit": "PIXELS",
+              "value": 21
+            },
+            "textAutoResize": "HEIGHT",
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.4196078431372549,
+                  "g": 0.47058823529411764,
+                  "b": 0.4470588235294118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ref": "second-v05-108",
+          "type": "FRAME",
+          "props": {
+            "name": "Action / 返回本次记录",
+            "x": 28,
+            "y": 848,
+            "width": 384,
+            "height": 56,
+            "cornerRadius": 16,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.08627450980392157,
+                  "g": 0.24313725490196078,
+                  "b": 0.23529411764705882
+                }
+              }
+            ],
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 12,
+            "paddingBottom": 12
+          },
+          "children": [
+            {
+              "ref": "second-v05-109",
+              "type": "TEXT",
+              "props": {
+                "name": "返回本次记录",
+                "x": 0,
+                "y": 0,
+                "width": 352,
+                "height": 26,
+                "characters": "返回本次记录",
+                "fontName": {
+                  "family": "Noto Sans SC",
+                  "style": "Regular"
+                },
+                "fontSize": 16,
+                "lineHeight": {
+                  "unit": "PIXELS",
+                  "value": 26
+                },
+                "textAutoResize": "HEIGHT",
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "r": 1,
+                      "g": 1,
+                      "b": 1
+                    }
+                  }
+                ],
+                "textAlignHorizontal": "CENTER"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "navigation": "NAVIGATE",
+              "targetId": "26:2107"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

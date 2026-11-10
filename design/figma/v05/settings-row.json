@@ -1,0 +1,118 @@
+{
+  "ref": "v05-backup-row",
+  "type": "FRAME",
+  "props": {
+    "name": "Row / 资料与备份",
+    "x": 28,
+    "y": 711,
+    "width": 384,
+    "height": 64,
+    "layoutMode": "NONE",
+    "fills": []
+  },
+  "children": [
+    {
+      "ref": "v05-201",
+      "type": "TEXT",
+      "props": {
+        "name": "资料与备份",
+        "x": 0,
+        "y": 0,
+        "width": 350,
+        "height": 27.200000000000003,
+        "characters": "资料与备份",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 17,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 27
+        },
+        "textAutoResize": "HEIGHT",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.13333333333333333,
+              "g": 0.18823529411764706,
+              "b": 0.19607843137254902
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ref": "v05-202",
+      "type": "TEXT",
+      "props": {
+        "name": "导出完整资料 · 核验后恢复",
+        "x": 0,
+        "y": 32,
+        "width": 350,
+        "height": 19.200000000000003,
+        "characters": "导出完整资料 · 核验后恢复",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 12,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 19
+        },
+        "textAutoResize": "HEIGHT",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.4196078431372549,
+              "g": 0.47058823529411764,
+              "b": 0.4470588235294118
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ref": "v05-203",
+      "type": "TEXT",
+      "props": {
+        "name": "›",
+        "x": 360,
+        "y": 9,
+        "width": 24,
+        "height": 41.6,
+        "characters": "›",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 26,
+        "lineHeight": {
+          "unit": "PIXELS",
+          "value": 42
+        },
+        "textAutoResize": "HEIGHT",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "r": 0.13333333333333333,
+              "g": 0.18823529411764706,
+              "b": 0.19607843137254902
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "trigger": "ON_CLICK",
+      "navigation": "NAVIGATE",
+      "targetRef": "P33"
+    }
+  ]
+}

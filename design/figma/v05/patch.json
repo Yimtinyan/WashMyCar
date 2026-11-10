@@ -1,0 +1,145 @@
+{
+  "nodes": [
+    {
+      "id": "26:1972",
+      "props": {
+        "name": "P08 / 待接收方案"
+      }
+    },
+    {
+      "id": "26:2003",
+      "props": {
+        "characters": "还差一次接收确认。",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 29
+      }
+    },
+    {
+      "id": "26:2004",
+      "props": {
+        "characters": "取用清单已保存，等待手表接收。\n本机演示，尚未连接真实手表。",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 14
+      }
+    },
+    {
+      "id": "26:2024",
+      "props": {
+        "characters": "查看方案接收状态",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        }
+      }
+    },
+    {
+      "id": "26:2997",
+      "props": {
+        "characters": "自动保存，仅对同一辆车提醒。\n已处理的事项不会重复出现。",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "height": 52
+      }
+    },
+    {
+      "id": "26:3064",
+      "props": {
+        "characters": "同期活动能量   — kcal",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 23
+      }
+    },
+    {
+      "id": "26:3069",
+      "props": {
+        "characters": "经授权读取洗车时段已有样本",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 12
+      }
+    },
+    {
+      "id": "26:3076",
+      "props": {
+        "characters": "同期活动可能含步行或休息；缺失数据不补零。",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 12,
+        "height": 48
+      }
+    },
+    {
+      "id": "26:1848",
+      "props": {
+        "characters": "约 720 mL / 1,000 mL",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 25
+      }
+    },
+    {
+      "id": "26:2740",
+      "props": {
+        "characters": "内置参考 · 选择后编辑，另存个人方案",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 12
+      }
+    },
+    {
+      "id": "26:2744",
+      "props": {
+        "characters": "先检查泥沙，不自动增加强力去污",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 12
+      }
+    },
+    {
+      "id": "26:2748",
+      "props": {
+        "characters": "按需要增加细节清洁，非每周强制去污",
+        "fontName": {
+          "family": "Noto Sans SC",
+          "style": "Regular"
+        },
+        "fontSize": 12
+      }
+    },
+    {
+      "id": "26:2229",
+      "props": {
+        "y": 777,
+        "height": 64
+      }
+    },
+    {
+      "id": "26:2233",
+      "props": {
+        "y": 851,
+        "height": 64
+      }
+    }
+  ]
+}
