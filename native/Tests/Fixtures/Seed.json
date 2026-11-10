@@ -1,0 +1,401 @@
+{
+  "version": 5,
+  "products": [
+    {
+      "id": "reset",
+      "brand": "CARPRO",
+      "name": "Reset",
+      "use": "正洗",
+      "capacity": 500,
+      "remaining": 340,
+      "color": "#2e6b61",
+      "label": "#e66e2c",
+      "code": "WASH 01",
+      "shape": "round",
+      "date": "2026-10-12",
+      "place": "品牌旗舰店",
+      "price": 128,
+      "stockStatus": "estimated"
+    },
+    {
+      "id": "gsf",
+      "brand": "Koch-Chemie",
+      "name": "Gentle Snow Foam",
+      "use": "预洗",
+      "capacity": 1000,
+      "remaining": 760,
+      "color": "#dfd4ae",
+      "label": "#c7b990",
+      "code": "Gsf",
+      "shape": "koch",
+      "date": "2026-10-15",
+      "place": "汽车用品店",
+      "price": 139,
+      "stockStatus": "estimated"
+    },
+    {
+      "id": "beast",
+      "brand": "SONAX",
+      "name": "Beast Wheel Cleaner",
+      "use": "轮毂",
+      "capacity": 1000,
+      "remaining": 620,
+      "color": "#a7768a",
+      "label": "#c24c7f",
+      "code": "WHEEL 03",
+      "shape": "spray",
+      "date": "2026-10-18",
+      "place": "品牌旗舰店",
+      "price": 108,
+      "stockStatus": "estimated"
+    },
+    {
+      "id": "xpress",
+      "brand": "P&S",
+      "name": "Xpress Interior Cleaner",
+      "use": "内饰",
+      "capacity": 500,
+      "remaining": 280,
+      "color": "#b5a078",
+      "label": "#d6a453",
+      "code": "INSIDE 04",
+      "shape": "spray",
+      "date": "2026-10-20",
+      "place": "本地美容店",
+      "price": 69,
+      "stockStatus": "estimated"
+    },
+    {
+      "id": "ironx",
+      "brand": "CARPRO",
+      "name": "IronX",
+      "use": "轮毂",
+      "capacity": 500,
+      "remaining": 210,
+      "color": "#75a4a4",
+      "label": "#588a9f",
+      "code": "IRON 05",
+      "shape": "spray",
+      "date": "2026-10-22",
+      "place": "品牌旗舰店",
+      "price": 118,
+      "stockStatus": "estimated"
+    },
+    {
+      "id": "wetcoat",
+      "brand": "GYEON",
+      "name": "Q²M WetCoat",
+      "use": "保护",
+      "capacity": 500,
+      "remaining": 380,
+      "color": "#8c819d",
+      "label": "#866ca8",
+      "code": "COAT 06",
+      "shape": "spray",
+      "date": "2026-10-25",
+      "place": "汽车用品店",
+      "price": 99,
+      "stockStatus": "estimated"
+    },
+    {
+      "id": "hydro",
+      "brand": "Fireball",
+      "name": "HydroShampoo",
+      "use": "正洗",
+      "capacity": 500,
+      "remaining": 410,
+      "color": "#217766",
+      "label": "#81928b",
+      "code": "HYDRO",
+      "shape": "fireball",
+      "date": "2026-11-01",
+      "place": "品牌旗舰店",
+      "price": "",
+      "stockStatus": "estimated"
+    }
+  ],
+  "plan": {
+    "name": "周末日常洗车",
+    "vehicle": "2024款乐道 L60 · 银色 · 星芒轮毂",
+    "steps": [
+      {
+        "id": "s1",
+        "name": "泡沫预洗",
+        "productId": "gsf",
+        "amount": 20,
+        "water": 1000,
+        "tools": [
+          "PA壶"
+        ],
+        "note": "按本瓶标签核对配液和冲洗要求，保持板面湿润。"
+      },
+      {
+        "id": "s2",
+        "name": "车身正洗",
+        "productId": "reset",
+        "amount": 30,
+        "water": 15000,
+        "tools": [
+          "洗车桶",
+          "洗车手套"
+        ],
+        "note": "先从较干净区域开始，保持手套清洁。"
+      },
+      {
+        "id": "s3",
+        "name": "冲洗车身",
+        "productId": "",
+        "amount": 0,
+        "water": 0,
+        "tools": [
+          "高压水枪"
+        ],
+        "note": "冲净残留，确认各个区域。"
+      },
+      {
+        "id": "s4",
+        "name": "擦干收尾",
+        "productId": "",
+        "amount": 0,
+        "water": 0,
+        "tools": [
+          "长绒擦车巾"
+        ],
+        "note": "使用干净的擦车巾，轻柔擦干。"
+      }
+    ],
+    "location": "",
+    "vehicleId": "b1333e5b-e4db-4813-866d-8acbe2c9c40c",
+    "vehicleModel": "onvo-l60"
+  },
+  "history": [],
+  "washes": [],
+  "session": null,
+  "templates": [
+    {
+      "id": "preset-0",
+      "name": "日常养护",
+      "builtIn": true,
+      "revision": 1,
+      "plan": {
+        "name": "日常养护",
+        "vehicle": "2024款乐道 L60 · 银色 · 星芒轮毂",
+        "steps": [
+          {
+            "id": "s1",
+            "name": "泡沫预洗",
+            "productId": "gsf",
+            "amount": 20,
+            "water": 1000,
+            "tools": [
+              "PA壶"
+            ],
+            "note": "按本瓶标签核对配液和冲洗要求，保持板面湿润。"
+          },
+          {
+            "id": "s2",
+            "name": "车身正洗",
+            "productId": "reset",
+            "amount": 30,
+            "water": 15000,
+            "tools": [
+              "洗车桶",
+              "洗车手套"
+            ],
+            "note": "先从较干净区域开始，保持手套清洁。"
+          },
+          {
+            "id": "s3",
+            "name": "冲洗车身",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "高压水枪"
+            ],
+            "note": "冲净残留，确认各个区域。"
+          },
+          {
+            "id": "s4",
+            "name": "擦干收尾",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "长绒擦车巾"
+            ],
+            "note": "使用干净的擦车巾，轻柔擦干。"
+          }
+        ],
+        "vehicleId": "b1333e5b-e4db-4813-866d-8acbe2c9c40c",
+        "vehicleModel": "onvo-l60"
+      }
+    },
+    {
+      "id": "preset-1",
+      "name": "雨后洗车",
+      "builtIn": true,
+      "revision": 1,
+      "plan": {
+        "name": "雨后洗车",
+        "vehicle": "2024款乐道 L60 · 银色 · 星芒轮毂",
+        "steps": [
+          {
+            "id": "rain-rinse",
+            "name": "泥沙预冲检查",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "高压水枪"
+            ],
+            "note": "先检查并冲走明显泥沙，再进行后续清洁。"
+          },
+          {
+            "id": "s1",
+            "name": "泡沫预洗",
+            "productId": "gsf",
+            "amount": 20,
+            "water": 1000,
+            "tools": [
+              "PA壶"
+            ],
+            "note": "雨后先检查泥沙与水渍。按本瓶标签核对配液和冲洗要求，保持板面湿润。"
+          },
+          {
+            "id": "s2",
+            "name": "车身正洗",
+            "productId": "reset",
+            "amount": 30,
+            "water": 15000,
+            "tools": [
+              "洗车桶",
+              "洗车手套"
+            ],
+            "note": "雨后先检查泥沙与水渍。先从较干净区域开始，保持手套清洁。"
+          },
+          {
+            "id": "s3",
+            "name": "冲洗车身",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "高压水枪"
+            ],
+            "note": "雨后先检查泥沙与水渍。冲净残留，确认各个区域。"
+          },
+          {
+            "id": "s4",
+            "name": "擦干收尾",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "长绒擦车巾"
+            ],
+            "note": "雨后先检查泥沙与水渍。使用干净的擦车巾，轻柔擦干。"
+          }
+        ],
+        "vehicleId": "b1333e5b-e4db-4813-866d-8acbe2c9c40c",
+        "vehicleModel": "onvo-l60"
+      }
+    },
+    {
+      "id": "preset-2",
+      "name": "周末精洗",
+      "builtIn": true,
+      "revision": 1,
+      "plan": {
+        "name": "周末精洗",
+        "vehicle": "2024款乐道 L60 · 银色 · 星芒轮毂",
+        "steps": [
+          {
+            "id": "wheel-check",
+            "name": "轮毂分区检查",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "轮毂刷"
+            ],
+            "note": "需要药剂时手动选择，并核对本车饰面适用性。"
+          },
+          {
+            "id": "s1",
+            "name": "泡沫预洗",
+            "productId": "gsf",
+            "amount": 20,
+            "water": 1000,
+            "tools": [
+              "PA壶"
+            ],
+            "note": "分区检查，预留更充足的清洁时间。按本瓶标签核对配液和冲洗要求，保持板面湿润。"
+          },
+          {
+            "id": "s2",
+            "name": "车身正洗",
+            "productId": "reset",
+            "amount": 30,
+            "water": 15000,
+            "tools": [
+              "洗车桶",
+              "洗车手套"
+            ],
+            "note": "分区检查，预留更充足的清洁时间。先从较干净区域开始，保持手套清洁。"
+          },
+          {
+            "id": "s3",
+            "name": "冲洗车身",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "高压水枪"
+            ],
+            "note": "分区检查，预留更充足的清洁时间。冲净残留，确认各个区域。"
+          },
+          {
+            "id": "s4",
+            "name": "擦干收尾",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "长绒擦车巾"
+            ],
+            "note": "分区检查，预留更充足的清洁时间。使用干净的擦车巾，轻柔擦干。"
+          },
+          {
+            "id": "door-check",
+            "name": "门框与细节收尾",
+            "productId": "",
+            "amount": 0,
+            "water": 0,
+            "tools": [
+              "玻璃毛巾"
+            ],
+            "note": "分开使用不同区域的毛巾，检查水渍与残留。"
+          }
+        ],
+        "vehicleId": "b1333e5b-e4db-4813-866d-8acbe2c9c40c",
+        "vehicleModel": "onvo-l60"
+      }
+    }
+  ],
+  "settings": {
+    "theme": "system",
+    "language": "zh-CN",
+    "notifications": false,
+    "reducedMotion": false,
+    "easterEggs": true
+  },
+  "vehicles": [
+    {
+      "id": "b1333e5b-e4db-4813-866d-8acbe2c9c40c",
+      "name": "2024款乐道 L60 · 银色 · 星芒轮毂",
+      "modelKey": "onvo-l60"
+    }
+  ],
+  "deferredNoteIds": []
+}

@@ -17,3 +17,10 @@ __pycache__/
 *.log
 *.inspect.ndjson
 /demo/prototype-build/
+
+# Xcode and Swift Package build products / per-user settings
+/native/.build/
+/native/DerivedData/
+**/xcuserdata/
+*.xcuserstate
+.DS_Store
