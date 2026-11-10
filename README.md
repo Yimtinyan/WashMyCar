@@ -6,6 +6,8 @@ WashMyCar 是为自己动手洗车的车主设计的 iPhone 与 Apple Watch 应�
 
 ## 体验当前版本
 
+当前Demo为v0.4：支持三种预设与自定义方案、手写药剂用法/pH、洗后注意事项和桌面组件布局预览，车模更换为银色乐道L60左前45度示意图。彩蛋自动出现，不再提供开关。[Apple原生接入与本轮功能状态](design/apple-integration-v04.md)列出健康、实体按钮、触感和WidgetKit尚未实现的部分。Figma链接仍为上一轮精修稿；本轮新增界面以Demo为准。
+
 - [下载或打开交互 Demo](demo/index.html)：下载仓库后用浏览器打开，支持流程编排、药剂库存、三维检视、洗车记录、使用履历、设置与随机完成彩蛋。
 - [Demo 使用说明](demo/README.md)：确认备液只扣一次库存，现场点击手表“开始洗车”才开始计时，完成步骤不重复扣减。
 - [Figma 精修稿](https://www.figma.com/design/8ZDZ8qg4qoMJTtnXDQghDr?node-id=15-102)：保留原稿，新增21个手机页面与11个手表状态。本机修改与导出已验证，云端同步尚未独立确认。

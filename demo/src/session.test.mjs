@@ -29,7 +29,7 @@ test('manual usage validates against current inventory and includes location and
 test('v2 migration preserves user inventory and existing usage history',()=>{
  const state=fixture();state.history=[{id:'old-entry',kind:'usage',amount:7}];state.products[0].remaining=73;
  state.session={id:'legacy',plan:state.plan,index:1,paused:false,done:false,startedAt:123000,resumedAt:124000,activeMs:1000};
- const migrated=migrateState(state);assert.equal(migrated.version,3);assert.equal(migrated.products,state.products);assert.equal(migrated.history,state.history);assert.equal(migrated.products[0].remaining,73);assert.deepEqual(migrated.washes,[]);assert.equal(migrated.settings.theme,'system');assert.equal(migrated.session.startedAt,123000);assert.equal(migrated.session.resumedAt,124000);assert.equal(migrated.session.status,'washing');
+ const migrated=migrateState(state);assert.equal(migrated.version,4);assert.equal(migrated.products,state.products);assert.equal(migrated.history,state.history);assert.equal(migrated.products[0].remaining,73);assert.deepEqual(migrated.washes,[]);assert.equal(migrated.settings.theme,'system');assert.equal(migrated.session.startedAt,123000);assert.equal(migrated.session.resumedAt,124000);assert.equal(migrated.session.status,'washing');
 });
 test('prepared sessions do not count travel time and restore as ready after refresh',()=>{
  const prepared=beginSession(fixture(),1000,'wash-1');assert.equal(prepared.session.preparedAt,1000);assert.equal(prepared.session.startedAt,null);assert.deepEqual(sessionTime(prepared.session,3601000),{wall:0,active:0,paused:0});

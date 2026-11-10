@@ -1,6 +1,7 @@
+import {makeTemplates} from './features.js';
 import {uid} from './data.js';
 
-export const DEFAULT_SETTINGS={theme:'system',language:'zh-CN',notifications:false,easterEggs:true,reducedMotion:false};
+export const DEFAULT_SETTINGS={theme:'system',language:'zh-CN',notifications:false,reducedMotion:false};
 export const EGGS=['glow','stars','halo'];
 export function amountsFor(plan){return plan.steps.reduce((sum,step)=>{if(step.productId)sum[step.productId]=(sum[step.productId]||0)+Number(step.amount);return sum;},{});}
 export function planIssue(plan,products){
@@ -50,7 +51,7 @@ export function migrateState(value,fallback){
   else if(Number.isFinite(session.startedAt)){session.status='washing';}
   else{session.status='washing';session.startedAt=Date.now();session.resumedAt=session.paused?null:session.startedAt;session.activeMs=0;session.timingRestored=true;}
  }
- return {...s,version:3,plan:{...s.plan,location:s.plan.location||''},history:s.history||[],washes:s.washes||[],settings:{...DEFAULT_SETTINGS,...s.settings},session};
+ return {...s,templates:s.templates||makeTemplates(s.plan),version:4,plan:{...s.plan,location:s.plan.location||''},history:s.history||[],washes:s.washes||[],settings:{...DEFAULT_SETTINGS,...s.settings,easterEggs:true},session};
 }
 export function timeText(ms){const seconds=Math.floor(Math.max(0,ms)/1000),hours=Math.floor(seconds/3600),minutes=Math.floor(seconds%3600/60);return hours?`${hours}小时${minutes}分`:minutes?`${minutes}分${String(seconds%60).padStart(2,'0')}秒`:`${seconds}秒`;}
 export function clockText(ms){const s=Math.floor(Math.max(0,ms)/1000);return `${Math.floor(s/60).toString().padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;}

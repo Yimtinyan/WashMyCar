@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-10",
+  "checks": [
+    "presets and custom save",
+    "update preset",
+    "instructions and pH save",
+    "hidden egg preference and native/widget states",
+    "wash notes persisted",
+    "widget reflects last wash"
+  ],
+  "errors": [],
+  "nativeHealthConnected": false,
+  "nativeWidgetsInstalled": false
+}

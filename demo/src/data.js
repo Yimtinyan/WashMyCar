@@ -9,13 +9,13 @@ export const seedProducts=[
  {id:'wetcoat',brand:'GYEON',name:'Q²M WetCoat',use:'保护',capacity:500,remaining:380,color:'#8c819d',label:'#866ca8',code:'COAT 06',shape:'spray',date:'2026-10-25',place:'汽车用品店',price:99},
  {id:'hydro',brand:'Fireball',name:'HydroShampoo',use:'正洗',capacity:500,remaining:410,color:'#217766',label:'#81928b',code:'HYDRO',shape:'fireball',date:'2026-11-01',place:'品牌旗舰店',price:''}
 ];
-export const seedPlan={name:'周末日常洗车',vehicle:'我的爱车 · 亮光漆',steps:[
+export const seedPlan={name:'周末日常洗车',vehicle:'2024款乐道 L60 · 银色 · 星芒轮毂',steps:[
  {id:'s1',name:'泡沫预洗',productId:'gsf',amount:20,water:1000,tools:['PA壶'],note:'按本瓶标签核对配液和冲洗要求，保持板面湿润。'},
  {id:'s2',name:'车身正洗',productId:'reset',amount:30,water:15000,tools:['洗车桶','洗车手套'],note:'先从较干净区域开始，保持手套清洁。'},
  {id:'s3',name:'冲洗车身',productId:'',amount:0,water:0,tools:['高压水枪'],note:'冲净残留，确认各个区域。'},
  {id:'s4',name:'擦干收尾',productId:'',amount:0,water:0,tools:['长绒擦车巾'],note:'使用干净的擦车巾，轻柔擦干。'}
 ]};
 export const STORE_KEY='washmycar-demo-v2';
-export function initialState(){try{const x=JSON.parse(localStorage.getItem(STORE_KEY));if([2,3].includes(x?.version)&&Array.isArray(x.products)&&x.plan?.steps?.length)return x;}catch{}return {version:2,products:structuredClone(seedProducts),plan:structuredClone(seedPlan),history:[],session:null};}
+export function initialState(){try{const x=JSON.parse(localStorage.getItem(STORE_KEY));if([2,3,4].includes(x?.version)&&Array.isArray(x.products)&&x.plan?.steps?.length)return x;}catch{}return {version:2,products:structuredClone(seedProducts),plan:structuredClone(seedPlan),history:[],session:null};}
 export const ml=n=>Number(Number(n).toFixed(2)).toLocaleString('zh-CN',{maximumFractionDigits:2});
 export const uid=()=>globalThis.crypto?.randomUUID?.()||'id'+Date.now()+Math.random().toString(16).slice(2);
