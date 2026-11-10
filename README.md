@@ -2,7 +2,15 @@
 
 WashMyCar 是为自己动手洗车的车主设计的 iPhone 与 Apple Watch 应用项目。它围绕一次洗车里的三个实际问题展开：**手里的药剂能用在哪个部位？这次该配多少？洗到这一步，接下来要做什么？**
 
-**项目状态：产品企划与药剂研究阶段。** 当前仓库提供需求文档和研究资料，尚无可安装的应用。以下流程描述的是首版设计。
+**项目状态：已进入双端设计与交互 Demo 验证阶段。** 已有可离线体验的浏览器 Demo，以及适配 iPhone 16 Pro Max、Apple Watch Series 10 46mm 的可编辑 Figma 精修稿；尚无可安装的原生应用。
+
+## 体验当前版本
+
+- [下载或打开交互 Demo](demo/index.html)：下载仓库后用浏览器打开，支持流程编排、药剂库存、三维检视、洗车记录、使用履历、设置与随机完成彩蛋。
+- [Demo 使用说明](demo/README.md)：确认备液只扣一次库存，现场点击手表“开始洗车”才开始计时，完成步骤不重复扣减。
+- [Figma 精修稿](https://www.figma.com/design/8ZDZ8qg4qoMJTtnXDQghDr?node-id=15-102)：保留原稿，新增21个手机页面与11个手表状态。本机修改与导出已验证，云端同步尚未独立确认。
+- [设计预览](design/figma/v2/review.html) · [本轮设计说明](design/figma/v2/revision-brief.md) · [验证记录](design/figma/v2/verification.md)。GitHub中的HTML需下载后打开；此更新未启用网站托管。
+- [Figma 本地编辑工具](tools/figma-local/README.md)：本机开发插件与连接服务，运行口令和日志不会提交。
 
 ## 一次洗车，两个使用场景
 

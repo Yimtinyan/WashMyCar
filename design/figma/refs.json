@@ -1,0 +1,99 @@
+{
+  "pages": {
+    "system": "0:1",
+    "phone": "3:87",
+    "watch": "3:88"
+  },
+  "variables": {
+    "canvas": "VariableID:3:5",
+    "surface": "VariableID:3:7",
+    "surfaceAlt": "VariableID:3:9",
+    "textPrimary": "VariableID:3:11",
+    "textSecondary": "VariableID:3:13",
+    "textMuted": "VariableID:3:15",
+    "actionPrimary": "VariableID:3:17",
+    "actionText": "VariableID:3:19",
+    "selection": "VariableID:3:21",
+    "border": "VariableID:3:23",
+    "warning": "VariableID:3:25",
+    "warningSurface": "VariableID:3:27",
+    "watchCanvas": "VariableID:3:29",
+    "watchSurface": "VariableID:3:31",
+    "watchText": "VariableID:3:33",
+    "watchSecondary": "VariableID:3:35",
+    "watchAction": "VariableID:3:37",
+    "watchActionText": "VariableID:3:39",
+    "spaceXs": "VariableID:3:40",
+    "spaceSm": "VariableID:3:41",
+    "spaceMd": "VariableID:3:42",
+    "spaceLg": "VariableID:3:43",
+    "pageInset": "VariableID:3:44",
+    "sectionGap": "VariableID:3:45",
+    "spaceXl": "VariableID:3:46",
+    "radiusControl": "VariableID:3:47",
+    "radiusPanel": "VariableID:3:48",
+    "radiusDevice": "VariableID:3:49"
+  },
+  "styles": {
+    "title": "S:f3c9fe00221f4720ab9fcfa3c7708a723e8b0f83,",
+    "heading": "S:2eb9457a72fd99ee8039d9df2b187e7b303f3550,",
+    "body": "S:7dc1c9e7aca6da02823225a865970e21629b60bd,",
+    "bodyEmphasis": "S:490a0da609556fa68c50a816d7252f1bcd75a609,",
+    "callout": "S:355fe32ac2fed73e1192f1464580a86e7f8f5954,",
+    "meta": "S:20098b4036cde2d00922ae7b2a25a88cacf0c06c,",
+    "metaEmphasis": "S:5161bce3e49de87a79e7857765140fd85f218d04,",
+    "control": "S:a9a164785794d6daaa865e3233262ce281b426a9,",
+    "number": "S:8cd1a1c4890474067e4829f8a7b92426f98a389e,",
+    "watchTitle": "S:850b2387dfb566212e8d46c36005239169ee9916,",
+    "watchBody": "S:c99f64502b54173021107350d3fa8e2ab944e756,",
+    "watchMeta": "S:96fc88f92459357f06a3e3af3d003e8f45b9645c,",
+    "watchControl": "S:284040e2d0e0745c4a8c5708e17c4b2b21484203,"
+  },
+  "components": {
+    "buttonPrimary": {
+      "id": "3:63",
+      "labelProp": "Label#3:5"
+    },
+    "buttonSecondary": {
+      "id": "3:65",
+      "labelProp": "Label#3:5"
+    },
+    "buttonDisabled": {
+      "id": "3:67",
+      "labelProp": "Label#3:5"
+    },
+    "buttonWatchPrimary": {
+      "id": "3:69",
+      "labelProp": "Label#3:5"
+    },
+    "buttonWatchSecondary": {
+      "id": "3:71",
+      "labelProp": "Label#3:5"
+    },
+    "buttonSet": "3:73",
+    "step": {
+      "id": "3:74",
+      "props": {
+        "number": "Number#3:6",
+        "title": "Title#3:7",
+        "detail": "Detail#3:8",
+        "tools": "Tools#3:9"
+      }
+    },
+    "field": {
+      "id": "3:81",
+      "labelProp": "Label#3:10",
+      "valueProp": "Value#3:11"
+    },
+    "tool": {
+      "id": "3:85",
+      "labelProp": "Label#3:12"
+    }
+  },
+  "assets": {
+    "reset": "2:2",
+    "gsf": "2:3",
+    "wheel": "2:4"
+  },
+  "cover": "3:89"
+}

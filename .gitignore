@@ -4,3 +4,16 @@
 # Python caches
 __pycache__/
 *.pyc
+
+# Demo dependencies and intermediate bundle
+/demo/node_modules/
+/demo/build/
+
+# Local Figma bridge sessions, tokens, logs and downloaded installer
+/tools/figma-local/.runtime/
+
+# Dependencies and disposable research/build diagnostics
+**/node_modules/
+*.log
+*.inspect.ndjson
+/demo/prototype-build/

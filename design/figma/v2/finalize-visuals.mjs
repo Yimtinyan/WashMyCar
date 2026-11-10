@@ -1,0 +1,10 @@
+import fs from 'node:fs/promises';
+import {command} from './export-previews.mjs';
+const root=new URL('./',import.meta.url),scene=JSON.parse(await fs.readFile(new URL('iphone-scene.json',root),'utf8')),mapping=JSON.parse(await fs.readFile(new URL('iphone-result.json',root),'utf8')),patch=[];
+let generic=null,clearLink=null;
+function visit(n){if(n.props.name?.startsWith('Filter / ')){patch.push({id:mapping.refs[n.ref],props:{height:44,cornerRadius:22}});for(const c of n.children||[])patch.push({id:mapping.refs[c.ref],props:{y:12}});}if(n.props.name==='通用分装瓶 · 示意')generic=n;if(n.props.name==='Generic bottle / 分装瓶')clearLink=n;for(const c of n.children||[])visit(c);}scene.nodes.forEach(visit);
+for(const c of generic.children)patch.push({id:mapping.refs[c.ref],props:{visible:false}});
+const r=await command('patch',{nodes:patch});await fs.writeFile(new URL('visual-patch-result.json',root),JSON.stringify(r,null,2));
+const image=await command('paintImage',{nodeId:mapping.refs[generic.ref],asset:scene.assets.generic,scaleMode:'FIT'});await fs.writeFile(new URL('generic-image-result.json',root),JSON.stringify(image,null,2));
+await command('wire',{pageId:mapping.pageId,nodes:[{id:mapping.refs[clearLink.ref],reactions:[]}]});
+console.log(JSON.stringify({patchedNodes:patch.length,genericImage:mapping.refs[generic.ref]}));

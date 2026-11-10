@@ -1,0 +1,1255 @@
+[
+  {
+    "id": "CN01",
+    "brand": "车仆 CHIEF",
+    "name": "蜡洗车液（1L）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "洗车附带保护",
+    "category_ids": [
+      "U21"
+    ],
+    "body_part": "官网归入车体养护；洗车/带蜡用途来自产品名，文字详情未解释具体效果。",
+    "material_scope": "未见可读材质清单；车衣、哑光漆、现有镀膜及禁忌未知。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "未见可读比例和配制方式；不启用计算器。",
+    "evidence_level": "P：产品页。页面附产品手册入口，本轮手册抓取失败；名称级入库。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.chief.cc/Products_details/12.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN02",
+    "brand": "车仆 CHIEF",
+    "name": "魔立蓝多功能泡沫慕斯",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "内外饰清洁（用途细分待核）",
+    "category_ids": [],
+    "body_part": "官网归入内外饰养护；具体污渍和施工部位未知。",
+    "material_scope": "真皮、合成革、织物、屏幕等均未取得明确支持；禁忌未知。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "稀释、停留、擦拭/冲洗方式未知。",
+    "evidence_level": "P：产品页。标题与分类可读，描述空缺；名称级入库。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.chief.cc/Products_details/40.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN03",
+    "brand": "车仆 CHIEF",
+    "name": "去油膜变色泡沫清洁剂",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "去油膜（部位待核）",
+    "category_ids": [],
+    "body_part": "官方目录列名；去油膜用途来自名称，不能仅凭名称认定任意玻璃及膜层可用。",
+    "material_scope": "未读到材质清单与禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "未核实。",
+    "evidence_level": "C：目录；详情入口本轮403。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.chief.cc/Products/1.html",
+      "https://www.chief.cc/Products_details/39.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN04",
+    "brand": "车仆 CHIEF",
+    "name": "镀膜洗车液",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "洗车附带保护",
+    "category_ids": [
+      "U21"
+    ],
+    "body_part": "官方目录列名；洗车和护理用途来自名称，不能据“镀膜”认定为独立长效陶瓷涂层。",
+    "material_scope": "未读到漆面、贴膜或保护层兼容性。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "未核实配比，不能由同品牌其他洗车液推算。",
+    "evidence_level": "C：目录；详情入口本轮403。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.chief.cc/Products/1.html",
+      "https://www.chief.cc/Products_details/33.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN05",
+    "brand": "标榜 BIAOBANG",
+    "name": "高浓缩泡沫洗车蜡 B-1421",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "洗车附带保护",
+    "category_ids": [
+      "U21"
+    ],
+    "body_part": "车身清洁与上光保护；页面将其描述为液体蜡，产品名不足以确定全部施工方式。",
+    "material_scope": "车身表面；没有细分漆种、PPF/改色膜、哑光或现有保护层。未列材质禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "名称含“高浓缩”，正文无比例；稀释语义未知。",
+    "evidence_level": "P：产品页。用途级入库，配方/步骤待标签。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.biaobang.cn/qmmr/88.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN06",
+    "brand": "标榜 BIAOBANG",
+    "name": "柏油清洁剂 B-1791",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "柏油、胶残留去除",
+    "category_ids": [
+      "U08"
+    ],
+    "body_part": "去除汽车/摩托车车身及金属轮框的柏油、油渍。",
+    "material_scope": "明示车身漆面和金属轮框；没有细分裸铝/阳极氧化/电镀或轮框涂层，不可泛化；未列禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "未提供可读配比或停留时长。",
+    "evidence_level": "P：产品页。用途与粗粒度部位可入库。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.biaobang.cn/qmmr/86.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN07",
+    "brand": "标榜 BIAOBANG",
+    "name": "多功能泡沫清洁剂 B-1191",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "多用途内饰清洁（含织物）",
+    "category_ids": [
+      "U17",
+      "U19"
+    ],
+    "body_part": "清洁内外饰，明确举例丝绒坐垫、仪表板、侧板、顶棚。",
+    "material_scope": "页面另列家居人造皮革及塑料制品；不能自动泛化到真皮、Alcantara、触屏或软触涂层；未列禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "未给可读稀释和停留数据。",
+    "evidence_level": "P：产品页。内饰部位可记录，细材质需确认。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.biaobang.cn/yhsc/79.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN08",
+    "brand": "标榜 BIAOBANG",
+    "name": "挡风油膜去除剂 BG1035",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "玻璃油膜与旧涂层去除",
+    "category_ids": [
+      "U15"
+    ],
+    "body_part": "清洁挡风玻璃油膜。",
+    "material_scope": "明示挡风玻璃；玻璃贴膜、疏水涂层、摄像头盖板等未说明；无明确禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "官方允许加入雨刮壶后混入水/玻璃水，但无量化比例；也说明原液倒毛巾手动清洁。两种方式须分别存储。",
+    "evidence_level": "P：产品页。可记录“原液手擦”分支；雨刮壶分支需补剂量。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.biaobang.cn/blfh/2.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN09",
+    "brand": "标榜 BIAOBANG",
+    "name": "浓缩液30倍雨刷精 B-2192",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "雨刮系统清洗液",
+    "category_ids": [
+      "U24"
+    ],
+    "body_part": "清洁汽车玻璃油膜、虫迹。",
+    "material_scope": "明示玻璃，并有雨刷橡胶护理声称；未给贴膜/涂层禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "标题“30倍”未交代原液:水或最终液体倍数，不能默认成1:30；正文未给量化施工。",
+    "evidence_level": "P：产品页。典型比例语义待确认案例。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.biaobang.cn/blfh/5.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN10",
+    "brand": "固特威 Glodway",
+    "name": "蜡粒子高泡洗车精华",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "洗车附带保护",
+    "category_ids": [
+      "U21"
+    ],
+    "body_part": "官网“车漆清洗养护”分类列名；洗车用途来自名称和分类。",
+    "material_scope": "未取得细分材质/禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "未取得配比。",
+    "evidence_level": "C：目录；详情入口本轮超时。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.glodway.cn/h-col-103.html",
+      "https://www.glodway.cn/h-pd-197.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN11",
+    "brand": "固特威 Glodway",
+    "name": "南极1号玻璃重油膜去除乳",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "玻璃油膜与旧涂层去除",
+    "category_ids": [
+      "U15"
+    ],
+    "body_part": "官网明示玻璃养护、去除玻璃油膜。",
+    "material_scope": "玻璃；未说明贴膜、玻璃镀层及禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "本轮可读正文未提供稀释/施工步骤。",
+    "evidence_level": "P：产品页。产品名、功能可入库。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.glodway.cn/h-pd-188.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN12",
+    "brand": "固特威 Glodway",
+    "name": "汽车内饰清洗剂",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "内饰清洁（材质细分待核）",
+    "category_ids": [],
+    "body_part": "页面明示“内饰清洁”。",
+    "material_scope": "未细分真皮、合成革、织物、塑料、屏幕；禁忌未知。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "未提供。",
+    "evidence_level": "P：产品页。部位级条目，不能直接支持材质推荐。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.glodway.cn/h-pd-202.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN13",
+    "brand": "固特威 Glodway",
+    "name": "轮胎泡沫清洁光亮剂",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轮胎、塑料及橡胶护理",
+    "category_ids": [
+      "U13"
+    ],
+    "body_part": "目录和详情题名支持轮胎清洁/上光分类；不得自动映射到轮毂清洁。",
+    "material_scope": "未见胎侧/胎面等细分及材质禁忌。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "未提供。",
+    "evidence_level": "P：产品页。名称/用途级条目。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.glodway.cn/h-pd-203.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN14",
+    "brand": "三和 SANVO",
+    "name": "轮胎泡沫清洗剂（页面detail-738）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轮胎、塑料及橡胶护理",
+    "category_ids": [
+      "U13"
+    ],
+    "body_part": "轮胎表面清洁与护理；具体步骤限定覆盖轮胎侧面。",
+    "material_scope": "可记录胎侧使用；不能扩展到胎面/制动部件。页面未给橡胶细型号兼容性。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "即用型喷雾；先去除多余泥垢并干燥，摇匀，距表面约15–20cm喷于胎侧；厂商说明无需擦拭/冲洗，无稀释步骤。",
+    "evidence_level": "P：产品页。可提取有限步骤，仍需核对现行标签/SDS。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.sanvo.com/product/detail-738.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN15",
+    "brand": "三和 SANVO",
+    "name": "高级表板蜡（页面detail-365）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轮胎、塑料及橡胶护理",
+    "category_ids": [
+      "U13"
+    ],
+    "body_part": "清洁、上光、表面护理；列仪表板、座椅、轮胎等。",
+    "material_scope": "明示皮革、合成皮革、橡胶、塑料；皮革类型、屏幕、操作踏板与胎面等未逐项验证。来源无细材质禁忌，不可解释为通用。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "即用型喷雾；先除尘，摇匀，约25cm喷施，浸润后干布擦拭；无稀释步骤。",
+    "evidence_level": "P：产品页。用途/步骤可提取，过宽材质声称需标签及车辆制造商约束。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.sanvo.com/product/detail-365.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN16",
+    "brand": "三和 SANVO",
+    "name": "多功能泡沫清洁剂（页面detail-754；罐容积500ml，净含量363g）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "多用途内饰清洁（含织物）",
+    "category_ids": [
+      "U17",
+      "U19"
+    ],
+    "body_part": "汽车座椅、仪表盘、顶棚清洁；官网亦列家居用途。",
+    "material_scope": "纤维、皮革、不明底材须先小范围测试；玻璃/金属应在泡沫干透前擦除。pH数值仅作来源字段，不推导安全性。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "即用型；摇匀，约15cm喷施，约15秒后软湿布擦净；页面给最佳使用温度10–35℃。",
+    "evidence_level": "P：产品页。可提取特定版本参数，不与同名旧版合并。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.sanvo.com/product/detail-754.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN17",
+    "brand": "三和 SANVO",
+    "name": "柏油沥青清洗剂（2017年官方知识文章）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "柏油、胶残留去除",
+    "category_ids": [
+      "U08"
+    ],
+    "body_part": "去除车身、合金轮框表面柏油和油渍。",
+    "material_scope": "耐溶剂较差漆面慎用；不明底材先小范围测试。未验证车衣、改色膜和各种轮毂表面处理。",
+    "supply_form": "见官方用法；未明示时待核实",
+    "dilution_procedure": "文中为摇匀后直接局部喷施，短暂等待后软布擦除；“稍等片刻”不可换算成倒计时。",
+    "evidence_level": "官方知识文章：原文。年代较久且部分安全语句存在问题；仅候选用途证据，须用现行标签/SDS替换。",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.sanvo.com/content-detail-cid-178"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU01",
+    "brand": "Koch-Chemie",
+    "name": "Gentle Snow Foam",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "泡沫预洗；接触正洗",
+    "category_ids": [
+      "U01",
+      "U02"
+    ],
+    "body_part": "泡沫预洗/手工正洗；作用部位：车身外部",
+    "material_scope": "厂商明确支持：官方称不侵蚀已打蜡/封体表面。限制/未知：使用前检查适配；勿干燥；PPF/哑光未单列",
+    "supply_form": "浓缩原液",
+    "dilution_procedure": "泡沫喷壶约20 mL加到1 L水；手洗50 mL加到10 L水；未给固定停留秒数；与Green Star的特定厂家配方不延伸为任意混配",
+    "evidence_level": "官方产品技术单",
+    "automation_status": "配比有明确依据",
+    "sources": [
+      "https://www.koch-chemie.com/pdf/datasheet/Gentle_Snow_Foam_en.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU02",
+    "brand": "Koch-Chemie",
+    "name": "Green Star",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "通用清洁与脱脂 APC",
+    "category_ids": [
+      "U05"
+    ],
+    "body_part": "通用清洁/脱脂；作用部位：外部、发动机、内饰织物",
+    "material_scope": "厂商明确支持：提及阳极氧化铝的材质兼容性；不构成所有裸铝通用许可。限制/未知：不用于热表面；勿干燥；先验证适用性；皮革/PPF/哑光未知",
+    "supply_form": "浓缩原液",
+    "dilution_procedure": "外部及发动机原文1:5–1:30 solution；内饰织物1:10–1:20 solution；未定义比例两端；短暂停留后冲洗/擦净；VDA条件最大5分钟、最大1:3，不能当作所有现场默认值",
+    "evidence_level": "官方产品技术单",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.koch-chemie.com/pdf/datasheet/Green_Star_en.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU03",
+    "brand": "Koch-Chemie",
+    "name": "Pol Star",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "皮革与合成革清洁护理；织物与Alcantara清洁",
+    "category_ids": [
+      "U18",
+      "U19"
+    ],
+    "body_part": "皮革/织物清洁；作用部位：座椅、地毯、软内饰",
+    "material_scope": "厂商明确支持：leather、Alcantara、textiles；厂家称保留原防水处理。限制/未知：先验色牢度与材质相容性；不能外推所有皮革涂饰类型",
+    "supply_form": "需稀释原液",
+    "dilution_procedure": "原文1:5–1:20 solution，比例两端未定义；短暂停留，顺纤维轻作业，湿布/吸水设备去残留；无精确秒数",
+    "evidence_level": "官方产品技术单",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.koch-chemie.com/pdf/datasheet/Pol_Star_en.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU04",
+    "brand": "Koch-Chemie",
+    "name": "Reactive Rust Remover（USA技术单）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "铁污染去除",
+    "category_ids": [
+      "U07"
+    ],
+    "body_part": "铁粉/金属颗粒/刹车粉去污；作用部位：漆面、玻璃、轮毂",
+    "material_scope": "厂商明确支持：painted surfaces、glass、wheel rims。限制/未知：抛光铝等敏感表面须隐蔽测试；不用于热表面；勿干燥；PPF/哑光未知",
+    "supply_form": "不稀释直接使用",
+    "dilution_procedure": "明确undiluted；约3–6分钟，必要时刷/海绵辅助，彻底冲洗",
+    "evidence_level": "官方产品技术单",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.koch-chemie.com/pdf/datasheet/Reactive_Rust_Remover_usa.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU05",
+    "brand": "SONAX",
+    "name": "Beast Wheel Cleaner 500 ml（04332000）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轮毂清洁",
+    "category_ids": [
+      "U11"
+    ],
+    "body_part": "轮毂污垢清洁；作用部位：轮毂",
+    "material_scope": "厂商明确支持：钢、合金、喷漆、电镀、抛光及哑光轮毂。限制/未知：明确不得用于重喷轮毂；先隐蔽测试；冷表面；勿干燥；车漆/PPF/轮胎用途未知",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "均匀喷到冷轮毂，3–5分钟后强水流冲洗；无稀释要求",
+    "evidence_level": "官方SKU产品与使用页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.sonax.com/en/care-products/beast-wheel-cleaner-500-ml-04332000"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU06",
+    "brand": "SONAX",
+    "name": "XTREME PPF+Vinyl Cleaner 750 ml（03994000）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "接触正洗；虫渍与鸟粪局部处理",
+    "category_ids": [
+      "U02",
+      "U06"
+    ],
+    "body_part": "贴膜道路污垢、虫渍、鸟粪清洁；作用部位：车身贴膜/哑光漆",
+    "material_scope": "厂商明确支持：wraps、matt paintwork；名称明确PPF/Vinyl。限制/未知：勿用于热表面/勿干燥；不能推定所有车衣厂家均保修认可",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "洗车时喷到湿贴膜，用软海绵施工；完整相连面板一次处理，再清水冲净；无数值停留/稀释",
+    "evidence_level": "官方SKU产品与使用页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.sonax.com/en/care-products/xtreme-ppfvinyl-cleaner-750-ml-03994000"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU07",
+    "brand": "SONAX",
+    "name": "XTREME Glass Clear 1 l（02383410）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "玻璃日常清洁",
+    "category_ids": [
+      "U14"
+    ],
+    "body_part": "油膜、指纹、烟渍及外侧虫污清洁；作用部位：玻璃内外、镜面",
+    "material_scope": "厂商明确支持：玻璃/镜子。限制/未知：车窗内膜、塑料透明件、屏幕涂层未明确；防冻存储",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "薄喷、软纸/玻璃布铺开，再以干净干布擦净；无稀释/数值停留",
+    "evidence_level": "官方SKU产品与使用页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.sonax.com/en/care-products/xtreme-glass-clear-1-l-02383410"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU08",
+    "brand": "SONAX",
+    "name": "XTREME Upholstery+Alcantara Cleaner 400 ml（02063000）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "织物与Alcantara清洁",
+    "category_ids": [
+      "U19"
+    ],
+    "body_part": "织物污渍清洁/异味处理；作用部位：座椅、顶棚、地毯、软内饰",
+    "material_scope": "厂商明确支持：textiles、Alcantara。限制/未知：先隐蔽验色牢度；整片处理以避免明暗差；不把400 mL气雾版和500 mL无推进剂版合并",
+    "supply_form": "直接使用气雾泡沫",
+    "dilution_procedure": "吸尘、微湿表面，泡沫揉入；5–10分钟后刷/湿布清洁，重复去净污物；无稀释",
+    "evidence_level": "官方SKU产品与使用页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.sonax.com/en/care-products/xtreme-upholsteryalcantara-cleaner-400-ml-02063000"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU09",
+    "brand": "GYEON",
+    "name": "Q²M BATHE",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "接触正洗",
+    "category_ids": [
+      "U02"
+    ],
+    "body_part": "接触正洗；作用部位：车身外部",
+    "material_scope": "厂商明确支持：漆面、涂层、封体、镀铬、抛光金属；官网广义外饰声明。限制/未知：PPF/哑光未在所取具体文字中单列；不能把广义声明改成已完成材料测试",
+    "supply_form": "浓缩原液",
+    "dilution_procedure": "DILUTION 1:500，未定义两端；15–20 mL/car是耗量参考，不能替代配比；按说明稀释、手套洗、冲净",
+    "evidence_level": "官方产品/FAQ页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://gyeon.co/product/bathe-2/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU10",
+    "brand": "GYEON",
+    "name": "Q²M PPF WASH",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "接触正洗；铁污染去除",
+    "category_ids": [
+      "U02",
+      "U07"
+    ],
+    "body_part": "PPF/改色膜清洗及轻度铁污染去除；作用部位：车身贴膜",
+    "material_scope": "厂商明确支持：PPF、vinyl wrap、车漆、已涂层与未涂层外表面。限制/未知：哑光外观影响未单列；不能推断重度铁粉完全去除",
+    "supply_form": "需稀释原液",
+    "dilution_procedure": "DILUTION 1:500，未定义两端；可泡沫或传统手洗；20–30 mL/car为参考耗量；无精确停留",
+    "evidence_level": "官方产品/FAQ页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://gyeon.co/product/ppf-wash/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU11",
+    "brand": "GYEON",
+    "name": "Q²M TAR REDEFINED",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "柏油、胶残留去除",
+    "category_ids": [
+      "U08"
+    ],
+    "body_part": "沥青、柏油、有机道路沉积去除；作用部位：车身局部外部",
+    "material_scope": "厂商明确支持：漆面、玻璃、喷漆及未喷漆塑料饰条、涂层表面。限制/未知：PPF/哑光未单列；REDEFINED不能与旧版直接合并",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "施于污染处，待溶解后擦除/冲净；未给数值停留与稀释",
+    "evidence_level": "官方产品/FAQ页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://gyeon.co/product/tar-redefined/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU12",
+    "brand": "GYEON",
+    "name": "Q²M WETCOAT",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "独立表面保护与维护",
+    "category_ids": [
+      "U22"
+    ],
+    "body_part": "喷冲型疏水保护/维护；作用部位：外漆、饰条、金属、轮毂、玻璃",
+    "material_scope": "厂商明确支持：官网明确前述部位及有/无涂层车辆。限制/未知：湿面分面板处理；不得干燥；哑光/PPF未单列，增亮声明不能自动等于哑光适配",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "洗净后湿面每面板1–2喷，立即高压冲洗；不是停留型产品；无稀释要求",
+    "evidence_level": "官方产品/FAQ页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://gyeon.co/product/wetcoat/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU13",
+    "brand": "Gtechniq",
+    "name": "W7 Tar and Glue Remover（美国站）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "柏油、胶残留去除",
+    "category_ids": [
+      "U08"
+    ],
+    "body_part": "柏油/沥青/胶残留局部去除；作用部位：外部漆面",
+    "material_scope": "厂商明确支持：漆面/清漆，Gtechniq涂层和未涂层。限制/未知：明确避免塑料、贴花、橡胶、vinyl；不适用PPF、局部快修漆、包膜车；避阳光",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "喷到微纤维布轻擦污染处；1–2分钟后冲洗；无稀释；旧博客5–10分钟不能覆盖当前页",
+    "evidence_level": "官方区域产品应用页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://gtechniq.com/shop/auto/wash-decon-polish/w7-tar-and-glue-remover/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU14",
+    "brand": "Gtechniq",
+    "name": "I2 Tri-Clean（美国站）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "内饰硬表面清洁",
+    "category_ids": [
+      "U17"
+    ],
+    "body_part": "内饰清洁/异味处理；作用部位：座椅、仪表台、门板、地毯",
+    "material_scope": "厂商明确支持：皮革、vinyl、内饰织物及涂层内饰。限制/未知：不推荐外部；具体皮革涂饰/Alcantara未单列；抗菌营销不可替代中国合规宣称验证",
+    "supply_form": "即用型（FAQ明确）",
+    "dilution_procedure": "不需稀释；喷湿微纤维布、轻擦，再干布去净；未给数值停留",
+    "evidence_level": "官方区域产品/应用/FAQ页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://gtechniq.com/shop/auto/interior/i2-tri-clean/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU15",
+    "brand": "Gtechniq",
+    "name": "W6 Iron and General Fallout Remover（官方2022文章）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "铁污染去除",
+    "category_ids": [
+      "U07"
+    ],
+    "body_part": "铁沉降/刹车粉去除；作用部位：漆面、轮毂、卡钳",
+    "material_scope": "厂商明确支持：厂家声明不损害其自身封体、蜡及涂层。限制/未知：不在阳光下施工，勿干燥；PPF/哑光/裸金属未知；产品现页标题已出现Wheel & Paint Cleaner，版本关系需复核",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "官方文章3–5分钟；较早文章5–10分钟存在来源差异，入库时标记冲突、不得默认计时",
+    "evidence_level": "官方区域使用文章；待核当前标签",
+    "automation_status": "参数冲突",
+    "sources": [
+      "https://gtechniq.com/remove-damaging-paint-wheel-contaminates-with-gtechniqs-w6-iron-and-fallout-remover/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU16",
+    "brand": "Bilt Hamber",
+    "name": "Auto-Foam",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "泡沫预洗",
+    "category_ids": [
+      "U01"
+    ],
+    "body_part": "预洗/重道路污垢松解；作用部位：车身外部",
+    "material_scope": "厂商明确支持：汽车外表面/高光漆面声明。限制/未知：冷表面；PPF/哑光未单列；PIR不是壶内浓度",
+    "supply_form": "浓缩原液",
+    "dilution_procedure": "官方技术单：PIR轻污1 part in100、重污最高5 parts in100；近无接触清洁示例4%为到达车身浓度；须测设备流量反算壶内量；停留“几分钟”，不自行编固定计时",
+    "evidence_level": "官方产品技术单",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://bilthamber.com/wp-content/uploads/2020/04/auto-foam.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU17",
+    "brand": "Bilt Hamber",
+    "name": "Auto-Wheel",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轮毂清洁",
+    "category_ids": [
+      "U11"
+    ],
+    "body_part": "轮毂铁颗粒/刹车粉去除；作用部位：轮毂",
+    "material_scope": "厂商明确支持：合金、铝、钢轮毂。限制/未知：避免直接喷轮毂中心盖；具体涂饰/哑光/车漆未知",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "直接大量喷轮毂；通常3–5分钟观察变色后冲洗；无稀释规定",
+    "evidence_level": "官方产品应用页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://bilthamber.com/product/auto-wheel/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU18",
+    "brand": "Bilt Hamber",
+    "name": "Surfex-HD",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "通用清洁与脱脂 APC",
+    "category_ids": [
+      "U05"
+    ],
+    "body_part": "水性脱脂/APC；作用部位：内外表面、轮毂、轮胎、地毯",
+    "material_scope": "厂商明确支持：漆面、合金轮毂、轮胎、织物、地毯。限制/未知：总是建议局部测试；冷面；皮革/PPF/哑光未知",
+    "supply_form": "可稀释原液/重污可原液",
+    "dilution_procedure": "页面概述0.5%到原液，使用段轻污1 part in100到原液，口径不同须保留；“片刻”后搅动/清水冲洗；不设固定配比默认值",
+    "evidence_level": "官方产品应用页",
+    "automation_status": "参数冲突",
+    "sources": [
+      "https://bilthamber.com/product/surfex-hd/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU19",
+    "brand": "Autoglym",
+    "name": "Polar Blast",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "泡沫预洗",
+    "category_ids": [
+      "U01"
+    ],
+    "body_part": "泡沫预洗；作用部位：车身外部含玻璃轮毂",
+    "material_scope": "厂商明确支持：已打蜡/封体；FAQ明确哑光/缎面漆可用。限制/未知：冷面、避直晒、勿干燥；不建议水桶使用；PPF未单列",
+    "supply_form": "浓缩原液",
+    "dilution_procedure": "泡沫瓶起始100 mL产品+500 mL水（明确产品:水）；可调整；使用步骤最多10分钟，同时营销段出现3分钟，不能直接设10分钟默认安全时间",
+    "evidence_level": "官方全球站产品/FAQ页（路径地区前缀）",
+    "automation_status": "参数冲突",
+    "sources": [
+      "https://www.autoglym.com/sk/pb002-5-polar-blast.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU20",
+    "brand": "Autoglym",
+    "name": "Super Resin Polish",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "研磨修复与抛光",
+    "category_ids": [
+      "U20"
+    ],
+    "body_part": "手工轻度抛光/填充/保护；作用部位：喷漆车身",
+    "material_scope": "厂商明确支持：不同颜色的喷漆车身。限制/未知：不适用哑光/缎面漆、wraps和缎面vinyl贴花；不可涂未喷漆橡胶/塑料饰条",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "洗净擦干，少量涂薄层，允许干燥后擦亮；无数值时间/稀释；属于应干燥产品例外",
+    "evidence_level": "官方全球站产品/FAQ页（路径地区前缀）",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.autoglym.com/ms/srp-super-resin-polish.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU21",
+    "brand": "Autoglym",
+    "name": "Interior Shampoo（澳新官方站）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "内饰硬表面清洁；织物与Alcantara清洁",
+    "category_ids": [
+      "U17",
+      "U19"
+    ],
+    "body_part": "内饰污渍清洁；作用部位：地垫、门板、顶棚、仪表台等",
+    "material_scope": "厂商明确支持：内饰织物/硬表面。限制/未知：正文建议皮革选Leather Cleaner；FAQ允许喷布后擦皮革且不得直喷，需保存条件差异；屏幕未知",
+    "supply_form": "直接使用（步骤推定）",
+    "dilution_procedure": "硬面喷擦；织物轻喷后布/海绵施工、湿布去净；无稀释和数值停留",
+    "evidence_level": "官方地区产品/FAQ页",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.autoglym.com.au/interior-shampoo"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU22",
+    "brand": "Labocosmetica",
+    "name": "PRÌMUS 2.0（参数参照2023 Rev3 PRÌMUS技术单）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "泡沫预洗",
+    "category_ids": [
+      "U01"
+    ],
+    "body_part": "碱性泡沫预洗/虫污道路污垢清洁；作用部位：车身、轮拱、轮毂轮胎",
+    "material_scope": "厂商明确支持：技术单列玻璃、车身塑料、铝、镀铬饰件及已打蜡/封体/涂层。限制/未知：PPF/哑光未单列；须确认当前2.0标签与2023技术单对应关系；不要把VDA营销当全材质无限条件许可",
+    "supply_form": "浓缩原液",
+    "dilution_procedure": "喷雾轮毂轮胎1:3–1:10、车身下部1:20、重污1:50、中污1:80、常洗1:100；泡沫壶冬季1:5/夏季或每周1:10；两端语义未定义且泡沫输出随设备；几分钟后高压冲洗",
+    "evidence_level": "官方产品页名称+2023技术单",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.labocosmetica.com/product/primus-best-multi-purpose-foam-prewash-for-car-motocycles/",
+      "https://labocosmetica.com/ENG/wp-content/uploads/2022/02/EN_data-sheet-PRIMUS-2.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU23",
+    "brand": "Labocosmetica",
+    "name": "PURÌFICA（2023 Rev3技术单；现商城标Upgrade Formula）",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "矿物沉积与水渍清洁",
+    "category_ids": [
+      "U09"
+    ],
+    "body_part": "矿物/水垢去污染洗车液；作用部位：车身、玻璃、轮毂、轮拱",
+    "material_scope": "厂商明确支持：技术单列车身塑料、铝件、玻璃、涂层/封体。限制/未知：PPF/哑光未单列；升级版映射待核；官方技术单存在比例与瓶盖体积冲突，应阻止自动配液",
+    "supply_form": "浓缩原液",
+    "dilution_procedure": "泡沫壶1:5–1:10、水桶1:100–1:400；喷雾明确10 mL加1 L水/10 mL加2 L水；同页写1:400等于4盖/10 L，与每盖10 mL不一致；无精确停留",
+    "evidence_level": "官方技术单+当前产品名称页",
+    "automation_status": "参数冲突",
+    "sources": [
+      "https://labocosmetica.com/wp-content/uploads/2022/02/EN_data-sheet-PURIFICA-2.pdf",
+      "https://www.labocosmetica.com/product/purifica-shampoo-revitalize-post-coated-car-water-spot-remover/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU24",
+    "brand": "Labocosmetica",
+    "name": "SÀTINO",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "接触正洗",
+    "category_ids": [
+      "U02"
+    ],
+    "body_part": "哑光/包膜专用正洗；作用部位：车身外部/包膜面",
+    "material_scope": "厂商明确支持：官方英文页明确哑光、包膜、已上蜡；官网其他语言页材质字段明确PPF。限制/未知：不把保护/UV时长营销转化成应用硬承诺；包膜品牌/膜型仍须具体确认；页面与技术单版本需保留",
+    "supply_form": "浓缩原液",
+    "dilution_procedure": "手洗1:60–1:100，官方页面还列泡沫壶1:5；比例两端未定义；手套洗后冷水冲净并擦干；无精确停留",
+    "evidence_level": "官方英文产品介绍+官方多语言产品字段",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://products.labocosmetica.com/satino/",
+      "https://www.labocosmetica.com/nl/product/satino-special-shampoo-matte-and-wrap-paint/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL01",
+    "brand": "Meguiar's",
+    "name": "Gold Class Car Wash / G7164，美国64 oz",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "接触正洗",
+    "category_ids": [
+      "U02"
+    ],
+    "body_part": "接触正洗；车身外表面",
+    "material_scope": "单层漆、透明漆；声称保留蜡、封体、涂层。哑光、PPF未在所读页明确，不自动支持",
+    "supply_form": "浓缩，官网销售规格明确",
+    "dilution_procedure": "桶洗或泡沫壶；泡沫壶标5:1，但所读文字未明确比例方向，暂停自动换算；桶洗比例待核",
+    "evidence_level": "官方直销产品页 Gold Class",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://meguiarsdirect.com/products/meguiars-gold-class-car-wash-shampoo-conditioner-g7164-64-oz"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL02",
+    "brand": "Meguiar's",
+    "name": "Professional D101 Detailer All Purpose Cleaner / D10101，美国1 gal",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "通用清洁与脱脂 APC",
+    "category_ids": [
+      "U05"
+    ],
+    "body_part": "通用清洁；地毯、座椅、仪表台及内外表面",
+    "material_scope": "官方列地毯、织物内饰、vinyl、皮革，称适用车漆；皮革子类型、屏幕、贴膜未明确",
+    "supply_form": "浓缩，官网明确",
+    "dilution_procedure": "产品页无可直接采用的配比；不采用第三方网站流传的4:1/10:1值。专业目录虽有入口，本次PDF打开失败，配比待原厂标签核实",
+    "evidence_level": "官方产品页 D101",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.meguiars.com/professional/products/meguiarsr-all-purpose-cleaner-1-gallon-liquid"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL03",
+    "brand": "Meguiar's",
+    "name": "Ultimate Compound / G17216，美国15.2 oz",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "研磨修复与抛光",
+    "category_ids": [
+      "U20"
+    ],
+    "body_part": "研磨修复；车漆划痕、旋纹、氧化及水斑",
+    "material_scope": "明确透明漆及亮光漆；无哑光漆、PPF、玻璃支持，不可外推",
+    "supply_form": "未知，页面未明确RTU字段",
+    "dilution_procedure": "明确手工或DA抛光机；无稀释指引。研磨修复不等于日常洗车清洁，不能每次洗车默认加入",
+    "evidence_level": "官方产品页 Ultimate Compound",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.meguiars.com/products/automotive/paint/meguiars-ultimate-compound-g17216-152oz"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL04",
+    "brand": "Turtle Wax",
+    "name": "Hybrid Solutions Ceramic Wash & Wax，美国48 fl oz",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "洗车附带保护",
+    "category_ids": [
+      "U21"
+    ],
+    "body_part": "清洁并附带保护；车身外部",
+    "material_scope": "官网列漆面、外部塑料和饰件；非所有膜/哑光面兼容性证明",
+    "supply_form": "需加水的洗车液",
+    "dilution_procedure": "一加仑水配3–4瓶盖；瓶盖容积未知，不能精确换算mL；分小区域清洗冲净，避免热表面/日照导致干燥",
+    "evidence_level": "官方产品页 Wash & Wax",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.turtlewax.com/products/hybrid-solutions-ceramic-wash-wax-48-fl-oz/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL05",
+    "brand": "Turtle Wax",
+    "name": "Hybrid Solutions Ceramic + Graphene Inside Job，美国16 fl oz",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "皮革与合成革清洁护理；内饰硬表面清洁",
+    "category_ids": [
+      "U18",
+      "U17"
+    ],
+    "body_part": "内饰清洁、调理、除味与保护",
+    "material_scope": "可洗内饰表面，明确皮革、vinyl、塑料、橡胶；屏幕、翻毛皮、未涂饰皮革未明确",
+    "supply_form": "即用（按官方直接喷涂步骤）",
+    "dilution_procedure": "摇匀，喷表面或超纤布，擦拭并收掉多余产品；可第二遍。网页无稀释配方",
+    "evidence_level": "官方产品页 Inside Job",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.turtlewax.com/products/hybrid-solutions-ceramic-graphene-inside-job"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL06",
+    "brand": "Turtle Wax",
+    "name": "Hybrid Solutions Ceramic Spray Coating，美国16 fl oz",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "独立表面保护与维护",
+    "category_ids": [
+      "U22"
+    ],
+    "body_part": "喷雾保护；洗净干燥的车身外表面",
+    "material_scope": "产品页主要讲车漆；官方系列页还列metal/plastic/glass，实际材质细分和当地标签需复核；不因“ceramic”判作同等于专业固化涂层",
+    "supply_form": "即用（按官方直接喷涂步骤）",
+    "dilution_procedure": "约2英尺×2英尺区域喷2下，超纤布涂开并收净；第二层前官方要求等待24小时。不是任意固化时长的通用模板",
+    "evidence_level": "官方产品页 Ceramic Spray Coating",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.turtlewax.com/products/hybrid-solutions-ceramic-wax-spray-coating-16-fl-oz"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL07",
+    "brand": "3D Car Care",
+    "name": "Orange Degreaser / SKU 109OZ16",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "通用清洁与脱脂 APC",
+    "category_ids": [
+      "U05"
+    ],
+    "body_part": "脱脂与去油性污染；页面提胶黏物、道路油膜、油脂等",
+    "material_scope": "官网称水基柑橘体系；所读页未给完整车部位/基材清单，不能据“non-corrosive”推定全部材质",
+    "supply_form": "未知：页面未给RTU/稀释明确字段",
+    "dilution_procedure": "擦净或水冲；精确稀释、停留、禁用基材待标签/TDS",
+    "evidence_level": "官方产品页 Orange Degreaser",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://3dproducts.com/products/3d-orange-degreaser"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL08",
+    "brand": "3D Car Care",
+    "name": "3D ONE / SKU 400OZ8",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "研磨修复与抛光",
+    "category_ids": [
+      "U20"
+    ],
+    "body_part": "一步研磨与精抛；漆面缺陷修复",
+    "material_scope": "页面明确车漆；未确认所有漆型及贴膜",
+    "supply_form": "未知：无稀释/即用明确字段",
+    "dilution_procedure": "官方描述可用旋转机切削，或DA机配较软盘精抛；无固定转速、次数、稀释参数，不自动生成施工处方",
+    "evidence_level": "官方产品页 3D ONE",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://3dproducts.com/products/3d-one-hybrid-one-step-compound-polish"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL09",
+    "brand": "P&S",
+    "name": "Absolute Rinseless Wash / F3601，所读为Gallon",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "免冲洗清洁",
+    "category_ids": [
+      "U03"
+    ],
+    "body_part": "免冲洗清洁；车外与车内",
+    "material_scope": "明确paint、coatings、wraps、PPF、trim、plastics、leather、upholstery；皮革与膜的具体型号未枚举",
+    "supply_form": "待标签确认；页面描述与水混用",
+    "dilution_procedure": "所读产品页没有明确配比；不可照搬第三方256:1，也不可把免冲洗误作无需水",
+    "evidence_level": "官方产品页 Absolute",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://psdetailproducts.com/products/absolute-rinseless-wash"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL10",
+    "brand": "P&S",
+    "name": "Xpress Interior Cleaner / G130P",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "内饰硬表面清洁",
+    "category_ids": [
+      "U17"
+    ],
+    "body_part": "快速内饰清洁；日常污垢、油脂、身体油污",
+    "material_scope": "明确leather、vinyl、plastic、rubber；屏幕、特殊皮革/绒面待核",
+    "supply_form": "未知：所读页无RTU/稀释字段",
+    "dilution_procedure": "页面强调擦后无残留及自然外观；配比、停留/去除步骤需标签，不填社区常见1:1",
+    "evidence_level": "官方产品页 Xpress",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://psdetailproducts.com/products/xpress-interior-cleaner-doubleblack-collection"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL11",
+    "brand": "CARPRO",
+    "name": "Reset",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "接触正洗",
+    "category_ids": [
+      "U02"
+    ],
+    "body_part": "正洗；涂层维护、道路膜清洁",
+    "material_scope": "明确围绕纳米封体及CQUARTZ涂层；未列全材质清单，不从pH中性外推",
+    "supply_form": "浓缩，官网明确",
+    "dilution_procedure": "指引1:500，且给40mL产品配20L水，方向明确可录入；羊毛手套洗后充分冲净",
+    "evidence_level": "官方产品页 Reset",
+    "automation_status": "配比有明确依据",
+    "sources": [
+      "https://carpro.global/product/reset/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL12",
+    "brand": "CARPRO",
+    "name": "IronX，基础喷雾款；不是Paste或Snow Soap",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "铁污染去除",
+    "category_ids": [
+      "U07"
+    ],
+    "body_part": "铁污染去除；车身及轮毂",
+    "material_scope": "明确paint、plastic、chrome、glass、alloy wheels；不自动覆盖抛光裸铝、特殊阳极层",
+    "supply_form": "即用（按官方直接喷涂步骤）",
+    "dilution_procedure": "清洗后摇匀喷涂，停留3–5分钟，湿软海绵辅助，充分冲净；避免阳光下干燥。这里的时间不可复制给别牌铁粉剂",
+    "evidence_level": "官方产品页 IronX",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://carpro.global/product/ironx/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL13",
+    "brand": "CARPRO",
+    "name": "Perl",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轮胎、塑料及橡胶护理",
+    "category_ids": [
+      "U13"
+    ],
+    "body_part": "轮胎/塑料/橡胶及内饰护理",
+    "material_scope": "明确内外塑料、橡胶、vinyl、modern leather；modern leather不等于所有皮革",
+    "supply_form": "可稀释保护剂；部分用途可不稀释",
+    "dilution_procedure": "清洁后加水、摇匀、施工并超纤布收净。原文外塑1:3、发动机舱1:1–1:3、轮胎橡胶1:0–1:1、内饰1:5；页面另写up to 5:1，方向文本不一致，应保存原文并以标签/厂家回复再锁定换算",
+    "evidence_level": "官方产品页 Perl",
+    "automation_status": "参数冲突",
+    "sources": [
+      "https://carpro.global/product/perl/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL14",
+    "brand": "SOFT99",
+    "name": "Glaco Glass Compound Roll On(T) / 10308，100mL英文包装",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "玻璃油膜与旧涂层去除",
+    "category_ids": [
+      "U15"
+    ],
+    "body_part": "玻璃研磨去油膜及旧保护前处理",
+    "material_scope": "官方限制为车辆玻璃前处理与去油；不可把玻璃支持扩展成塑料灯罩或镜面镀层支持",
+    "supply_form": "即用（按官方步骤）",
+    "dilution_procedure": "清洗干燥玻璃，摇匀并用自带毡头研磨至驱水消失，再充分冲净；可移除Ultra Glaco残留",
+    "evidence_level": "官方英文产品页 10308",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://tm11.soft99.co.jp/en/products/detail/10308/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL15",
+    "brand": "SOFT99",
+    "name": "Ultra Glaco / 70mL",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "玻璃/透明件驱水保护",
+    "category_ids": [
+      "U16"
+    ],
+    "body_part": "玻璃驱水保护",
+    "material_scope": "玻璃；本次页面不证明塑料、所有镜面涂层兼容",
+    "supply_form": "即用（自带毡头施工）",
+    "dilution_procedure": "均匀施工，稍干呈白后干布擦净；本页未给数字等待时间。宣传“约12个月”为厂家测试/声明，不作实际寿命保证",
+    "evidence_level": "官方Glaco品牌页 Ultra Glaco",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.glaco.jp/english/products/ultra_glaco.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL16",
+    "brand": "Griot's Garage",
+    "name": "Interior Cleaner / Item 11104",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "多用途内饰清洁（含织物）",
+    "category_ids": [
+      "U17",
+      "U19"
+    ],
+    "body_part": "内饰清洁；顶棚至地毯及硬表面",
+    "material_scope": "官方列内饰织物和硬表面，无染料/残留；仍缺屏幕、特殊皮革、顶棚胶层细化依据",
+    "supply_form": "即用：官方喷壶兼容表列full strength",
+    "dilution_procedure": "所读产品页无详细停留时间；兼容表只证明按原液使用，不能用作对所有材质的施工流程",
+    "evidence_level": "官方产品页及配套表 Interior Cleaner、喷壶兼容表",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.griotsgarage.com/interior-cleaner/",
+      "https://www.griotsgarage.com/content/pdf/51148productcompatibility.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL17",
+    "brand": "P&S",
+    "name": "Brake Buster Total Wheel Cleaner / N260P",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轮毂清洁",
+    "category_ids": [
+      "U11"
+    ],
+    "body_part": "轮毂清洁；刹车粉尘、油、污垢及轻微腐蚀",
+    "material_scope": "产品页写premium quality wheels，未枚举抛光铝、阳极氧化、电镀、涂装等轮毂饰面；不能补写“所有轮毂安全”",
+    "supply_form": "未知：所读页无RTU/稀释字段",
+    "dilution_procedure": "凝胶附着、渗透污染，并留抑蚀成分的说明；未给配比和停留时间，不采用经销商5:1当厂家处方",
+    "evidence_level": "官方产品页 Brake Buster",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://psdetailproducts.com/collections/renny-doyle-double-black-collection-1/products/brake-buster-doubleblack-collection"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL18",
+    "brand": "Griot's Garage",
+    "name": "Speed Shine / Item 11146",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轻污快洗与干燥辅助；黏土润滑",
+    "category_ids": [
+      "U04",
+      "U10"
+    ],
+    "body_part": "轻污快洗、黏土润滑、干燥辅助；车身外部",
+    "material_scope": "明确paint、chrome、vinyl、plastic、rubber、glass、PPF；官方描述针对灰尘、花粉及轻污，不能扩成重泥沙清洗方案",
+    "supply_form": "即用：官方喷壶兼容表列full strength",
+    "dilution_procedure": "喷涂擦净；不同用途需分别建操作卡，不因同瓶多用而合并为同一个步骤",
+    "evidence_level": "官方产品页 Speed Shine、喷壶兼容表",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.griotsgarage.com/speed-shine/",
+      "https://www.griotsgarage.com/content/pdf/51148productcompatibility.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL19",
+    "brand": "Griot's Garage",
+    "name": "Rubber Cleaner / Item 11136",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "轮胎与橡胶清洁",
+    "category_ids": [
+      "U12"
+    ],
+    "body_part": "橡胶等表面清洁及保护前准备；去旧护理剂、蜡、道路膜、褐变",
+    "material_scope": "明确rubber、plastic、vinyl、anodized finishes、polished aluminum、zinc plating；这是具体厂商声明，不能反推其他橡胶清洁剂同样兼容",
+    "supply_form": "即用：官方喷壶兼容表列full strength",
+    "dilution_procedure": "所读产品页没有具体停留和去除步骤，待背标；列举材质比抽象“无腐蚀”更有建库价值",
+    "evidence_level": "官方产品页 Rubber Cleaner、喷壶兼容表",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.griotsgarage.com/rubber-cleaner/",
+      "https://www.griotsgarage.com/content/pdf/51148productcompatibility.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL20",
+    "brand": "SOFT99",
+    "name": "Glaco BLAVE / 70mL",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "玻璃/透明件驱水保护",
+    "category_ids": [
+      "U16"
+    ],
+    "body_part": "玻璃与透明塑料驱水；车窗、灯罩等",
+    "material_scope": "官方明确glass与plastic/resin，列灯罩、挡风片等；特殊既有涂层及具体塑料牌号仍待标签",
+    "supply_form": "即用（按官方步骤）",
+    "dilution_procedure": "干燥表面均匀施工后立即用随附布擦净，不等待干燥；与Ultra Glaco等待略白再擦的指引不同",
+    "evidence_level": "官方Glaco品牌页 BLAVE",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://www.glaco.jp/english/products/glaco_blave.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL21",
+    "brand": "3D Car Care",
+    "name": "BDX Iron Remover / SKU 117OZ16",
+    "region_version": "按名称和来源地区/版本识别；实际瓶标待核",
+    "category": "铁污染去除",
+    "category_ids": [
+      "U07"
+    ],
+    "body_part": "去铁污染、刹车粉尘；车漆与轮毂",
+    "material_scope": "官网明确paint与wheels，但未细分所有轮毂饰面、PPF或哑光漆；无酸并非全材质验证",
+    "supply_form": "即用（按官方直接喷涂步骤）",
+    "dilution_procedure": "直接喷到车身分区或轮毂；官方停留1–2分钟，然后清水冲净。不同于GL12 IronX的3–5分钟，须分SKU保存",
+    "evidence_level": "官方产品页 BDX",
+    "automation_status": "资料待复核",
+    "sources": [
+      "https://3dproducts.com/products/3d-bdx-iron-remover-brake-dust-cleaner"
+    ],
+    "checked_date": "2026-10-11"
+  }
+]

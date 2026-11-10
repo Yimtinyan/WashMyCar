@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-10",
+  "status": "passed",
+  "url": "http://127.0.0.1:5173/dev.html",
+  "standalone": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/index.html",
+  "report": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/README.md",
+  "designNotes": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/design-notes.md",
+  "concept": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/refinement-home-concept.png",
+  "browser": "Playwright with local Microsoft Edge Chromium",
+  "fallbackReason": "Browser plugin not available in this session",
+  "viewports": [
+    "440x956",
+    "390x844",
+    "1440x1100"
+  ],
+  "watchContent": {
+    "width": 208,
+    "height": 248
+  },
+  "stateTests": {
+    "passed": 6,
+    "failed": 0,
+    "command": "node --test src/session.test.mjs"
+  },
+  "flowChecks": [
+    "phone home",
+    "plan location",
+    "preparation debits once",
+    "pause and resume",
+    "completion creates record",
+    "persisted random egg",
+    "record product link",
+    "manual usage with location",
+    "3D and liquid preview",
+    "reload persistence",
+    "dark mode",
+    "language",
+    "safe cache clear",
+    "brand filter",
+    "desktop rendering",
+    "watch 208x248",
+    "narrow mobile",
+    "standalone file",
+    "independent prototypes"
+  ],
+  "lastRelatedChecks": [
+    "route scroll resets to top",
+    "Fireball 3D",
+    "appearance switch",
+    "final phone440",
+    "Watch product15px and CTA44px fit verified"
+  ],
+  "browserErrors": [],
+  "browserWarnings": [],
+  "build": "passed",
+  "standaloneBytes": 6689969,
+  "screenshots": {
+    "home": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-home-440.png",
+    "inventory": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-inventory-440.png",
+    "completion": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-watch-complete-440.png",
+    "record": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-record-440.png",
+    "darkSettings": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-settings-dark-440.png",
+    "desktop": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-desktop-1440.png",
+    "fireball3D": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-fireball-inspection-440.png",
+    "fireballAppearance": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-fireball-appearance-440.png",
+    "activeWatch": "C:/Users/yimti/Documents/ChatGPT/洗车应用开发/demo/design/previews/washmycar-watch-active-440.png"
+  },
+  "fidelityChecks": [
+    "native copy and tab order",
+    "34px title and17px step hierarchy",
+    "warm white/deep green semantic palette",
+    "open rows and hairlines",
+    "shared silver car asset",
+    "primary56px action",
+    "responsive no horizontal overflow"
+  ],
+  "intentionalDifferences": [
+    "car model viewpoint uses shared Figma asset rather than exact concept car",
+    "required edit entry and downstream record/settings states",
+    "brand appearance images are static; real quantity updates are in bar and optional3D"
+  ],
+  "limitations": [
+    "browser demo, no native device connection",
+    "no GPS permission or OS notifications requested",
+    "software WebGL may differ from hardware",
+    "high resolution self-contained build approximately6.6MB",
+    "brand models illustrative, not exact packaging scans",
+    "no Dynamic Type or physical iPhone/Watch testing"
+  ],
+  "preserved": [
+    "v2 localStorage key and user inventory/history",
+    "independent prototypes files and preview storage"
+  ]
+}

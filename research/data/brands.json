@@ -1,0 +1,286 @@
+[
+  {
+    "id": "CN-B01",
+    "name": "车仆 CHIEF",
+    "region_group": "中国本土品牌研究组",
+    "identity_evidence": "车仆 CHIEF；官网介绍其为1993年成立的国内汽车养护企业，页脚主体为江西车仆实业有限公司。不能据此认定全部SKU同厂生产。",
+    "product_lines": "车体养护、玻璃养护、内外饰养护；另有系统养护、润滑油等超出日常洗车范围。",
+    "research_status": "品牌与具名目录已核实；详情字段缺失或403，配比与细材质待补证。",
+    "product_count": 4,
+    "sources": [
+      "https://www.chief.cc/About.html",
+      "https://www.chief.cc/Products/1.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN-B02",
+    "name": "标榜 BIAOBANG",
+    "region_group": "中国本土品牌研究组",
+    "identity_evidence": "标榜 BIAOBANG；官方主体为广州市标榜汽车用品实业有限公司，位于广州增城，研发、制造、销售汽车清洁美容养护等产品。",
+    "product_lines": "漆面美容、玻璃防护、内饰养护、发动机清洁、空气净化等。",
+    "research_status": "品牌、具名产品及部分用途已核实；多数配比语义与细材质限制待补证。",
+    "product_count": 5,
+    "sources": [
+      "https://www.biaobang.cn/p/about.html",
+      "https://www.biaobang.cn/blfh",
+      "https://www.biaobang.cn/qmmr.html",
+      "https://www.biaobang.cn/yhsc.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN-B03",
+    "name": "固特威 Glodway",
+    "region_group": "中国本土品牌研究组",
+    "identity_evidence": "固特威 Glodway；官方2025-06-30文章明确品牌于2008年创立，属于杭州维客泰美品牌管理有限公司。",
+    "product_lines": "玻璃养护、车漆清洗养护、内外饰洗护、空气治理；另有碳霸添加剂等。",
+    "research_status": "品牌经营主体与具名产品已核实；逐SKU生产主体、产地及施工参数待补证。",
+    "product_count": 4,
+    "sources": [
+      "https://www.glodway.cn/h-nd-37.html",
+      "https://www.glodway.cn/h-col-103.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN-B04",
+    "name": "三和 SANVO",
+    "region_group": "中国本土品牌研究组",
+    "identity_evidence": "三和 SANVO；三和精化集团网站有广东三和化工科技有限公司公开信息，列中山生产地址及清洗剂、喷蜡等经营范围。集团与具体SKU生产法人仍需逐SKU标签确认。",
+    "product_lines": "车品部气雾精细类：轮胎、柏油、表板护理、多功能泡沫清洁等；另有建材及家居产品，不能整体纳入车用库。",
+    "research_status": "品牌主体资料、具名产品及部分步骤已核实；同名版本、旧文与现行标签/SDS需复核。",
+    "product_count": 4,
+    "sources": [
+      "https://www.sanvo.com/public/upload/imagesUpload/1600247497957257.pdf",
+      "https://www.sanvo.com/mobile/product/list-233-2.html"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN-B05",
+    "name": "保赐利 BOTNY",
+    "region_group": "中国本土品牌研究组",
+    "identity_evidence": "保赐利 BOTNY；保宝龙科技控股有限公司2025年报将BOTNY列为集团自有品牌，并列广州保赐利化工有限公司为中国内地注册、间接100%持有的子公司。集团登记与品牌市场来源、单品产地需分字段，不简单称“纯内资”。",
+    "product_lines": "年报明确集团车用清洁护理范围包含内饰、轮胎/轮毂、漆与涂层、空气清新等；BOTNY下另有“保宝龙”系列。没有核实当前具名SKU完整目录。",
+    "research_status": "正式年报已核实品牌归属与业务线；官网不可读，当前具名产品目录待补证。",
+    "product_count": 0,
+    "sources": [
+      "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0428/2026042801867.pdf",
+      "https://www.botny.com/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "CN-B06",
+    "name": "好顺 HAOSHUN",
+    "region_group": "中国本土品牌研究组",
+    "identity_evidence": "好顺 HAOSHUN；候选主体广东好顺欧迪斯科技股份有限公司。",
+    "product_lines": "候选覆盖美容精洗、车漆保养、泡沫清洁、玻璃、机修及添加剂；当前官网目录尚未核实。",
+    "research_status": "补证对象；官方入口超时，主体与当前产品目录尚未完成一手核验。",
+    "product_count": 0,
+    "sources": [
+      "https://www.gdhaoshun.cn/",
+      "https://pdf.dfcfw.com/pdf/H2_AN202106281500539967_1.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU-B01",
+    "name": "Koch-Chemie",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官方技术单列 Koch-Chemie GmbH，德国 Unna 地址；这确认主体地址，不逐 SKU 证明生产地",
+    "product_lines": "清洁、预洗、洗车液、内饰、去污、抛光及保护等；技术单字段较结构化",
+    "research_status": "主体地址与技术单已核实；部分比例语义及中国版本待补证。",
+    "product_count": 4,
+    "sources": [
+      "https://www.koch-chemie.com/pdf/datasheet/Green_Star_en.pdf"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU-B02",
+    "name": "SONAX",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官方 SDS 列制造商/供应商 SONAX GmbH，德国 Neuburg 地址；英国供应商单列",
+    "product_lines": "消费级车护、XTREME、PROFILINE；同类产品有包装与版本差异",
+    "research_status": "主体/SDS与SKU使用页已核实；须保留包装版本、地区差异与材质排除条件。",
+    "product_count": 4,
+    "sources": [
+      "https://export.sonax.com/safetydatasheet/sdb_z43301602__sonax-beast-wheel-cleaner_gb-en.pdf",
+      "https://www.sonax.com/en/products/car-care/xtreme"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU-B03",
+    "name": "GYEON",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "全球官网 Contact 列总部 Innovative Chemicals Pte. Ltd.（新加坡），工厂地址韩国 Seoul；2017 官方目录记载2012年品牌推出及2016年迁入韩国设施。不可标成纯欧洲品牌",
+    "product_lines": "Q² 涂层、Q²M 保养、内饰、抛光、PPF、专业认证产品；必须保留 EVO/REDEFINED 等版本",
+    "research_status": "总部、工厂联系信息及产品已核实；跨地区主体不简化为国别，版本与比例语义待补证。",
+    "product_count": 4,
+    "sources": [
+      "https://gyeon.co/contact/",
+      "https://gyeon.co/korea/wp-content/uploads/2016/10/gyeon_catalogue_2017.pdf",
+      "https://gyeon.co/products-list/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU-B04",
+    "name": "Gtechniq",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "英国官方历史页记载Drew Gill于2001年创立，2006年欧洲总部设于英国King's Langley；具体当前总部及逐SKU制造地本轮未单独核验。不能以美国销售站反推品牌起源",
+    "product_lines": "清洗去污、涂层、封体、轮毂饰条、玻璃、内饰；产品编号 W/I/C/G/L 与版本并存",
+    "research_status": "官方历史与产品已核实；当前主体地址、新旧名称及施工时长差异待复核。",
+    "product_count": 3,
+    "sources": [
+      "https://www.gtechniq.co.uk/about-us/",
+      "https://gtechniq.com/product-category/auto/wash-decon-polish/",
+      "https://gtechniq.com/product-category/auto/interior/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU-B05",
+    "name": "Bilt Hamber",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官方站页脚列 Bilt Hamber Laboratories Ltd，英格兰注册号06211221，英国 Essex 注册地址",
+    "product_lines": "清洁脱脂、去铁、蜡/抛光/黏土、涂料防腐；明确区分泡沫壶浓度与车身触达浓度",
+    "research_status": "官方主体与产品技术资料已核实；PIR与壶内浓度需分开，部分浓度口径差异需保留。",
+    "product_count": 3,
+    "sources": [
+      "https://bilthamber.com/product/auto-wheel/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU-B06",
+    "name": "Autoglym",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "2024官方质量政策列其为Altro Ltd的业务部门，地址英国Letchworth Garden City；官网声明英国设计制造，未逐SKU核验；创立史未纳入本轮证据",
+    "product_lines": "消费产品、Polar 流程及 Professional；抛光与洗涤不是同一类功能",
+    "research_status": "官方主体政策与产品已核实；地区页条件及部分时间表述需复核。",
+    "product_count": 3,
+    "sources": [
+      "https://www.autoglym.com/professional/amfile/file/download/file/617",
+      "https://www.autoglym.com/about-us"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "EU-B07",
+    "name": "Labocosmetica",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官方商城页脚列Mafra International S.r.L.，意大利Milano/Baranzate地址；站内Made in Italy声明，逐SKU制造地未独立核验",
+    "product_lines": "预洗、酸性去矿物洗车液、中性正洗、内饰及涂层；3pH 是该品牌的产品流程体系，不能当作任何车每次必需的通用规则",
+    "research_status": "官方主体、产品与技术单已核实；版本映射及比例/瓶盖体积冲突须补证。",
+    "product_count": 3,
+    "sources": [
+      "https://www.labocosmetica.com/shop/",
+      "https://products.labocosmetica.com/find-out-more-3ph/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL-B01",
+    "name": "Meguiar's",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官网称始于1901年；地址为美国加州Irvine。公司当前股权主体本次未核定，不据旧记忆填母公司",
+    "product_lines": "官网分Automotive、Marine、Professional；Gold Class、Ultimate覆盖个人用户；D编号Detailer及Mirror Glaze属于专业产品框架，浓缩和设备施工要求须逐SKU判定",
+    "research_status": "官方历史与产品已核实；当前股权主体、部分专业品配比与中国版本待补证。",
+    "product_count": 3,
+    "sources": [
+      "https://www.meguiars.com/",
+      "https://www.meguiars.co.uk/our-heritage/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL-B02",
+    "name": "Turtle Wax",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官方历史：1946年形成Turtle Wax品牌，起源芝加哥；产品页页脚主体Turtle Wax Inc，地址Lombard, Illinois, USA",
+    "product_lines": "Hybrid Solutions面向车主居家清洁、保护、抛光；“pro-level”是性能宣传，不自动等于仅供专业人员或门店授权产品。本次未把历史Professional division当作当前产品线证据",
+    "research_status": "官方历史、主体页脚与产品已核实；瓶盖容积、细材质及中国版本待补证。",
+    "product_count": 3,
+    "sources": [
+      "https://www.turtlewax.com/pages/our-story",
+      "https://www.turtlewax.com/collections/hybrid-solutions"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL-B03",
+    "name": "3D Car Care",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官方Our Story明确创始人Tuncer Goren及洛杉矶地区洗车业务背景；本次抽样商品标示Made in USA；当前法定主体/股权待补核",
+    "product_lines": "官网按Pro Series、GLW Series、Body Shop、Marine & RV等分类，且按九个施工阶段组织。专业和爱好者同时服务，不能只看瓶型划线",
+    "research_status": "官方故事与产品已核实；当前法定主体/股权及部分施工参数待补证。",
+    "product_count": 3,
+    "sources": [
+      "https://3dproducts.com/pages/our-story",
+      "https://3dproducts.com/collections/pro-series-1",
+      "https://3dproducts.com/pages/shop-by-detailing-stage"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL-B04",
+    "name": "P&S",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官网隐私页列P&S Sales LLC，美国加州Hayward；联系页称该址为专业产品制造工厂",
+    "product_lines": "Renny Doyle Double Black、Pro Series；官网明确服务专业人士、DIY爱好者及中间人群，专业系列并非天然排除个人使用",
+    "research_status": "官方隐私/联系页主体与产品已核实；当前标签配比及细材质限制待补证。",
+    "product_count": 3,
+    "sources": [
+      "https://psdetailproducts.com/pages/privacy-policy-2024",
+      "https://psdetailproducts.com/pages/contact-us",
+      "https://psdetailproducts.com/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL-B05",
+    "name": "CARPRO",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "全球官网About写成立于2009年；Contact明确CARPRO Korea位于韩国全罗南道顺天；页脚为CARPRO Global LTD。创始国、法律注册地和工厂所在地不合并为一个猜测国别字段",
+    "product_lines": "官网按Prepare、Protect、PPF、Maintain、Accessories分类；CQUARTZ专业施工网络与可零售的清洁维护产品需分别建模",
+    "research_status": "官方品牌、联系地与产品已核实；法律注册地、部分比例方向冲突和中国版本待补证。",
+    "product_count": 3,
+    "sources": [
+      "https://www.carpro.global/about/",
+      "https://carpro.global/contact/",
+      "https://carpro.global/products/category/maintain/3/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL-B06",
+    "name": "SOFT99",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官方公司资料为SOFT99 corporation，1954年成立，总部日本大阪；列上海子公司，不能因此把品牌源头标为中国",
+    "product_lines": "个人车主线包括Glaco、FUKUPIKA等；日文公司资料明确G'ZOX属于业务用汽车美容用品；玻璃驱水与漆面保护不可混为一类",
+    "research_status": "官方公司资料与产品已核实；细材质、膜层及中国地区标签待补证。",
+    "product_count": 3,
+    "sources": [
+      "https://www.soft99.co.jp/en/corporate/profile/outline/",
+      "https://www.soft99.co.jp/corporate/profile/outline/"
+    ],
+    "checked_date": "2026-10-11"
+  },
+  {
+    "id": "GL-B07",
+    "name": "Griot's Garage",
+    "region_group": "海外品牌研究组",
+    "identity_evidence": "官方About：1990年以来在自有美国制造配送中心开发、制造、灌装液体护理产品；页面显示Tacoma HQ。当前法定主体待核",
+    "product_lines": "明显面向汽车爱好者，另有机器抛光与施工工具体系；本次未证实独立授权专业施工线",
+    "research_status": "官方品牌、制造背景、产品与喷壶兼容表已核实；当前法定主体及详细施工参数待补证。",
+    "product_count": 3,
+    "sources": [
+      "https://www.griotsgarage.com/about-us/"
+    ],
+    "checked_date": "2026-10-11"
+  }
+]
