@@ -3,7 +3,7 @@ import {phText} from './features.js';
 import React,{createContext,useContext,useEffect,useMemo,useRef,useState} from 'react';
 import {Car,FlaskConical,Clock3,Settings2,ChevronLeft,ChevronRight,Plus,X,Check,ArrowUp,ArrowDown,Trash2,MapPin,Search,Pause,Play,ArrowUpRight,RotateCw,Pencil,Sparkles,Sun,Moon,Globe2,Bell,Database,Wifi,BatteryFull,Signal,ClipboardList,Volume2,Activity} from 'lucide-react';
 import Bottle3D from './Bottle3D.jsx';
-import carImage from './assets/onvo-l60-silver.png';
+import carImage from './assets/onvo-l60-white-interior.png';
 import kochImage from './assets/gsf-bottle.png';
 import fireballImage from './assets/fireball-bottle.png';
 import {initialState,STORE_KEY,categories,tools,ml,uid} from './data.js';
