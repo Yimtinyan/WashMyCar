@@ -39,7 +39,7 @@ WashMyCar 是为自己动手洗车的车主设计的 iPhone 与 Apple Watch 应�
 
 | 想了解什么 | 建议从这里开始 |
 | --- | --- |
-| 应用图标、设计理念与生成提示词 | [简约高奢图标 · v1](design/app-icon/README.md) · [1024 × 1024 PNG](design/app-icon/washmycar-icon-v1-1024.png) |
+| 应用图标、设计理念与生成提示词 | [乐道 L60 · 液态玻璃明暗双版](design/app-icon/README.md) · [明亮 PNG](native/iOS/Assets.xcassets/AppIcon.appiconset/Icon-Light.png) · [暗夜 PNG](native/iOS/Assets.xcassets/AppIcon.appiconset/Icon-Dark.png) |
 | 产品做什么、首版做到哪里、如何验收 | [产品企划与需求说明 · 在线阅读](output/洗车应用产品企划与需求说明_v1.0.md) · [PDF](output/pdf/洗车应用产品企划与需求说明_v1.0.pdf) |
 | 国内外品牌有哪些产品线，药剂作用于哪些部位和材质 | [洗车与汽车美容药剂研究 · 在线阅读](output/洗车与汽车美容药剂研究_v0.1.md) · [PDF](output/pdf/洗车与汽车美容药剂研究_v0.1.pdf) |
 | 查某款药剂的用途、厂商来源和待核实项 | [品牌与产品资料库 · Excel](output/洗车药剂品牌与产品资料库_v0.1.xlsx) |

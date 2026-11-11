@@ -99,7 +99,7 @@ for t in targets:
     if os.environ.get("WASHMYCAR_TEAM_ID"):
         settings["DEVELOPMENT_TEAM"] = os.environ["WASHMYCAR_TEAM_ID"]
     if name == "WashMyCar":
-        settings.update({"INFOPLIST_KEY_UIApplicationSceneManifest_Generation": "YES", "SUPPORTS_MACCATALYST": "YES", "DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER": "NO", "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor"})
+        settings.update({"INFOPLIST_KEY_UIApplicationSceneManifest_Generation": "YES", "SUPPORTS_MACCATALYST": "YES", "DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER": "NO", "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor", "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon"})
     else:
         settings["SKIP_INSTALL"] = "YES"
     if name in ("WashMyCar", "WashWidgets"):
