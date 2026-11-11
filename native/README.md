@@ -10,7 +10,7 @@
 4. 在 iPhone App 和小组件 target 中启用同一个 App Group：`group.com.yimtinyan.WashMyCar`。若更换 group ID，同时修改 `iOS/AppStore.swift`、`Widgets/WashWidgets.swift` 和工程生成脚本中的对应值。它只存放小组件最小摘要，主资料仍保存在 App 的 Application Support 中。
 5. 选择 `WashMyCarWatch` scheme，运行到与 iPhone 配对的 Apple Watch，最低 watchOS 10。iPhone target 已嵌入 Watch App 和 Widget 扩展。
 
-本机 Xcode 27.2 具备 iOS/watchOS SDK。2026-11-11 已使用本机开发证书构建并安装 iPhone 真机测试版；首次启动仍需在手机上信任开发者证书。模拟器可另外在 Xcode 的 Settings → Components 中下载运行时后创建。
+本机 Xcode 27.2 具备 iOS/watchOS SDK。2026-11-11 已使用本机开发证书构建并安装 iPhone 真机测试版；用户完成开发者信任后确认已显示原生首页，Mac 端随后也查询到手机上的 App 运行进程。模拟器可另外在 Xcode 的 Settings → Components 中下载运行时后创建。
 
 ### 个人开发团队的真机测试版
 
