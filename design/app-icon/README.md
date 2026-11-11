@@ -18,6 +18,7 @@
 | 文件 | 内容 |
 | --- | --- |
 | [AppIcon.appiconset](../../native/iOS/Assets.xcassets/AppIcon.appiconset) | Xcode 图标资源组，含明亮、暗夜两张 1024 × 1024 PNG 及 Any / Dark 映射 |
+| [Watch AppIcon](../../native/Watch/Assets.xcassets/AppIcon.appiconset) | Apple Watch 复用明亮版主图，由 watchOS 呈现圆形图标 |
 | [明亮原图](v4/washmycar-light-master.png) / [暗夜原图](v4/washmycar-dark-master.png) | 内置 Image Gen 原始输出，1254 × 1254 |
 | [明亮版完整提示词](v4/prompt-light.txt) / [暗夜版完整提示词](v4/prompt-dark.txt) | 两次编辑的完整生成输入 |
 
@@ -29,6 +30,8 @@
 
 iPhone target 的工程设置和工程生成脚本均已指定 AppIcon。资源组的默认 Any 对应明亮版，Dark 对应暗夜版，沿用系统的图标外观机制。
 
+Watch target 同样已接入独立 AppIcon 资源组，使用明亮版主图。双端构建号统一为 3。
+
 安装包含此资源的版本后，在 iPhone 主屏幕图标自定义中选择“自动”，系统会按外观选择明暗版本；也可手动选择浅色或深色。详见 [Apple 主屏幕图标自定义说明](https://support.apple.com/en-gb/guide/iphone/iph385473442/26/ios/26) 与 [Xcode 图标资源说明](https://developer.apple.com/documentation/xcode/configuring-your-app-icon)。
 
 ## 参考与检查
@@ -39,4 +42,4 @@ iPhone target 的工程设置和工程生成脚本均已指定 AppIcon。资源�
 - 目视检查原图与 60 像素预览，核对两版的车形、灯组、水纹、边距和小尺寸识别。
 - 通过 Xcode actool 编译整个资产目录，生成 Assets.car 和应用图标信息，无警告。
 - 工程文件通过 plutil 语法检查，核对图片、提示词和文档链接。
-- 本轮完成源资源配置和资产编译，设备安装与主屏幕切换效果留待安装后确认。
+- 已签名构建并覆盖安装至 iPhone 16 Pro Max 和 Apple Watch Series 10，确认两端已安装 0.1.0（3），更新前后业务资料完全一致。手表启动成功，手机自动启动因锁屏被拒绝；实际主屏幕截图与外观切换未采集。详见 [真机更新记录](../../native/verification.md)。

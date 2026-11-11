@@ -56,6 +56,12 @@ WASHMYCAR_TEAM_ID=YOURTEAM WASHMYCAR_WATCH_ID=YOURWATCH \
 
 为真机排错，App 各自在本机 Application Support 写入 `ConnectivityStatus.json`，只含系统连接标志、事件和错误等运行状态，不包含方案、药剂、备注、设备标识或健康数据；该文件不属于资料备份，不上传仓库。
 
+## 应用图标
+
+iPhone 的 AppIcon 提供明亮与暗夜两版，按主屏幕图标外观选择；Watch 使用同一明亮版主图，配置在独立的 Watch 资产目录。工程和生成脚本均已接入图标，当前构建号为 3。图标与提示词见 [设计说明](../design/app-icon/README.md)。
+
+2026-11-11 已签名构建并覆盖安装至 iPhone 16 Pro Max 与 Apple Watch Series 10，两端已安装列表确认 0.1.0（3），更新前后业务资料完全一致。手表启动成功，手机自动启动因锁屏被拒绝，解锁后可打开；详见 [验证记录](verification.md)。
+
 ## 已实现
 
 | 模块 | 原生行为 |

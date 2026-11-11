@@ -63,6 +63,8 @@ for t in targets:
     resources = []
     if t["folder"] == "iOS":
         resources = [add(name+":resource:"+path, "PBXBuildFile", fileRef=ref(path)) for path in ["iOS/Assets.xcassets", "Resources/Seed.json"]]
+    elif t["folder"] == "Watch":
+        resources = [add(name+":resource:Watch/Assets.xcassets", "PBXBuildFile", fileRef=ref("Watch/Assets.xcassets"))]
     phases.append(add(name+":resources", "PBXResourcesBuildPhase", buildActionMask=2147483647, files=resources, runOnlyForDeploymentPostprocessing=0))
     dependencies = []
     if t["folder"] == "iOS":
@@ -91,7 +93,7 @@ for t in targets:
         "INFOPLIST_FILE": "Config/"+name+"-Info.plist", "GENERATE_INFOPLIST_FILE": "YES",
         "SDKROOT": t["sdk"], "SUPPORTED_PLATFORMS": t["platforms"], "TARGETED_DEVICE_FAMILY": t["family"],
         "SWIFT_VERSION": "5.0", "SWIFT_STRICT_CONCURRENCY": "targeted", "CODE_SIGN_STYLE": "Automatic",
-        "CURRENT_PROJECT_VERSION": "2", "MARKETING_VERSION": "0.1.0", "ENABLE_USER_SCRIPT_SANDBOXING": "YES",
+        "CURRENT_PROJECT_VERSION": "3", "MARKETING_VERSION": "0.1.0", "ENABLE_USER_SCRIPT_SANDBOXING": "YES",
         "SWIFT_EMIT_LOC_STRINGS": "YES", "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
         "IPHONEOS_DEPLOYMENT_TARGET": "17.0", "WATCHOS_DEPLOYMENT_TARGET": "10.0",
         "ENABLE_PREVIEWS": "YES", "LOCALIZATION_PREFERS_STRING_CATALOGS": "YES",
@@ -102,6 +104,8 @@ for t in targets:
         settings.update({"INFOPLIST_KEY_UIApplicationSceneManifest_Generation": "YES", "SUPPORTS_MACCATALYST": "YES", "DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER": "NO", "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor", "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon"})
     else:
         settings["SKIP_INSTALL"] = "YES"
+    if name == "WashMyCarWatch":
+        settings["ASSETCATALOG_COMPILER_APPICON_NAME"] = "AppIcon"
     if name in ("WashMyCar", "WashWidgets"):
         entitlement = {"com.apple.security.application-groups": ["group.com.yimtinyan.WashMyCar"]}
         (CONFIG/(name+".entitlements")).write_bytes(plistlib.dumps(entitlement))
