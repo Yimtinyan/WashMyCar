@@ -10,7 +10,20 @@
 4. 在 iPhone App 和小组件 target 中启用同一个 App Group：`group.com.yimtinyan.WashMyCar`。若更换 group ID，同时修改 `iOS/AppStore.swift`、`Widgets/WashWidgets.swift` 和工程生成脚本中的对应值。它只存放小组件最小摘要，主资料仍保存在 App 的 Application Support 中。
 5. 选择 `WashMyCarWatch` scheme，运行到与 iPhone 配对的 Apple Watch，最低 watchOS 10。iPhone target 已嵌入 Watch App 和 Widget 扩展。
 
-本机 Xcode 27.2 具备 iOS/watchOS SDK，但没有安装 Simulator runtime。在 Xcode 的 Settings → Components 中下载所需 iOS/watchOS 模拟器运行时后，创建配对设备；也可以直接使用真机。这里尚未配置用户的签名团队，没有生成已签名安装包。
+本机 Xcode 27.2 具备 iOS/watchOS SDK。2026-11-11 已使用本机开发证书构建并安装 iPhone 真机测试版；首次启动仍需在手机上信任开发者证书。模拟器可另外在 Xcode 的 Settings → Components 中下载运行时后创建。
+
+### 个人开发团队的真机测试版
+
+本次个人团队生成的描述文件没有 App Group 权限，直接构建默认工程会发生 entitlement 不匹配。可以使用以下专门的测试脚本，不修改正式工程的权限配置：
+
+```sh
+WASHMYCAR_TEAM_ID=YOURTEAM WASHMYCAR_DEVICE_ID=YOURDEVICE \
+  bash native/Scripts/run_device.sh
+```
+
+脚本构建、安装并尝试启动 App；使用 `LOCAL_DEVICE_PREVIEW` 编译条件并移除本次构建的 App Group entitlement。手机的方案、库存、履历与记录照常保存于 App 本机目录，安装更新不会主动卸载或清空资料。此测试版不写共享摘要，小组件明确提示“共享未启用”；正式构建仍使用原来的 App Group 配置。手表 App 会一起签名嵌入，但安装至手表及双端通信需另行验收。
+
+若首次启动提示未受信任的开发者，在 iPhone 的「设置 → 通用 → VPN 与设备管理 → 开发者 App」中信任自己的开发者，然后再打开 App。本次生成的描述文件有效期至 2026-11-18；到期后需要重新构建签名安装。团队、设备标识通过环境变量传入，不提交证书、描述文件或签名产物。
 
 Mac Catalyst 可选择 **My Mac (Mac Catalyst)** 进行界面检查。Catalyst 不支持本项目的真实手表连接，不替代 iPhone/Watch 配对验收。
 

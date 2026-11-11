@@ -41,7 +41,11 @@ struct SettingsView: View {
                 Text("iPhone 和 Watch 使用相同签名团队安装并配对。交接后以手表为唯一执行端；手表离线进度保存于本机，连接恢复后重试同步。").font(.caption).foregroundStyle(.secondary)
             }
             Section("系统入口") {
+                #if LOCAL_DEVICE_PREVIEW
+                Text("此真机测试版未启用小组件共享资料；手机库存、方案和记录正常保存在本机。")
+                #else
                 Text("可在快捷指令或操作按钮设置中选择“打开洗车流程”；小组件提供距上次洗车时间和药剂瓶数。")
+                #endif
                 Text("当前原生版本尚未接入 HealthKit、相机拍摄与 Camera Control。车辆与药瓶沿用现有图片示意。").font(.caption).foregroundStyle(.secondary)
             }
             Section { Text("WashMyCar · 原生 v0.1\n好好洗车，慢慢生活。").font(.footnote).foregroundStyle(.secondary) }

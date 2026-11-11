@@ -92,10 +92,12 @@ final class AppStore: ObservableObject {
         state = imported; loadFailed = false; writeWidget()
     }
     private func writeWidget() {
+        #if !LOCAL_DEVICE_PREVIEW
         guard state != .null, let group = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.yimtinyan.WashMyCar") else { return }
         let snapshot: JSON = .object(["lastWash": state["washes"].array.first?["finishedAt"] ?? .null,
                                       "planName": state["plan"]["name"], "bottles": .number(Double(state["products"].array.count))])
         do { try snapshot.encoded().write(to: group.appendingPathComponent("Widget.json"), options: .atomic); WidgetCenter.shared.reloadAllTimelines() }
         catch { /* Widget failure must not invalidate the committed inventory transaction. */ }
+        #endif
     }
 }

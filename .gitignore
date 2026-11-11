@@ -21,6 +21,7 @@ __pycache__/
 # Xcode and Swift Package build products / per-user settings
 /native/.build/
 /native/DerivedData/
+/native/DerivedData-DevicePreview/
 **/xcuserdata/
 *.xcuserstate
 .DS_Store

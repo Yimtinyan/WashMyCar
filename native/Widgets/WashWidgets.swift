@@ -12,11 +12,15 @@ struct WashProvider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (WashEntry) -> Void) { completion(read()) }
     func getTimeline(in context: Context, completion: @escaping (Timeline<WashEntry>) -> Void) { completion(Timeline(entries: [read()], policy: .after(.now.addingTimeInterval(3600)))) }
     private func read() -> WashEntry {
+        #if LOCAL_DEVICE_PREVIEW
+        return WashEntry(date: .now, lastWash: nil, bottles: nil, name: "此测试版未启用共享资料")
+        #else
         guard let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.yimtinyan.WashMyCar")?.appendingPathComponent("Widget.json"),
               let data = try? Data(contentsOf: url), let json = try? JSON.read(data) else {
             return WashEntry(date: .now, lastWash: nil, bottles: nil, name: "打开 App 同步资料")
         }
         return WashEntry(date: .now, lastWash: json["lastWash"].number.map { Date(timeIntervalSince1970: $0 / 1000) }, bottles: json["bottles"].number.map(Int.init), name: json["planName"].text)
+        #endif
     }
 }
 struct WashWidgetView: View {
@@ -28,10 +32,20 @@ struct WashWidgetView: View {
             Spacer(minLength: 0)
             if inventory {
                 if let bottles = entry.bottles { Text("\(bottles) 瓶").font(.largeTitle).fontWeight(.medium) }
-                else { Text("等待同步").font(.title3) }
+                else {
+                    #if LOCAL_DEVICE_PREVIEW
+                    Text("共享未启用").font(.title3)
+                    #else
+                    Text("等待同步").font(.title3)
+                    #endif
+                }
             } else if let last = entry.lastWash { Text(last, style: .relative).font(.title2).fontWeight(.medium) }
             else { Text("留一点时间，\n给爱车。").font(.title3) }
+            #if LOCAL_DEVICE_PREVIEW
+            Text(entry.name).font(.caption2).lineLimit(2).foregroundStyle(.secondary)
+            #else
             Text(inventory ? "核对余量，再从容出发。" : entry.name).font(.caption2).lineLimit(2).foregroundStyle(.secondary)
+            #endif
         }.frame(maxWidth: .infinity, alignment: .leading)
             .containerBackground(Color(red: 0.08, green: 0.27, blue: 0.25).gradient, for: .widget).foregroundStyle(.white)
             .widgetURL(URL(string: inventory ? "washmycar://inventory" : "washmycar://records"))
