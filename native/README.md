@@ -27,6 +27,23 @@ WASHMYCAR_TEAM_ID=YOURTEAM WASHMYCAR_DEVICE_ID=YOURDEVICE \
 
 Mac Catalyst 可选择 **My Mac (Mac Catalyst)** 进行界面检查。Catalyst 不支持本项目的真实手表连接，不替代 iPhone/Watch 配对验收。
 
+### 手表安装失败或一直等待
+
+手机安装成功并不表示手表已注册到 Xcode。先运行 `xcrun devicectl list devices`，以及 `xcodebuild -project native/WashMyCar.xcodeproj -scheme WashMyCarWatch -showdestinations`。如果列表中没有物理 Apple Watch，先完成设备发现与配对，不能用 iPhone 的设备 ID 代替手表来签名安装。
+
+本机 Xcode 27.2 可打开 Device Hub，点击 `+ → Pair Nearby Device…`。配对窗口提示在待配对设备的「设置 → 隐私与安全性 → 开发者模式」中开启开发者模式。按手表提示重启并确认后解锁，保持靠近 Mac 和其配对 iPhone，并按实际提示完成配对。若没有该选项，需进一步核对手表型号、系统版本及设备连接状态，不应先抹掉或重新配对手表来碰运气。参考 [Apple 开发者模式说明](https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device)和[真机运行说明](https://help.apple.com/xcode/mac/current/en.lproj/dev5a825a1ca.html)。
+
+手表出现在 Xcode 目标列表后，可选择 `WashMyCarWatch` scheme 和该手表点 Run，或者直接运行：
+
+```sh
+WASHMYCAR_TEAM_ID=YOURTEAM WASHMYCAR_WATCH_ID=YOURWATCH \
+  bash native/Scripts/run_watch.sh
+```
+
+脚本使用手表自身的目标 ID 构建，允许 Xcode 注册该设备并生成描述文件，再直接安装和尝试启动手表 App。不卸载 App 或清空已有手表流程。首次连接、信任与开发者模式确认仍需在设备上完成。未识别到物理手表时，这条安装路径尚不能执行。
+
+2026-11-11 已在 Apple Watch Series 10 / watchOS 27.0.1 实际执行此脚本：重新生成的描述文件包含该手表，签名构建、安装和启动命令均成功。此前随手机构建生成的 Watch 描述文件仅登记了 iPhone/iPad，不能据其本地签名校验通过就认为手表有安装授权。双端业务流程仍需继续验收，详见验证记录。
+
 ## 已实现
 
 | 模块 | 原生行为 |

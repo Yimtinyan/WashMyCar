@@ -22,6 +22,7 @@ __pycache__/
 /native/.build/
 /native/DerivedData/
 /native/DerivedData-DevicePreview/
+/native/DerivedData-WatchDevice/
 **/xcuserdata/
 *.xcuserstate
 .DS_Store

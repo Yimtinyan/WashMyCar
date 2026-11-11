@@ -1,5 +1,15 @@
 # 原生 v0.1 验证记录
 
+## 2026-11-11 · 手表安装排查
+
+- 用户反馈：iPhone 的 Watch App 可以看到 WashMyCar，但安装失败或持续等待。
+- 三种设备枚举（CoreDevice、Xcode 设备列表和 Instruments）均只识别到连接的 iPhone，没有物理 Apple Watch；Watch scheme 也未列出可运行的物理手表目标。
+- 检查确认手机包内已嵌入 Watch App，companion bundle ID 正确，本地代码签名完整性校验通过。但其描述文件的设备列表只包含已知 iPhone 和 iPad，不包含 Apple Watch；此前的包完整性校验不能当作手表设备授权已满足。
+- 已打开 Xcode 27.2 Device Hub 的 `Pair Nearby Device…` 入口。用户确认手表已开启开发者模式并解锁放在旁边，系统版本为 watchOS 27.0.1，且与 Mac 在同一 Wi-Fi。Mac Wi-Fi 与蓝牙均已开启，未更改网络、隐私或安全开关。
+- 随后在 Xcode 打开原生工程并切换到 `WashMyCarWatch` scheme，在运行目标列表中发现物理 Apple Watch Series 10（watchOS 27.0.1），选择后 CoreDevice 也列出了该手表。
+- 增加 `Scripts/run_watch.sh`，使用手表自身的目标标识注册、重新签名、直接安装和启动。Bash 语法检查通过，实际真机签名构建成功；新描述文件已包含该 Apple Watch，本地代码签名完整性校验通过。
+- 设备安装命令成功，启动命令返回成功；再次查询手表已安装列表确认 WashMyCar 0.1.0（1），并确认手表上的主 App 进程仍在运行。至此手表安装和真机启动已确认；尚未验证完整双端方案传输、断连执行与完成回传，不将安装成功等同于双端业务验收。
+
 ## 2026-11-11 · iPhone 真机安装
 
 - USB 连接的 iPhone 16 Pro Max（iOS 27.2）已配对，开发者模式开启，开发设备服务可用。
