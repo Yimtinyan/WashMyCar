@@ -2,6 +2,29 @@ import XCTest
 @testable import WashCore
 
 final class WashCoreTests: XCTestCase {
+    func testActivationAloneDoesNotMeanCompanionIsReady() {
+        var s = LinkState(); s.activated = true
+        XCTAssertNotNil(s.transferIssue)
+        s.paired = true
+        XCTAssertTrue(s.transferIssue!.contains("尚未确认手表 App 已安装"))
+        s.verified = true
+        XCTAssertNotEqual(s.status, "双端通信已验证")
+    }
+    func testUnreachableInstalledPeerStillAllowsDurableTransfer() {
+        var s = LinkState(); s.activated = true; s.paired = true; s.peerInstalled = true
+        XCTAssertNil(s.transferIssue)
+        XCTAssertTrue(s.status.contains("等待同步机会"))
+        s.reachable = true
+        XCTAssertTrue(s.status.contains("待验证通信"))
+        s.verified = true
+        XCTAssertEqual(s.status, "双端通信已验证")
+    }
+    func testWatchRequiresItsOwnCompanionInstallationFlag() {
+        var s = LinkState(); s.phone = false; s.activated = true
+        XCTAssertTrue(s.transferIssue!.contains("对应的 iPhone App"))
+        s.peerInstalled = true
+        XCTAssertNil(s.transferIssue)
+    }
     func seed() throws -> JSON {
         let url = Bundle.module.url(forResource: "Seed", withExtension: "json", subdirectory: "Fixtures")!
         return try JSON.read(Data(contentsOf: url))

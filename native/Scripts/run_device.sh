@@ -11,6 +11,11 @@ xcodebuild -project "$task_root/WashMyCar.xcodeproj" -scheme WashMyCar \
   CODE_SIGN_ENTITLEMENTS= \
   SWIFT_ACTIVE_COMPILATION_CONDITIONS='$(inherited) LOCAL_DEVICE_PREVIEW' \
   -allowProvisioningUpdates -allowProvisioningDeviceRegistration build
+task_verify_args=("$task_build/Build/Products/Debug-iphoneos/WashMyCar.app")
+if [[ -n "${WASHMYCAR_PAIRED_WATCH_ID:-}" ]]; then
+  task_verify_args+=(--watch-id "$WASHMYCAR_PAIRED_WATCH_ID")
+fi
+python3 "$task_root/Scripts/verify_companion.py" "${task_verify_args[@]}"
 xcrun devicectl device install app --device "$WASHMYCAR_DEVICE_ID" \
   "$task_build/Build/Products/Debug-iphoneos/WashMyCar.app"
 xcrun devicectl device process launch --device "$WASHMYCAR_DEVICE_ID" com.yimtinyan.WashMyCar

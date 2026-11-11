@@ -38,6 +38,7 @@ struct SettingsView: View {
             }
             Section("Apple Watch") {
                 ConnectionStatus(connection: store.connection)
+                Button("检查两端连接") { store.connection.checkConnection() }
                 Text("iPhone 和 Watch 使用相同签名团队安装并配对。交接后以手表为唯一执行端；手表离线进度保存于本机，连接恢复后重试同步。").font(.caption).foregroundStyle(.secondary)
             }
             Section("系统入口") {

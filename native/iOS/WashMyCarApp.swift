@@ -4,11 +4,13 @@ import AppIntents
 @main
 struct WashMyCarApp: App {
     @StateObject private var store = AppStore()
+    @Environment(\.scenePhase) private var phase
     var body: some Scene {
         WindowGroup {
             RootView().environmentObject(store)
                 .tint(Style.green)
                 .preferredColorScheme(store.state["settings"]["theme"].text == "dark" ? .dark : store.state["settings"]["theme"].text == "light" ? .light : nil)
+                .onChange(of: phase) { _, next in if next == .active { store.connection.checkConnection() } }
         }
     }
 }

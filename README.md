@@ -2,13 +2,13 @@
 
 WashMyCar 是为自己动手洗车的车主设计的 iPhone 与 Apple Watch 应用项目。它围绕一次洗车里的三个实际问题展开：**手里的药剂能用在哪个部位？这次该配多少？洗到这一步，接下来要做什么？**
 
-**项目状态：已有 SwiftUI 原生 v0.1 工程，进入原生编译与界面验证阶段。** 同时保留可离线体验的浏览器 Demo，以及适配 iPhone 16 Pro Max、Apple Watch Series 10 46mm 的可编辑 Figma 精修稿。原生工程已通过 iOS / watchOS 无签名编译和 Mac Catalyst 界面检查，尚未完成签名真机与双端配对验收。
+**项目状态：SwiftUI 原生 v0.1 已完成首次真机双端流程验证。** 同时保留可离线体验的浏览器 Demo，以及适配 iPhone 16 Pro Max、Apple Watch Series 10 46mm 的可编辑 Figma 精修稿。原生构建 2 已在 iPhone 16 Pro Max / Apple Watch Series 10 上验证安装、双向通信、方案下发、保存回执和四步测试完成回传，库存没有重复扣减；断连恢复、长时运行和水锁等场景尚待验收。
 
 ## 使用 Xcode 原生版本
 
 打开 [`native/WashMyCar.xcodeproj`](native/WashMyCar.xcodeproj)，选择 `WashMyCar` 或 `WashMyCarWatch` scheme。工程包含 iPhone、Apple Watch、WidgetKit 扩展和共享业务测试，无第三方依赖。运行与签名步骤见 [原生版说明](native/README.md)，范围与实测结果见 [验证记录](native/verification.md)。
 
-原生版支持方案编排、备液扣库、药剂资料与履历、手机现场引导、WatchConnectivity 传输及手表离线执行代码、历史快照、备注与 JSON 备份恢复。可在 Demo 设置导出备份后导入原生 App。真实手表配对、小组件安装尚待设备验证；HealthKit 与拍摄功能尚未接入。
+原生版支持方案编排、备液扣库、药剂资料与履历、手机现场引导、WatchConnectivity 传输及手表离线执行代码、历史快照、备注与 JSON 备份恢复。可在 Demo 设置导出备份后导入原生 App。个人团队真机测试版未启用小组件共享资料；HealthKit 与拍摄功能尚未接入。
 
 ## 体验当前版本
 

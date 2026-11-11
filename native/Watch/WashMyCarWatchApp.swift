@@ -7,7 +7,7 @@ struct WashMyCarWatchApp: App {
     var body: some Scene {
         WindowGroup {
             WatchView().environmentObject(store).tint(.mint)
-                .onChange(of: phase) { _, next in if next == .active { store.sync() } }
+                .onChange(of: phase) { _, next in if next == .active { store.connection.checkConnection(); store.sync() } }
         }
     }
 }
