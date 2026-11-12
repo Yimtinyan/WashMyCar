@@ -7,10 +7,10 @@ public enum Backup {
         guard data.count <= maxBytes else { throw WashError("备份超过 12 MB。") }
         let b = try JSON.read(data)
         guard b["format"].text == "WashMyCarBackup", b["schemaVersion"].number == 1,
-              let version = b["appVersion"].number, (2...5).contains(version),
+              let version = b["appVersion"].number, (2...6).contains(version),
               b["volumeUnit"].text == "mL", b["healthDataIncluded"] == .bool(false),
               b["attachments"] == .array([]) else { throw WashError("备份格式、版本或单位不兼容。") }
-        try validate(b["data"], requireVehicles: b["data"]["version"].number == 5)
+        try validate(b["data"], requireVehicles: (b["data"]["version"].number ?? 0) >= 5)
         let state = migrate(b["data"])
         try validate(state)
         // A restored snapshot must not create a second executor for a live Watch session.
@@ -23,9 +23,9 @@ public enum Backup {
     public static func encode(_ state: JSON) throws -> Data {
         try validate(state)
         var sanitized = state
-        sanitized["washes"] = .array(state["washes"].array.map { $0.removing(["health", "heartRateSamples"]) })
+        for key in ["washes", "deletedWashes"] { sanitized[key] = .array(state[key].array.map { $0.removing(["health", "heartRateSamples"]) }) }
         if sanitized["session"] != .null { sanitized["session"] = sanitized["session"].removing(["health", "heartRateSamples"]) }
-        let b: JSON = .object(["format": .string("WashMyCarBackup"), "schemaVersion": .number(1), "appVersion": .number(5),
+        let b: JSON = .object(["format": .string("WashMyCarBackup"), "schemaVersion": .number(1), "appVersion": .number(6),
                                "volumeUnit": .string("mL"), "healthDataIncluded": .bool(false), "attachments": .array([]),
                                "createdAt": .string(isoDate(milliseconds())), "data": sanitized])
         let data = try b.encoded()
@@ -58,10 +58,13 @@ public enum Backup {
     public static func validateProducts(_ x: JSON) throws {
         for p in try entries(x, "药剂") {
             try text(p["name"], "名称", max: 200); try text(p["brand"], "品牌", max: 200)
-            try number(p["capacity"], "容量", min: 0.01)
+            if p["quantityUnit"] != .null { try require(["mL", "g"].contains(p["quantityUnit"].text), "药剂计量单位不正确。") }
+            if p["uses"] != .null { for use in try list(p["uses"], "药剂用途") { try text(use, "用途", max: 200) } }
+            if p["capacity"] != .null { try number(p["capacity"], "容量", min: 0.01) }
+            else { try require(p["stockStatus"].text == "unknown" && p["remaining"] == .null, "容量未知时余量必须为未知。") }
             let kind = p["stockStatus"]
             try require(kind == .null || ["unknown", "exact", "estimated"].contains(kind.text), "库存可信度不正确。")
-            if kind.text != "unknown" || p["remaining"] != .null { try number(p["remaining"], "余量", max: p["capacity"].number!) }
+            if kind.text != "unknown" || p["remaining"] != .null { try number(p["remaining"], "余量", max: p["capacity"].number ?? 0) }
             if p["price"] != .null && p["price"] != .string("") { try number(p["price"], "价格") }
             for key in ["date", "place", "use", "instructions", "shape", "color", "label", "code"] where p[key] != .null { try text(p[key], key) }
             if p["ph"] != .null {
@@ -112,9 +115,12 @@ public enum Backup {
         }
     }
     public static func validate(_ state: JSON, requireVehicles: Bool = true) throws {
-        try require([2.0, 3, 4, 5].contains(state["version"].number ?? 0), "不支持此资料版本。")
+        try require([2.0, 3, 4, 5, 6].contains(state["version"].number ?? 0), "不支持此资料版本。")
         try validateProducts(state["products"]); try validatePlan(state["plan"], products: state["products"])
-        let washes = try entries(state["washes"] == .null ? .array([]) : state["washes"], "记录")
+        let visible = try entries(state["washes"] == .null ? .array([]) : state["washes"], "记录")
+        let archived = try entries(state["deletedWashes"] == .null ? .array([]) : state["deletedWashes"], "已删除记录")
+        let washes = visible + archived
+        try require(Set(washes.map(\.id)).count == washes.count, "记录与已删除记录 ID 重复。")
         let templates = try entries(state["templates"] == .null ? .array([]) : state["templates"], "已存方案")
         let vehicles = try entries(state["vehicles"] == .null ? .array([]) : state["vehicles"], "车辆")
         for v in vehicles { try text(v["name"], "车辆名称", max: 200) }
@@ -135,7 +141,7 @@ public enum Backup {
             for n in h["amounts"].object.values { try number(n, "取用量") }
             if h["amount"] != .null { try number(h["amount"], "取用量") }
         }
-        if state["session"] != .null { try validateSession(state["session"], strictTiming: state["version"].number == 5) }
+        if state["session"] != .null { try validateSession(state["session"], strictTiming: (state["version"].number ?? 0) >= 5) }
         if requireVehicles {
             var associated = [state["plan"]] + washes + templates.map { $0["plan"] }
             if state["session"] != .null { associated.append(state["session"]["plan"]) }
@@ -161,6 +167,7 @@ public enum Backup {
         }
         state["plan"] = associate(input["plan"])
         state["washes"] = .array(input["washes"].array.map { associate($0).replacing(["noteStatus": $0["noteStatus"] == .null ? .string("open") : $0["noteStatus"]]) })
+        state["deletedWashes"] = .array(input["deletedWashes"].array.map { associate($0) })
         state["templates"] = .array(input["templates"].array.map { $0.replacing(["plan": associate($0["plan"]), "builtIn": .bool($0["builtIn"].flag || $0.id.hasPrefix("preset-"))]) })
         state["products"] = .array(input["products"].array.map { $0.replacing(["stockStatus": .string(WashEngine.stockKind($0))]) })
         state["history"] = .array(input["history"].array)
@@ -192,7 +199,7 @@ public enum Backup {
             state["session"] = s
         }
         state["vehicles"] = .array(vehicles)
-        state["version"] = .number(5)
+        state["version"] = .number(6)
         return state
     }
 }

@@ -33,7 +33,7 @@ struct SettingsView: View {
             Section("资料备份") {
                 Button("导出完整 JSON 备份", systemImage: "square.and.arrow.up") { store.perform { document = BackupDocument(data: try Backup.encode(store.state)); exporting = true } }.disabled(store.loadFailed)
                 Button("从备份恢复", systemImage: "square.and.arrow.down") { importing = true }.disabled(store.active)
-                Text("兼容 Demo v2—v5 的 WashMyCarBackup；包含车辆、库存、购买资料、方案、取用履历与洗车记录。恢复前先预览，确认后替换本机资料，并保存一份本机回退副本。不包含健康明细与附件。").font(.caption).foregroundStyle(.secondary)
+                Text("可导入 v2—v6 的 WashMyCarBackup，本版导出 v6；旧版 Demo 无法读取 v6。包含车辆、库存、购买资料、方案、取用履历、洗车记录与已删除记录。恢复前先预览，确认后替换本机资料，并保存一份本机回退副本。不包含健康明细与附件。").font(.caption).foregroundStyle(.secondary)
                 if !backupStatus.isEmpty { Text(backupStatus).font(.footnote) }
             }
             Section("Apple Watch") {

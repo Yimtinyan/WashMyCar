@@ -1,4 +1,5 @@
 import SwiftUI
+import CryptoKit
 
 enum Style {
     static let green = Color("AccentColor")
@@ -6,6 +7,7 @@ enum Style {
     static let paper = Color(uiColor: .systemGroupedBackground)
 }
 struct PrimaryButton: View {
+    @Environment(\.isEnabled) private var isEnabled
     let title: String
     var icon: String? = nil
     var action: () -> Void
@@ -14,7 +16,7 @@ struct PrimaryButton: View {
             HStack { if let icon { Image(systemName: icon) }; Text(title).fontWeight(.semibold) }
                 .foregroundStyle(Style.onAccent)
                 .frame(maxWidth: .infinity).padding(.vertical, 13)
-        }.buttonStyle(.borderedProminent).controlSize(.large).buttonBorderShape(.roundedRectangle(radius: 16))
+        }.buttonStyle(.plain).background(Style.green.opacity(0.19), in: RoundedRectangle(cornerRadius: 16)).overlay(RoundedRectangle(cornerRadius: 16).stroke(Style.green.opacity(0.15))).opacity(isEnabled ? 1 : 0.45)
     }
 }
 struct PageHeading: View {
@@ -31,7 +33,13 @@ struct BottleView: View {
     let product: JSON
     var body: some View {
         Group {
-            if product.id == "gsf" || product.id == "hydro" {
+            if !product["coverAsset"].text.isEmpty, let cover = UIImage(named: product["coverAsset"].text) {
+                Image(uiImage: cover).resizable().scaledToFit()
+            } else if !product["coverURL"].text.isEmpty {
+                CachedProductCover(url: product["coverURL"].text)
+            } else if product["coverPending"].flag {
+                VStack { Image(systemName: "photo"); Text("封面待补充").font(.caption2) }.foregroundStyle(.secondary)
+            } else if product.id == "gsf" || product.id == "hydro" {
                 Image(product.id == "gsf" ? "GSF" : "Hydro").resizable().scaledToFit()
             } else {
                 VStack(spacing: 0) {
@@ -78,5 +86,30 @@ struct Celebration: View {
                 if reduceMotion || store.state["settings"]["reducedMotion"].flag { appeared = true }
                 else { withAnimation(.spring(duration: 0.7)) { appeared = true } }
             }
+    }
+}
+
+struct CachedProductCover: View {
+    let url: String
+    @State private var photo: UIImage?
+    var body: some View {
+        Group {
+            if let photo { Image(uiImage: photo).resizable().scaledToFit() }
+            else { Image(systemName: "photo").foregroundStyle(.secondary) }
+        }.task(id: url) {
+            photo = nil
+            guard let remote = URL(string: url), remote.scheme == "https" else { return }
+            let folder = URL.applicationSupportDirectory.appendingPathComponent("ProductCovers")
+            let key = SHA256.hash(data: Data(url.utf8)).map { String(format: "%02x", $0) }.joined()
+            let file = folder.appendingPathComponent(key)
+            if let data = try? Data(contentsOf: file), let image = UIImage(data: data) { photo = image; return }
+            do {
+                let (data, response) = try await URLSession.shared.data(from: remote)
+                guard (response as? HTTPURLResponse)?.statusCode == 200, data.count < 12 * 1024 * 1024,
+                      let image = UIImage(data: data), !Task.isCancelled else { return }
+                try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+                try data.write(to: file, options: .atomic); photo = image
+            } catch { /* Keep a clear placeholder and retry on next appearance. */ }
+        }
     }
 }

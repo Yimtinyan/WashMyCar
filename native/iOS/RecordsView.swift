@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RecordsView: View {
     @EnvironmentObject private var store: AppStore
+    @State private var deletingID: String?
     var body: some View {
         List {
             Section { PageHeading(title: "把用心，\n留成记录。", subtitle: "时间、地点与用量，都在这里。") }
@@ -17,10 +18,17 @@ struct RecordsView: View {
                                 Text("\(w["location"].text) · \(clockText(w["durationMs"].number ?? 0))").font(.caption).foregroundStyle(.secondary)
                             }.padding(.vertical, 7)
                         }
+                        .swipeActions { Button("删除", role: .destructive) { deletingID = w.id } }
+                        .contextMenu { Button("删除记录", role: .destructive) { deletingID = w.id } }
                     }
                 }
             }
-        }.navigationTitle("记录").navigationBarTitleDisplayMode(.inline)
+            if !store.state["deletedWashes"].array.isEmpty {
+                NavigationLink("已删除的记录（\(store.state["deletedWashes"].array.count)）") { DeletedRecordsView() }
+            }
+        }.confirmationDialog("删除这条洗车记录？", isPresented: Binding(get: { deletingID != nil }, set: { if !$0 { deletingID = nil } }), titleVisibility: .visible) {
+            Button("删除记录", role: .destructive) { if let id = deletingID { store.perform { try store.commit(PersonalLibrary.removeRecord(store.state, id: id)) } }; deletingID = nil }
+        } message: { Text("记录将移至已删除列表，可恢复。库存和取用履历不变，不返还备液用量。") }.navigationTitle("记录").navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -45,7 +53,7 @@ struct RecordDetail: View {
                 ForEach(record["amounts"].object.keys.sorted(), id: \.self) { id in
                     if let p = record["products"].array.first(where: { $0.id == id }) {
                         NavigationLink { ProductDetail(productID: id, snapshot: p) } label: {
-                            HStack { VStack(alignment: .leading) { Text(p["name"].text); Text(p["brand"].text).font(.caption).foregroundStyle(.secondary) }; Spacer(); Text("\(volume(record["amounts"][id].number ?? 0)) mL") }
+                            HStack { VStack(alignment: .leading) { Text(p["name"].text); Text(p["brand"].text).font(.caption).foregroundStyle(.secondary) }; Spacer(); Text("\(volume(record["amounts"][id].number ?? 0)) \(PersonalLibrary.unit(p))") }
                         }
                     }
                 }
@@ -60,5 +68,23 @@ struct RecordDetail: View {
             Section("同期活动能量与心率") { Text("尚未接入 HealthKit，暂无健康样本。").foregroundStyle(.secondary) }
         }.navigationTitle("洗车详情").navigationBarTitleDisplayMode(.inline)
             .onAppear { if !loaded { note = record["notes"].text; loaded = true } }
+    }
+}
+
+struct DeletedRecordsView: View {
+    @EnvironmentObject private var store: AppStore
+    var body: some View {
+        List {
+            if store.state["deletedWashes"].array.isEmpty { ContentUnavailableView("暂无已删除记录", systemImage: "trash") }
+            ForEach(store.state["deletedWashes"].array, id: \.id) { record in
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(record["name"].text).font(.headline)
+                    Text(Date(timeIntervalSince1970: (record["finishedAt"].number ?? 0) / 1000), format: .dateTime.year().month().day().hour().minute()).font(.subheadline)
+                    Text(record["location"].text).font(.caption).foregroundStyle(.secondary)
+                    Text(record["notes"].text).font(.caption).foregroundStyle(.secondary)
+                    Button("恢复记录") { store.perform { try store.commit(PersonalLibrary.restoreRecord(store.state, id: record.id)) } }
+                }
+            }
+        }.navigationTitle("已删除的记录")
     }
 }

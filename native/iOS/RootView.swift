@@ -41,17 +41,22 @@ struct HomeView: View {
                 if plan["vehicleModel"].text == "onvo-l60" {
                     Image("Car").resizable().scaledToFit().frame(maxHeight: 235).accessibilityLabel("银色乐道 L60，白色内饰")
                 } else { Image(systemName: "car.side").font(.system(size: 100)).foregroundStyle(.secondary).frame(maxWidth: .infinity).padding(30) }
-                Text(plan["vehicle"].text).font(.caption).foregroundStyle(.secondary)
                 HStack {
                     Text(store.active ? "当前洗车" : "本次洗车").foregroundStyle(.secondary)
                     Spacer()
                     NavigationLink { PlanView() } label: { Label("编辑", systemImage: "arrow.up.right") }.disabled(store.active)
                 }.font(.subheadline)
                 HStack(alignment: .firstTextBaseline) {
-                    Text(plan["name"].text).font(.title2)
+                    Menu {
+                        Text("切换洗车方案")
+                        ForEach(store.state["templates"].array, id: \.id) { template in
+                            Button(template["name"].text) { store.perform { try store.applyTemplate(template) } }
+                        }
+                    } label: { Label(plan["name"].text, systemImage: "chevron.down").font(.title2) }.disabled(store.active).accessibilityHint("切换已保存的洗车方案")
                     Spacer()
                     Text("\(plan["steps"].array.count) 个步骤").font(.caption).foregroundStyle(.secondary)
                 }
+                if store.active { Text("本次已备液，完成后可切换方案。").font(.caption).foregroundStyle(.secondary) }
                 VStack(spacing: 0) {
                     ForEach(Array(plan["steps"].array.prefix(2).enumerated()), id: \.element.id) { index, step in
                         HStack(alignment: .top, spacing: 18) {
@@ -60,7 +65,7 @@ struct HomeView: View {
                                 Text(step["name"].text)
                                 let products = store.active ? store.state["session"]["products"].array : store.state["products"].array
                                 let product = products.first { $0.id == step["productId"].text }
-                                Text(product.map { "\($0["name"].text) · \(volume(step["amount"].number ?? 0)) mL" } ?? step["tools"].array.map(\.text).joined(separator: " · "))
+                                Text(product.map { "\($0["name"].text) · \(volume(step["amount"].number ?? 0)) \(PersonalLibrary.unit($0))" } ?? step["tools"].array.map(\.text).joined(separator: " · "))
                                     .font(.caption).foregroundStyle(.secondary)
                             }
                             Spacer()
@@ -116,7 +121,7 @@ struct PreparationView: View {
                     HStack {
                         VStack(alignment: .leading) { Text(product?["name"].text ?? "药剂不存在"); Text(product.map(WashEngine.stockText) ?? "").font(.caption).foregroundStyle(.secondary) }
                         Spacer()
-                        Text("\(volume(WashEngine.totals(store.state["plan"])[id] ?? 0)) mL").monospacedDigit()
+                        Text("\(volume(WashEngine.totals(store.state["plan"])[id] ?? 0)) \(product.map(PersonalLibrary.unit) ?? "mL")").monospacedDigit()
                     }
                 }
             }
@@ -163,7 +168,7 @@ struct SessionView: View {
                     PageHeading(title: s["paused"].flag ? "稍作停留。" : step["name"].text)
                     if let product = s["products"].array.first(where: { $0.id == step["productId"].text }) {
                         Text(product["name"].text).font(.title2)
-                        Text("原液 \(volume(step["amount"].number ?? 0)) mL + 清水 \(volume(step["water"].number ?? 0)) mL").font(.headline)
+                        Text("药剂 \(volume(step["amount"].number ?? 0)) \(PersonalLibrary.unit(product)) + 清水 \(volume(step["water"].number ?? 0)) mL").font(.headline)
                         Text(product["instructions"].text).font(.subheadline)
                     }
                     Text(step["tools"].array.map(\.text).joined(separator: " · ")).foregroundStyle(.secondary)

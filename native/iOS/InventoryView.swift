@@ -9,9 +9,9 @@ struct InventoryView: View {
         List {
             Section { PageHeading(title: "每一瓶，\n各有所长。", subtitle: "记住来处，也记住每一次取用。") }
             Section {
-                Picker("用途", selection: $category) { ForEach(["全部用途", "预洗", "正洗", "轮毂", "内饰", "保护"], id: \.self) { Text($0) } }
+                Picker("用途", selection: $category) { ForEach(PersonalLibrary.categories, id: \.self) { Text($0) } }
                 ForEach(store.state["products"].array.filter { p in
-                    (category == "全部用途" || p["use"].text == category) && (query.isEmpty || (p["brand"].text + p["name"].text).localizedCaseInsensitiveContains(query))
+                    (category == "全部用途" || PersonalLibrary.uses(p).contains(category)) && (query.isEmpty || ([p["brand"].text, p["name"].text, p["code"].text, p["searchTerms"].text].joined(separator: " ")).localizedCaseInsensitiveContains(query))
                 }, id: \.id) { p in NavigationLink { ProductDetail(productID: p.id) } label: { ProductSummary(product: p) } }
             }
             Button("添加药剂", systemImage: "plus") { add = true }
@@ -34,7 +34,7 @@ struct ProductDetail: View {
                 Text(product["brand"].text).foregroundStyle(.secondary)
                 Text(product["name"].text).font(.title2)
                 Text(WashEngine.stockText(product)).font(.headline)
-                Text("用途：\(product["use"].text) · 容量 \(volume(product["capacity"].number ?? 0)) mL").font(.subheadline).foregroundStyle(.secondary)
+                Text("用途：\(PersonalLibrary.uses(product).joined(separator: " · ")) · \(product["capacity"].number.map { "容量 \(volume($0)) \(PersonalLibrary.unit(product))" } ?? "容量待填写")").font(.subheadline).foregroundStyle(.secondary)
                 if snapshot != nil { Label("当时的药剂快照 · 只读", systemImage: "clock.arrow.circlepath") }
             }
             Section("使用方法") { Text(product["instructions"].text.isEmpty ? "尚未填写，请核对本瓶标签。" : product["instructions"].text) }
@@ -57,7 +57,7 @@ struct ProductDetail: View {
                     ForEach(store.state["history"].array.filter { $0["productId"].text == productID || $0["amounts"][productID] != .null }, id: \.id) { h in
                         VStack(alignment: .leading, spacing: 6) {
                             Text(h["kind"].text == "preparation" ? "流程备液 · \(h["plan"].text)" : "额外取用")
-                            Text("\(volume(h["amounts"][productID].number ?? h["amount"].number ?? 0)) mL · \(h["location"].text)").font(.subheadline)
+                            Text("\(volume(h["amounts"][productID].number ?? h["amount"].number ?? 0)) \(PersonalLibrary.unit(product)) · \(h["location"].text)").font(.subheadline)
                             Text(h["date"].text).font(.caption).foregroundStyle(.secondary)
                         }
                     }
@@ -75,15 +75,21 @@ struct ProductEditor: View {
     @State var product: JSON
     @State private var phText = ""
     @State private var priceText = ""
+    @State private var capacityText = ""
     var body: some View {
         Form {
             Section("这一瓶") {
                 TextField("品牌", text: textBinding($product, "brand"))
                 TextField("药剂名称", text: textBinding($product, "name"))
-                Picker("用途", selection: textBinding($product, "use")) { ForEach(["预洗", "正洗", "轮毂", "内饰", "保护"], id: \.self) { Text($0) } }
-                LabeledContent("容量 · mL") { TextField("容量", value: numberBinding($product, "capacity"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) }
+                ForEach(Array(PersonalLibrary.categories.dropFirst()), id: \.self) { use in
+                    Toggle(use, isOn: Binding(get: { PersonalLibrary.uses(product).contains(use) }, set: { on in
+                        var uses = PersonalLibrary.uses(product).filter { $0 != use }; if on { uses.append(use) }
+                        product["uses"] = .array(uses.map(JSON.string)); product["use"] = .string(uses.first ?? "")
+                    }))
+                }
+                LabeledContent("容量 · \(PersonalLibrary.unit(product))") { TextField("待填写", text: $capacityText).keyboardType(.decimalPad).multilineTextAlignment(.trailing) }
                 Picker("余量可信度", selection: textBinding($product, "stockStatus")) { Text("已核对").tag("exact"); Text("估算").tag("estimated"); Text("未知").tag("unknown") }
-                if product["stockStatus"].text != "unknown" { LabeledContent("余量 · mL") { TextField("余量", value: numberBinding($product, "remaining"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) } }
+                if product["stockStatus"].text != "unknown" { LabeledContent("余量 · \(PersonalLibrary.unit(product))") { TextField("余量", value: numberBinding($product, "remaining"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) } }
             }
             Section("购入标签") {
                 TextField("购入日期 · YYYY-MM-DD", text: textBinding($product, "date"))
@@ -97,11 +103,13 @@ struct ProductEditor: View {
                 TextField("来源与稀释条件", text: Binding(get: { product["ph"]["source"].text }, set: { product["ph"]["source"] = .string($0) }), axis: .vertical)
             }
         }.navigationTitle("编辑药剂").navigationBarTitleDisplayMode(.inline)
-            .onAppear { phText = product["ph"]["value"].number.map(volume) ?? ""; priceText = product["price"].number.map(volume) ?? "" }
+            .onAppear { capacityText = product["capacity"].number.map { String($0) } ?? ""; phText = product["ph"]["value"].number.map(volume) ?? ""; priceText = product["price"].number.map(volume) ?? "" }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("取消") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) { Button("保存") { store.perform {
                     guard !product["name"].text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !product["brand"].text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw WashError("请填写品牌与名称。") }
+                    if capacityText.isEmpty { product["capacity"] = .null }
+                    else { guard let n = Double(capacityText), n > 0 else { throw WashError("请填写有效容量或留空。") }; product["capacity"] = .number(n) }
                     if !phText.isEmpty { guard let n = Double(phText), (0...14).contains(n) else { throw WashError("pH 应为 0—14 或留空。") }; product["ph"]["value"] = .number(n) }
                     else { product["ph"]["value"] = .null }
                     if !priceText.isEmpty { guard let n = Double(priceText), n >= 0 else { throw WashError("价格应为有效数值。") }; product["price"] = .number(n) }
@@ -124,7 +132,7 @@ struct UsageEditor: View {
         Form {
             Text(product["name"].text).font(.title2)
             Text(WashEngine.stockText(product))
-            LabeledContent("本次取用 · mL") { TextField("用量", value: $amount, format: .number).keyboardType(.decimalPad) }
+            LabeledContent("本次取用 · \(PersonalLibrary.unit(product))") { TextField("用量", value: $amount, format: .number).keyboardType(.decimalPad) }
             TextField("使用地点", text: $location)
             Text("仅记录备液之外的额外取用。").font(.caption).foregroundStyle(.secondary)
             PrimaryButton(title: "确认记录") { store.perform { try store.commit(WashEngine.manualUsage(store.state, productID: product.id, amount: amount, location: location)); dismiss() } }

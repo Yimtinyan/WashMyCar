@@ -2,6 +2,84 @@ import XCTest
 @testable import WashCore
 
 final class WashCoreTests: XCTestCase {
+    func ownedCatalog() throws -> JSON {
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
+        return try JSON.read(Data(contentsOf: root.appendingPathComponent("Resources/OwnedProducts.json")))
+    }
+    func testOwnedLibraryImportPreservesStockPurchasesAndSnapshotsAndIsOneTime() throws {
+        var original = try completed()
+        original["products"] = .array(original["products"].array.map { $0.replacing(["place": .string("我的购买地点"), "customTag": .string("保留")]) })
+        let catalog = try ownedCatalog(), imported = PersonalLibrary.importOwned(original, catalog: catalog)
+        try Backup.validate(imported)
+        XCTAssertEqual(catalog.array.count, 21)
+        XCTAssertEqual(imported["washes"], original["washes"])
+        XCTAssertEqual(imported["history"], original["history"])
+        XCTAssertEqual(imported["session"], original["session"])
+        XCTAssertEqual(imported["plan"], original["plan"])
+        for old in original["products"].array {
+            let current = try XCTUnwrap(imported["products"].array.first { $0.id == old.id })
+            for key in ["capacity", "remaining", "stockStatus", "price", "date", "place", "instructions", "customTag"] { XCTAssertEqual(current[key], old[key]) }
+        }
+        let gsf = try XCTUnwrap(imported["products"].array.first { $0.id == "gsf" })
+        XCTAssertTrue(PersonalLibrary.uses(gsf).contains("预洗"))
+        XCTAssertTrue(PersonalLibrary.uses(gsf).contains("正洗"))
+        let edited = imported.replacing(["products": .array(imported["products"].array.filter { $0.id != "qd" }.map { $0.replacing(["coverURL": .string("https://example.com/my-cover.png")]) })])
+        XCTAssertEqual(PersonalLibrary.importOwned(edited, catalog: catalog), edited)
+    }
+    func testOwnedLibraryUnknownCapacityAndGramUnitsRoundTrip() throws {
+        let imported = PersonalLibrary.importOwned(try seed(), catalog: try ownedCatalog())
+        let restored = try Backup.decode(Backup.encode(imported))
+        XCTAssertEqual(restored["products"], imported["products"])
+        let oil = try XCTUnwrap(restored["products"].array.first { $0.id == "oil" })
+        XCTAssertEqual(PersonalLibrary.unit(oil), "g")
+        XCTAssertEqual(oil["capacity"].number, 120)
+        XCTAssertEqual(oil["remaining"], .null)
+        let qd = try XCTUnwrap(restored["products"].array.first { $0.id == "qd" })
+        XCTAssertEqual(qd["capacity"], .null)
+        XCTAssertEqual(qd["remaining"], .null)
+        var invalid = qd.replacing(["stockStatus": .string("exact"), "remaining": .number(1)])
+        XCTAssertThrowsError(try Backup.validateProducts(.array([invalid])))
+        invalid = oil.replacing(["quantityUnit": .string("oz")])
+        XCTAssertThrowsError(try Backup.validateProducts(.array([invalid])))
+    }
+    func testGramProductDebitsOnceAndKeepsSnapshotUnit() throws {
+        var state = try seed()
+        let oil = try XCTUnwrap(try ownedCatalog().array.first { $0.id == "oil" }).replacing(["stockStatus": .string("exact"), "remaining": .number(100)])
+        state["products"] = .array(state["products"].array + [oil])
+        state["plan"]["steps"] = .array([state["plan"]["steps"].array[0].replacing(["productId": oil["id"], "amount": .number(5), "water": .number(0)])])
+        let prepared = try WashEngine.prepare(state, now: 1000, id: "oil-wash")
+        XCTAssertEqual(prepared["products"].array.first { $0.id == "oil" }?["remaining"].number, 95)
+        XCTAssertEqual(try WashEngine.prepare(prepared), prepared)
+        var session = try WashEngine.advance(prepared["session"], action: "start", actor: "phone", now: 2000)
+        session = try WashEngine.advance(session, action: "next", actor: "phone", now: 3000)
+        let done = WashEngine.replacingSession(prepared, with: session)
+        try Backup.validate(done)
+        XCTAssertEqual(done["products"], prepared["products"])
+        XCTAssertEqual(PersonalLibrary.unit(done["washes"].array[0]["products"].array.first { $0.id == "oil" }!), "g")
+        XCTAssertEqual(WashEngine.stockText(oil), "100 g")
+    }
+    func testDeleteRestorePreservesLedgerSnapshotsAndDoesNotResurrectOnReplay() throws {
+        var done = try completed()
+        done["washes"] = .array(done["washes"].array.map { $0.replacing(["notes": .string("下次注意玻璃"), "health": .object(["privateSample": .number(42)])]) })
+        let id = done["washes"].array[0].id, deleted = PersonalLibrary.removeRecord(done, id: id)
+        XCTAssertTrue(deleted["washes"].array.isEmpty)
+        XCTAssertEqual(deleted["deletedWashes"].array[0], done["washes"].array[0])
+        XCTAssertEqual(deleted["products"], done["products"])
+        XCTAssertEqual(deleted["history"], done["history"])
+        XCTAssertEqual(WashEngine.replacingSession(deleted, with: deleted["session"])["washes"], .array([]))
+        XCTAssertEqual(PersonalLibrary.removeRecord(deleted, id: id), deleted)
+        let backed = try Backup.decode(Backup.encode(deleted))
+        XCTAssertEqual(backed["deletedWashes"].array[0]["notes"].text, "下次注意玻璃")
+        XCTAssertEqual(backed["deletedWashes"].array[0]["health"], .null)
+        let restored = PersonalLibrary.restoreRecord(deleted, id: id)
+        XCTAssertEqual(restored["washes"], done["washes"])
+        XCTAssertEqual(restored["products"], done["products"])
+        XCTAssertEqual(restored["history"], done["history"])
+        XCTAssertEqual(restored["deletedWashes"], .array([]))
+        var duplicate = deleted
+        duplicate["washes"] = done["washes"]
+        XCTAssertThrowsError(try Backup.encode(duplicate))
+    }
     func testActivationAloneDoesNotMeanCompanionIsReady() {
         var s = LinkState(); s.activated = true
         XCTAssertNotNil(s.transferIssue)
@@ -27,7 +105,7 @@ final class WashCoreTests: XCTestCase {
     }
     func seed() throws -> JSON {
         let url = Bundle.module.url(forResource: "Seed", withExtension: "json", subdirectory: "Fixtures")!
-        return try JSON.read(Data(contentsOf: url))
+        return Backup.migrate(try JSON.read(Data(contentsOf: url)))
     }
     func prepared() throws -> JSON { try WashEngine.prepare(seed(), now: 1000, id: "wash-1") }
     func completed() throws -> JSON {
@@ -206,7 +284,7 @@ final class WashCoreTests: XCTestCase {
         defer { try? FileManager.default.removeItem(at: directory) }
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         let repo = StateRepository(url: directory.appendingPathComponent("State.json"))
-        var future = try seed(); future["version"] = .number(6)
+        var future = try seed(); future["version"] = .number(99)
         let bytes = try future.encoded()
         try bytes.write(to: repo.url)
         XCTAssertThrowsError(try repo.load { XCTFail("Must not replace future data with seed"); return .null })

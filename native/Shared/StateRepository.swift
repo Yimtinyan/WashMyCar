@@ -11,7 +11,7 @@ public struct StateRepository: Sendable {
             return initial
         }
         let input = try JSON.read(Data(contentsOf: url))
-        try Backup.validate(input, requireVehicles: input["version"].number == 5)
+        try Backup.validate(input, requireVehicles: (input["version"].number ?? 0) >= 5)
         let state = Backup.migrate(input)
         try Backup.validate(state)
         return state

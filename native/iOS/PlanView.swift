@@ -121,7 +121,7 @@ struct StepEditor: View {
                     Text("无需药剂").tag("")
                     ForEach(products, id: \.id) { p in Text("\(p["brand"].text) · \(p["name"].text)").tag(p.id) }
                 }
-                LabeledContent("原液 · mL") { TextField("用量", value: numberBinding($step, "amount"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) }.disabled(step["productId"].text.isEmpty)
+                LabeledContent("取用量 · \(products.first(where: { $0.id == step["productId"].text }).map(PersonalLibrary.unit) ?? "mL")") { TextField("用量", value: numberBinding($step, "amount"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) }.disabled(step["productId"].text.isEmpty)
                 LabeledContent("另加清水 · mL") { TextField("用量", value: numberBinding($step, "water"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) }
             }
             Section("搭配工具") {

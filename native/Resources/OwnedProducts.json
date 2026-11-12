@@ -1,0 +1,427 @@
+[
+  {
+    "id": "gsf",
+    "brand": "Koch-Chemie",
+    "name": "Gentle Snow Foam",
+    "uses": [
+      "预洗",
+      "正洗"
+    ],
+    "use": "预洗",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://media.koch-chemie.com/Mockups/1248x1248/383999_383001__1794367683.png",
+    "coverSource": "https://www.koch-chemie.com/en/products/gentle_snow_foam",
+    "referenceURL": "https://www.koch-chemie.com/en/products/gentle_snow_foam",
+    "coverAsset": "Product-gsf",
+    "searchTerms": "考赫 GSF 温和 泡沫"
+  },
+  {
+    "id": "afs",
+    "brand": "Koch-Chemie",
+    "name": "Active Foam Spring",
+    "uses": [
+      "预洗"
+    ],
+    "use": "预洗",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://media.koch-chemie.com/Mockups/1248x1248/320999_320033__1794367850.png",
+    "coverSource": "https://www.koch-chemie.com/en/products/active_foam_spring",
+    "referenceURL": "https://www.koch-chemie.com/en/products/active_foam_spring",
+    "coverAsset": "Product-afs",
+    "searchTerms": "考赫 AFS"
+  },
+  {
+    "id": "sff",
+    "brand": "Koch-Chemie",
+    "name": "Super Foam Fruit Bowl",
+    "uses": [
+      "预洗"
+    ],
+    "use": "预洗",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://media.koch-chemie.com/Mockups/1248x1248/253999_253020__1794383138.png",
+    "coverSource": "https://www.koch-chemie.com/en/products/super_foam_fruit_bowl",
+    "referenceURL": "https://www.koch-chemie.com/en/products/super_foam_fruit_bowl",
+    "coverAsset": "Product-sff",
+    "searchTerms": "考赫 SFF"
+  },
+  {
+    "id": "gs",
+    "brand": "Koch-Chemie",
+    "name": "Green Star",
+    "uses": [
+      "预洗",
+      "正洗"
+    ],
+    "use": "预洗",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://media.koch-chemie.com/Mockups/1248x1248/25999_25011__1794364633.png",
+    "coverSource": "https://www.koch-chemie.com/en/products/green_star",
+    "referenceURL": "https://www.koch-chemie.com/en/products/green_star",
+    "coverAsset": "Product-gs",
+    "searchTerms": "考赫 GS 绿星"
+  },
+  {
+    "id": "tfr",
+    "brand": "AUTOGLYM",
+    "name": "High Foam TFR",
+    "uses": [
+      "预洗",
+      "脱脂"
+    ],
+    "use": "预洗",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://www.autoglym.com/media/catalog/product/6/9/69025_1400x1400.jpg",
+    "coverSource": "https://www.autoglym.com/cn/69025-high-foam-tfr-25l.html",
+    "referenceURL": "",
+    "coverAsset": "Product-tfr",
+    "searchTerms": "AUTOGLYM 奥托固 高泡"
+  },
+  {
+    "id": "citrus",
+    "brand": "Chemical Guys",
+    "name": "Citrus Wash & Gloss",
+    "uses": [
+      "正洗"
+    ],
+    "use": "正洗",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0742/8938/1681/files/CWS_301_16-CitrusWash_Gloss-Front-2000x2000.jpg?v=1762198196",
+    "coverSource": "https://www.chemicalguys.com/products/citrus-wash-and-gloss-concentrated-ultra-premium-hyper-wash-and-gloss",
+    "referenceURL": "https://www.chemicalguys.com/products/citrus-wash-and-gloss-concentrated-ultra-premium-hyper-wash-and-gloss",
+    "coverAsset": "Product-citrus",
+    "searchTerms": "化学小子 柑橘 增亮"
+  },
+  {
+    "id": "frost",
+    "brand": "P&S",
+    "name": "Frostbite Snow Foam",
+    "uses": [
+      "正洗"
+    ],
+    "use": "正洗",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://psdetailproductsjapan.com/cdn/shop/files/FROSTBITE.png?v=1786692904",
+    "coverSource": "https://psdetailproductsjapan.com/products/frostbite-surface-clense-snow-foam",
+    "referenceURL": "https://psdetailproductsjapan.com/products/frostbite-surface-clense-snow-foam",
+    "coverAsset": "Product-frost",
+    "searchTerms": "P&S 冰霜"
+  },
+  {
+    "id": "reset",
+    "brand": "CARPRO",
+    "name": "Reset",
+    "uses": [
+      "正洗"
+    ],
+    "use": "正洗",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn11.bigcommerce.com/s-e27d9/products/512/images/12802/2026_Reset_Thumbnail__57303.1790626214.380.380.png?c=2",
+    "coverSource": "https://www.carpro-us.com/wash/carpro-reset-car-wash/",
+    "referenceURL": "https://www.carpro-us.com/wash/carpro-reset-car-wash/",
+    "coverAsset": "Product-reset",
+    "searchTerms": "卡普 Reset"
+  },
+  {
+    "id": "retyre",
+    "brand": "CARPRO",
+    "name": "ReTyre",
+    "uses": [
+      "轮胎清洁"
+    ],
+    "use": "轮胎清洁",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://carpro.nyc3.digitaloceanspaces.com/CARPRO_Retyre_01_2ed3edd397.png",
+    "coverSource": "https://carpro.global/product/retyre/",
+    "referenceURL": "https://carpro.global/product/retyre/",
+    "coverAsset": "Product-retyre",
+    "searchTerms": "卡普 ReTyre"
+  },
+  {
+    "id": "bug",
+    "brand": "3D",
+    "name": "Bug Remover",
+    "uses": [
+      "去虫胶"
+    ],
+    "use": "去虫胶",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0581/9301/9054/files/3d-bug-remover-16oz-01.png?v=1790790870",
+    "coverSource": "https://www.cadetailing.co.uk/products/3d-bug-remover-16oz",
+    "referenceURL": "",
+    "coverAsset": "Product-bug",
+    "searchTerms": "3D 去虫胶"
+  },
+  {
+    "id": "gc",
+    "brand": "Koch-Chemie",
+    "name": "Glass Cleaner",
+    "uses": [
+      "玻璃清洁"
+    ],
+    "use": "玻璃清洁",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://media.koch-chemie.com/Mockups/1248x1248/77703999_302010__1794364905.png",
+    "coverSource": "https://www.koch-chemie.com/en/products/glass_cleaner",
+    "referenceURL": "https://www.koch-chemie.com/en/products/glass_cleaner",
+    "coverAsset": "Product-gc",
+    "searchTerms": "考赫 GC 玻璃"
+  },
+  {
+    "id": "glass",
+    "brand": "Fireball",
+    "name": "Glass",
+    "uses": [
+      "玻璃清洁",
+      "脱脂"
+    ],
+    "use": "玻璃清洁",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0791/8416/7220/files/GLASSCLEANERTRANSPARENTNOSHADOW.png?v=1744815349",
+    "coverSource": "https://fireballgb.co.uk/products/fireball-glass",
+    "referenceURL": "https://fireballgb.co.uk/products/fireball-glass",
+    "coverAsset": "Product-glass",
+    "searchTerms": "火球 Glass"
+  },
+  {
+    "id": "oil",
+    "brand": "乘境",
+    "name": "17 玻璃油膜去除剂",
+    "uses": [
+      "油膜清洁"
+    ],
+    "use": "油膜清洁",
+    "capacity": 120,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "g",
+    "coverURL": "",
+    "coverSource": "",
+    "referenceURL": "https://item.taobao.com/item.htm?id=938112896041",
+    "packageLabel": "120 g",
+    "coverPending": true,
+    "searchTerms": "乘境17 油膜膏"
+  },
+  {
+    "id": "tar",
+    "brand": "Fireball",
+    "name": "Tar Remover",
+    "uses": [
+      "柏油清洁"
+    ],
+    "use": "柏油清洁",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0791/8416/7220/files/TARREMOVERSTRANSPARENTNOSHADOW.png?v=1744815382",
+    "coverSource": "https://fireballgb.co.uk/products/fireball-tar-remover",
+    "referenceURL": "https://fireballgb.co.uk/products/fireball-tar-remover",
+    "coverAsset": "Product-tar",
+    "searchTerms": "火球 柏油"
+  },
+  {
+    "id": "nappaclean",
+    "brand": "Fireball",
+    "name": "Nappa Cleaner",
+    "uses": [
+      "内饰清洁"
+    ],
+    "use": "内饰清洁",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0791/8416/7220/files/NAPPACLEANERTRANSPARENTNOSHADOW.png?v=1744815363",
+    "coverSource": "https://fireballgb.co.uk/products/fireball-nappa-cleaner",
+    "referenceURL": "https://fireballgb.co.uk/products/fireball-nappa-cleaner",
+    "coverAsset": "Product-nappaclean",
+    "searchTerms": "火球 内饰清洁"
+  },
+  {
+    "id": "xpress",
+    "brand": "P&S",
+    "name": "Xpress Interior Cleaner",
+    "uses": [
+      "内饰清洁"
+    ],
+    "use": "内饰清洁",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0317/0631/6932/files/UntitledProject_83c3e093-c3d0-425f-8960-baa437fd6c47.png?v=1746547126",
+    "coverSource": "https://psdetailproducts.com/products/xpress-interior-cleaner-doubleblack-collection",
+    "referenceURL": "https://psdetailproducts.com/products/xpress-interior-cleaner-doubleblack-collection",
+    "coverAsset": "Product-xpress",
+    "searchTerms": "P&S XPRESS 内饰清洁"
+  },
+  {
+    "id": "nappacoat",
+    "brand": "Fireball",
+    "name": "Nappa Coat",
+    "uses": [
+      "内饰养护"
+    ],
+    "use": "内饰养护",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0791/8416/7220/files/NAPPACOATTRANSPARENTNOSHADOW.png?v=1744815436",
+    "coverSource": "https://fireballgb.co.uk/products/fireball-nappa-coat",
+    "referenceURL": "https://fireballgb.co.uk/products/fireball-nappa-coat",
+    "coverAsset": "Product-nappacoat",
+    "searchTerms": "火球 内饰养护"
+  },
+  {
+    "id": "satin",
+    "brand": "Fireball",
+    "name": "Tire SiO2 Satin",
+    "uses": [
+      "轮胎养护"
+    ],
+    "use": "轮胎养护",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0791/8416/7220/files/TIRESATINSTRANSPARENTNOSHADOW.png?v=1744815471",
+    "coverSource": "https://fireballgb.co.uk/products/fireball-satin",
+    "referenceURL": "https://fireballgb.co.uk/products/fireball-satin",
+    "coverAsset": "Product-satin",
+    "searchTerms": "火球 Tire SioSatin 轮胎蜡"
+  },
+  {
+    "id": "pss",
+    "brand": "Koch-Chemie",
+    "name": "Plast Star siliconölfrei",
+    "uses": [
+      "轮胎养护"
+    ],
+    "use": "轮胎养护",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://media.koch-chemie.com/Mockups/1248x1248/173999_173010__1794369516.png",
+    "coverSource": "https://www.koch-chemie.com/en/products/plast_star_siliconoelfrei",
+    "referenceURL": "https://www.koch-chemie.com/en/products/plast_star_siliconoelfrei",
+    "coverAsset": "Product-pss",
+    "searchTerms": "考赫 PSS 轮胎蜡"
+  },
+  {
+    "id": "qd",
+    "brand": "XIDEA",
+    "name": "A2 香蕉手喷 QD",
+    "uses": [
+      "QD"
+    ],
+    "use": "QD",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "",
+    "coverSource": "",
+    "referenceURL": "https://item.taobao.com/item.htm?id=882443295715",
+    "coverPending": true,
+    "searchTerms": "XIDEA A2 香蕉 手喷 QD"
+  },
+  {
+    "id": "shield",
+    "brand": "Fireball",
+    "name": "Glass Shield",
+    "uses": [
+      "镀晶"
+    ],
+    "use": "镀晶",
+    "capacity": null,
+    "remaining": null,
+    "stockStatus": "unknown",
+    "price": "",
+    "instructions": "",
+    "quantityUnit": "mL",
+    "coverURL": "https://cdn.shopify.com/s/files/1/0791/8416/7220/files/Fireball_Glass_Shield.png?v=1744815489",
+    "coverSource": "https://fireballgb.co.uk/products/fireball-glass-shield",
+    "referenceURL": "https://fireballgb.co.uk/products/fireball-glass-shield",
+    "coverAsset": "Product-shield",
+    "searchTerms": "火球 镀晶 玻璃"
+  }
+]

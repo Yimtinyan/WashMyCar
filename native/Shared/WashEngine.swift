@@ -9,7 +9,7 @@ public enum WashEngine {
     }
     public static func stockText(_ product: JSON) -> String {
         let kind = stockKind(product)
-        return kind == "unknown" ? "余量未知" : "\(kind == "estimated" ? "约 " : "")\(volume(product["remaining"].number ?? 0)) mL"
+        return kind == "unknown" ? "余量未知" : "\(kind == "estimated" ? "约 " : "")\(volume(product["remaining"].number ?? 0)) \(PersonalLibrary.unit(product))"
     }
     public static func totals(_ plan: JSON) -> [String: Double] {
         plan["steps"].array.reduce(into: [:]) { result, step in
@@ -25,13 +25,13 @@ public enum WashEngine {
             guard !step["name"].text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
                   let water = step["water"].number, water.isFinite, water >= 0 else { throw WashError("请核对步骤名称与清水用量。") }
             if !step["productId"].text.isEmpty {
-                guard let amount = step["amount"].number, amount.isFinite, amount > 0 else { throw WashError("请填写有效的原液用量。") }
+                guard let amount = step["amount"].number, amount.isFinite, amount > 0 else { throw WashError("请填写有效的药剂取用量。") }
             }
         }
         for (id, amount) in totals(plan) {
             guard let p = state["products"].array.first(where: { $0.id == id }) else { throw WashError("方案关联的药剂不存在。") }
             guard stockKind(p) != "unknown", let remaining = p["remaining"].number else { throw WashError("\(p["name"].text) 余量未知，请先核对。") }
-            guard amount <= remaining else { throw WashError("\(p["name"].text) 库存不足，还差 \(volume(amount - remaining)) mL。") }
+            guard amount <= remaining else { throw WashError("\(p["name"].text) 库存不足，还差 \(volume(amount - remaining)) \(PersonalLibrary.unit(p))。") }
         }
     }
 
@@ -110,7 +110,7 @@ public enum WashEngine {
 
     public static func replacingSession(_ state: JSON, with s: JSON) -> JSON {
         var next = state.replacing(["session": s])
-        if s["done"].flag && !state["washes"].array.contains(where: { $0.id == s.id }) {
+        if s["done"].flag && !(state["washes"].array + state["deletedWashes"].array).contains(where: { $0.id == s.id }) {
             let duration = wallTime(s)
             let record = s["plan"].replacing([
                 "id": s["id"], "date": .string(isoDate(s["finishedAt"].number ?? milliseconds())),

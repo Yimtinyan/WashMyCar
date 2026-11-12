@@ -52,7 +52,7 @@ struct WatchView: View {
                         Text(s["paused"].flag ? "稍作停留。" : step["name"].text).font(.title3)
                         if let product = s["products"].array.first(where: { $0.id == step["productId"].text }) {
                             Text(product["name"].text).font(.footnote).foregroundStyle(.secondary)
-                            Text("\(volume(step["amount"].number ?? 0)) mL 原液").font(.headline)
+                            Text("\(volume(step["amount"].number ?? 0)) \(PersonalLibrary.unit(product)) 取用量").font(.headline)
                             if (step["water"].number ?? 0) > 0 { Text("另加 \(volume(step["water"].number ?? 0)) mL 清水").font(.caption) }
                         }
                         Text(step["tools"].array.map(\.text).joined(separator: " · ")).font(.caption).foregroundStyle(.secondary)
