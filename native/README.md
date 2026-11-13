@@ -133,4 +133,4 @@ xcodebuild -project native/WashMyCar.xcodeproj -scheme WashMyCarWatch \
 - 记录左滑或长按可删除，确认后移至“已删除的记录”，可恢复。删除不退款、不返还药剂、不删除取用履历；重复完成包不会恢复已删除记录。
 - 数据版本升为 6，产品 `quantityUnit` 可为 mL 或 g，缺省 mL；备份顶层 `volumeUnit=mL` 表示默认液体单位，单品 g 覆盖其原液/库存计量，清水始终为 mL。空容量仅允许未知库存且余量为空。已删除记录随备份保留，健康明细仍移除。
 
-商品图及可核验来源见 [封面来源表](product-cover-sources.md)。本轮按用户要求先完成代码与构建，尚未安装到 iPhone 或 Apple Watch。
+商品图及可核验来源见 [封面来源表](product-cover-sources.md)。2026-11-13 已按用户要求将构建 4 覆盖安装到 iPhone，手机安装后原资料保留；自动启动受锁屏拦截，解锁后迁移待核验。手表构建 4 尚未单独安装和验收。
