@@ -25,7 +25,7 @@ WASHMYCAR_TEAM_ID=YOURTEAM WASHMYCAR_DEVICE_ID=YOURDEVICE \
 
 如果已连接配对手表，增加 `WASHMYCAR_PAIRED_WATCH_ID=YOURWATCH`。安装前的 `verify_companion.py` 会检查手机/嵌入手表的 bundle ID 关联、版本与构建号、签名团队和签名完整性，并确认嵌入描述文件覆盖这块手表。未传入此参数时会明确提示未检查手表设备授权，不应把手机安装成功当作手表关联成功。
 
-若首次启动提示未受信任的开发者，在 iPhone 的「设置 → 通用 → VPN 与设备管理 → 开发者 App」中信任自己的开发者，然后再打开 App。本次生成的描述文件有效期至 2026-11-18；到期后需要重新构建签名安装。团队、设备标识通过环境变量传入，不提交证书、描述文件或签名产物。
+若首次启动提示未受信任的开发者，在 iPhone 的「设置 → 通用 → VPN 与设备管理 → 开发者 App」中信任自己的开发者，然后再打开 App。2026-11-21 已重新生成描述文件并覆盖安装 iPhone 构建 4，新描述文件有效期至北京时间 2026-11-28 13:17 左右；到期后需要再次构建签名安装。续签前若 Xcode 报告 `No Accounts`，先在 Settings → Apple Accounts 登录原开发账户。团队、设备标识通过环境变量传入，不提交证书、描述文件或签名产物。
 
 Mac Catalyst 可选择 **My Mac (Mac Catalyst)** 进行界面检查。Catalyst 不支持本项目的真实手表连接，不替代 iPhone/Watch 配对验收。
 
