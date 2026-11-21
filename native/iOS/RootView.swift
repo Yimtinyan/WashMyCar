@@ -56,7 +56,6 @@ struct HomeView: View {
                     Spacer()
                     Text("\(plan["steps"].array.count) 个步骤").font(.caption).foregroundStyle(.secondary)
                 }
-                if store.active { Text("本次已备液，完成后可切换方案。").font(.caption).foregroundStyle(.secondary) }
                 VStack(spacing: 0) {
                     ForEach(Array(plan["steps"].array.prefix(2).enumerated()), id: \.element.id) { index, step in
                         HStack(alignment: .top, spacing: 18) {
@@ -76,7 +75,11 @@ struct HomeView: View {
                 PrimaryButton(title: store.active ? "继续这次洗车" : "准备这次洗车") {
                     if store.active { showSession = true } else { showPreparation = true }
                 }
-                Text("出发前安排好，现场抬腕确认。").font(.caption).foregroundStyle(.secondary).frame(maxWidth: .infinity)
+                if store.active {
+                    CancelWashButton(session: store.state["session"])
+                } else {
+                    Text("出发前安排好，现场抬腕确认。").font(.caption).foregroundStyle(.secondary).frame(maxWidth: .infinity)
+                }
             }.padding(24)
         }.background(Style.paper).navigationTitle("WashMyCar").navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showPreparation) { NavigationStack { PreparationView { showPreparation = false; showSession = true } } }
@@ -140,6 +143,7 @@ struct PreparationView: View {
 
 struct SessionView: View {
     @EnvironmentObject private var store: AppStore
+    @Environment(\.dismiss) private var dismiss
     @State private var startConfirm = false
     var body: some View {
         let s = store.state["session"]
@@ -153,8 +157,13 @@ struct SessionView: View {
                     PageHeading(title: "准备好了，\n到现场再开始。", subtitle: "库存取用已保存，尚未计时。")
                     Label("\(s["plan"]["steps"].array.count) 个步骤 · \(s["plan"]["name"].text)", systemImage: "checkmark.circle")
                     if s["owner"].text == "watch" {
-                        Label(s["transferStatus"].text == "ready" ? "手表已保存，离线可执行" : "等待手表保存确认", systemImage: "applewatch")
-                        Text("在手表上点“开始洗车”。执行权已交给手表，手机会在连接后显示进度。").foregroundStyle(.secondary)
+                        if !store.state["pendingWatchCancellations"].array.isEmpty {
+                            Label("等待手表退出上次洗车", systemImage: "applewatch")
+                            Text("请打开已更新的手表 App。手表确认取消后，手机会自动发送本次方案。").foregroundStyle(.secondary)
+                        } else {
+                            Label(s["transferStatus"].text == "ready" ? "手表已保存，离线可执行" : "等待手表保存确认", systemImage: "applewatch")
+                            Text("在手表上点“开始洗车”。执行权已交给手表，手机会在连接后显示进度。").foregroundStyle(.secondary)
+                        }
                         PrimaryButton(title: "重新发送至手表", icon: "arrow.clockwise") { store.perform { try store.sendToWatch() } }
                     } else {
                         PrimaryButton(title: "交给 Apple Watch", icon: "applewatch") { store.perform { try store.sendToWatch() } }
@@ -187,10 +196,40 @@ struct SessionView: View {
                     Text("暂停不会停止药剂反应，请按本瓶标签及时冲洗。").font(.footnote).foregroundStyle(.secondary)
                     if s["timingRestored"].flag { Text("旧版流程没有计时锚点，本次计时从恢复时开始。").font(.footnote).foregroundStyle(.secondary) }
                 }
+                if store.active { CancelWashButton(session: s) { dismiss() } }
             }.padding(24)
         }.background(Style.paper).navigationTitle("现场引导").navigationBarTitleDisplayMode(.inline)
             .confirmationDialog("确认已到现场，使用 iPhone 开始计时？", isPresented: $startConfirm, titleVisibility: .visible) {
                 Button("开始洗车") { store.perform { try store.action("start") } }
             }
+    }
+}
+
+private struct CancelWashButton: View {
+    @EnvironmentObject private var store: AppStore
+    @State private var confirming = false
+    @State private var selectedID = ""
+    let session: JSON
+    var onCancelled: () -> Void = {}
+
+    var body: some View {
+        Button("取消本次洗车", role: .destructive) {
+            selectedID = session.id
+            confirming = true
+        }
+        .frame(maxWidth: .infinity)
+        .confirmationDialog("取消“\(session["plan"]["name"].text)”这次洗车？", isPresented: $confirming, titleVisibility: .visible) {
+            Button("确认取消本次洗车", role: .destructive) {
+                store.perform {
+                    try store.cancel(sessionID: selectedID)
+                    onCancelled()
+                }
+            }
+            Button("保留本次洗车", role: .cancel) {}
+        } message: {
+            Text(session["owner"].text == "watch"
+                 ? "手机会立即退出。手表同步后也会退出，尚未传回的进度将丢弃。已取用的药剂照常计入履历，本次不生成洗车记录。"
+                 : "取消后可以重新选方案。已取用的药剂照常计入履历，本次不生成洗车记录。")
+        }
     }
 }

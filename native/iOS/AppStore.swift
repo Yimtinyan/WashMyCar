@@ -24,6 +24,7 @@ final class AppStore: ObservableObject {
             }
         } catch { self.error = "本机资料读取失败，原文件已保留。\n\(error.localizedDescription)"; loadFailed = true }
         connection.receive = { [weak self] kind, payload, checksum in self?.receive(kind, payload, checksum) }
+        connection.available = { [weak self] in self?.retryWatchHandoff() }
         writeWidget()
     }
     var active: Bool { WashEngine.isActive(state) }
@@ -45,6 +46,12 @@ final class AppStore: ObservableObject {
         try commit(state.replacing(["products": .array(products)]))
     }
     func prepare() throws { try commit(WashEngine.prepare(state)) }
+    func cancel(sessionID: String) throws {
+        let next = WatchHandoff.cancel(state, sessionID: sessionID)
+        guard next != state else { return }
+        try commit(next)
+        retryWatchHandoff()
+    }
     func action(_ action: String) throws {
         let session = try WashEngine.advance(state["session"], action: action, actor: "phone")
         try commit(WashEngine.replacingSession(state, with: session))
@@ -52,11 +59,28 @@ final class AppStore: ObservableObject {
     func sendToWatch() throws {
         try connection.checkAvailability(payload: state["session"])
         try commit(WashEngine.assignWatch(state))
-        try connection.send(kind: "plan", payload: state["session"])
+        try sendPendingHandoff()
+    }
+    private func sendPendingHandoff() throws {
+        guard !loadFailed, let transfer = WatchHandoff.nextTransfer(state) else { return }
+        try connection.send(kind: transfer.kind, payload: transfer.payload)
+    }
+    func retryWatchHandoff() {
+        // The outbox stays on disk while the companion is unavailable.
+        try? sendPendingHandoff()
     }
     private func receive(_ kind: String, _ incoming: JSON, _ checksum: String) {
-        guard kind == "progress", !loadFailed else { return }
+        guard !loadFailed else { return }
         perform {
+            if kind == "cancelAck" {
+                guard try WatchHandoff.validReceipt(incoming, checksum: checksum) else { return }
+                let next = WatchHandoff.acknowledge(state, sessionID: incoming.id)
+                guard next != state else { return }
+                try commit(next)
+                retryWatchHandoff()
+                return
+            }
+            guard kind == "progress" else { return }
             guard active, state["session"].id == incoming.id, state["session"]["owner"].text == "watch", incoming["owner"].text == "watch",
                   try WashEngine.checksum(state["session"]) == checksum,
                   try WashEngine.checksum(incoming) == checksum else { return }
@@ -80,7 +104,7 @@ final class AppStore: ObservableObject {
         try editPlan(plan)
     }
     func saveTemplate(name: String, updating: Bool) throws {
-        guard !active, !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw WashError("请填写方案名称，并先完成当前流程。") }
+        guard !active, !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw WashError("请填写方案名称，并先完成或取消当前流程。") }
         let old = updating ? state["templates"].array.first(where: { $0.id == state["plan"]["templateId"].text }) : nil
         guard old?["builtIn"].flag != true else { throw WashError("内置原稿不可覆盖，请另存个人方案。") }
         let revision = (old?["revision"].number ?? 0) + 1
@@ -91,9 +115,13 @@ final class AppStore: ObservableObject {
         try commit(state.replacing(["templates": .array(templates), "plan": state["plan"].replacing(["templateId": t["id"], "revision": .number(revision)])]))
     }
     func restore(_ imported: JSON) throws {
-        guard !active else { throw WashError("请先完成当前洗车流程，再恢复资料。") }
-        try repository.restore(imported)
-        state = imported; loadFailed = false; writeWidget()
+        guard !active else { throw WashError("请先完成或取消当前洗车流程，再恢复资料。") }
+        var next = imported
+        if !state["pendingWatchCancellations"].array.isEmpty {
+            next["pendingWatchCancellations"] = state["pendingWatchCancellations"]
+        }
+        try repository.restore(next)
+        state = next; loadFailed = false; writeWidget()
     }
     private func writeWidget() {
         #if !LOCAL_DEVICE_PREVIEW

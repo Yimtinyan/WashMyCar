@@ -10,19 +10,21 @@ public enum Backup {
               let version = b["appVersion"].number, (2...6).contains(version),
               b["volumeUnit"].text == "mL", b["healthDataIncluded"] == .bool(false),
               b["attachments"] == .array([]) else { throw WashError("备份格式、版本或单位不兼容。") }
-        try validate(b["data"], requireVehicles: (b["data"]["version"].number ?? 0) >= 5)
-        let state = migrate(b["data"])
+        // Delivery state belongs to the local phone/Watch pairing.
+        let imported = b["data"].removing(["pendingWatchCancellations"])
+        try validate(imported, requireVehicles: (imported["version"].number ?? 0) >= 5)
+        let state = migrate(imported)
         try validate(state)
         // A restored snapshot must not create a second executor for a live Watch session.
         if WashEngine.isActive(state) && state["session"]["owner"].text == "watch" {
-            throw WashError("此备份含由手表执行的未完成流程。请先在原设备完成并同步，再导出备份。")
+            throw WashError("此备份含由手表执行的未完成流程。请先在原设备取消本次洗车，或完成并同步，再导出备份。")
         }
         return state
     }
 
     public static func encode(_ state: JSON) throws -> Data {
         try validate(state)
-        var sanitized = state
+        var sanitized = state.removing(["pendingWatchCancellations"])
         for key in ["washes", "deletedWashes"] { sanitized[key] = .array(state[key].array.map { $0.removing(["health", "heartRateSamples"]) }) }
         if sanitized["session"] != .null { sanitized["session"] = sanitized["session"].removing(["health", "heartRateSamples"]) }
         let b: JSON = .object(["format": .string("WashMyCarBackup"), "schemaVersion": .number(1), "appVersion": .number(6),
@@ -116,6 +118,13 @@ public enum Backup {
     }
     public static func validate(_ state: JSON, requireVehicles: Bool = true) throws {
         try require([2.0, 3, 4, 5, 6].contains(state["version"].number ?? 0), "不支持此资料版本。")
+        if state["pendingWatchCancellations"] != .null {
+            var ids = Set<String>()
+            for id in try list(state["pendingWatchCancellations"], "待同步取消的流程") {
+                try text(id, "流程 ID", max: 200)
+                try require(!id.text.isEmpty && ids.insert(id.text).inserted, "待同步取消的流程 ID 为空或重复。")
+            }
+        }
         try validateProducts(state["products"]); try validatePlan(state["plan"], products: state["products"])
         let visible = try entries(state["washes"] == .null ? .array([]) : state["washes"], "记录")
         let archived = try entries(state["deletedWashes"] == .null ? .array([]) : state["deletedWashes"], "已删除记录")

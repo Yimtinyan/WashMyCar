@@ -6,7 +6,7 @@ import WatchConnectivity
 final class Connectivity: NSObject, ObservableObject, WCSessionDelegate {
     @Published var status = "正在连接"
     var receive: ((String, JSON, String) -> Void)?
-    var activated: (() -> Void)?
+    var available: (() -> Void)?
     private let session: WCSession?
     private var link = LinkState()
     private var verifiedAt: Double?
@@ -108,12 +108,15 @@ final class Connectivity: NSObject, ObservableObject, WCSessionDelegate {
         let message = error?.localizedDescription
         Task { @MainActor [weak self] in
             self?.lastError = message; self?.lastEvent = "activated"; self?.checkConnection()
-            if activationState == .activated { self?.activated?() }
+            if activationState == .activated, self?.link.transferIssue == nil { self?.available?() }
         }
         handle(context)
     }
     nonisolated func sessionReachabilityDidChange(_ session: WCSession) {
-        Task { @MainActor [weak self] in self?.lastEvent = "reachabilityChanged"; self?.checkConnection() }
+        Task { @MainActor [weak self] in
+            self?.lastEvent = "reachabilityChanged"; self?.checkConnection()
+            if self?.link.reachable == true, self?.link.transferIssue == nil { self?.available?() }
+        }
     }
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) { handle(message) }
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any], replyHandler: @escaping ([String: Any]) -> Void) {
@@ -126,7 +129,10 @@ final class Connectivity: NSObject, ObservableObject, WCSessionDelegate {
     nonisolated func session(_ session: WCSession, didReceiveUserInfo userInfo: [String: Any]) { handle(userInfo) }
     #if os(iOS)
     nonisolated func sessionWatchStateDidChange(_ session: WCSession) {
-        Task { @MainActor [weak self] in self?.lastEvent = "watchStateChanged"; self?.checkConnection() }
+        Task { @MainActor [weak self] in
+            self?.lastEvent = "watchStateChanged"; self?.checkConnection()
+            if self?.link.transferIssue == nil { self?.available?() }
+        }
     }
     nonisolated func sessionDidBecomeInactive(_ session: WCSession) {
         Task { @MainActor [weak self] in self?.verifiedAt = nil; self?.refresh() }

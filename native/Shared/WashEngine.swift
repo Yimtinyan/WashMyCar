@@ -60,6 +60,12 @@ public enum WashEngine {
         return state.replacing(["session": session, "products": .array(products), "history": .array([usage] + state["history"].array)])
     }
 
+    public static func cancel(_ state: JSON, sessionID: String) -> JSON {
+        guard isActive(state), state["session"].id == sessionID else { return state }
+        // Preparation recorded actual supplies taken. Only discard this run and its reminder deferrals.
+        return state.replacing(["session": .null, "deferredNoteIds": .array([])])
+    }
+
     /// Hash only immutable payload, never progress. Used for transfer integrity, not identity/authentication.
     public static func checksum(_ session: JSON) throws -> String {
         let payload: JSON = .object(["version": .number(1), "id": session["id"], "plan": session["plan"], "products": session["products"]])

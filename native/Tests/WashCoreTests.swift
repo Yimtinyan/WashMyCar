@@ -139,6 +139,46 @@ final class WashCoreTests: XCTestCase {
         XCTAssertEqual(first["products"].array.first { $0.id == "gsf" }?["remaining"].number, 740)
         XCTAssertEqual(WashEngine.wallTime(first["session"], now: 9000), 0)
     }
+    func testCancelPreparedRunningAndPausedReleasesPlanAndKeepsActualUsage() throws {
+        var history = try completed()
+        history["washes"] = .array(history["washes"].array.map { $0.replacing(["notes": .string("复查玻璃")]) })
+        let previousID = history["session"].id
+        XCTAssertEqual(WashEngine.cancel(history, sessionID: previousID), history)
+        history["deferredNoteIds"] = .array([.string(previousID)])
+        let prepared = try WashEngine.prepare(history, now: 10000, id: "cancel-me")
+        let running = try WashEngine.advance(prepared["session"], action: "start", actor: "phone", now: 11000)
+        let progressed = try WashEngine.advance(running, action: "next", actor: "phone", now: 12000)
+        let paused = try WashEngine.advance(progressed, action: "pause", actor: "phone", now: 13000)
+        for session in [prepared["session"], progressed, paused] {
+            let active = WashEngine.replacingSession(prepared, with: session)
+            let cancelled = WashEngine.cancel(active, sessionID: session.id)
+            XCTAssertFalse(WashEngine.isActive(cancelled))
+            XCTAssertEqual(cancelled["session"], .null)
+            XCTAssertEqual(cancelled["products"], active["products"])
+            XCTAssertEqual(cancelled["history"], active["history"])
+            XCTAssertEqual(cancelled["washes"], history["washes"])
+            XCTAssertEqual(cancelled["plan"], active["plan"])
+            XCTAssertEqual(WashEngine.pendingNotes(cancelled).map(\.id), [previousID])
+            XCTAssertEqual(WashEngine.cancel(cancelled, sessionID: session.id), cancelled)
+            let restored = try Backup.decode(Backup.encode(cancelled))
+            XCTAssertEqual(restored, cancelled)
+            let next = try WashEngine.prepare(restored, now: 14000, id: "new-wash")
+            XCTAssertEqual(next["session"].id, "new-wash")
+            XCTAssertEqual(next["history"].array.count, cancelled["history"].array.count + 1)
+            XCTAssertEqual(WashEngine.cancel(next, sessionID: session.id), next)
+        }
+    }
+    func testCancelledWatchHandoffIgnoresLateCompletionAcrossNewWash() throws {
+        let assigned = try WashEngine.assignWatch(prepared())
+        var watch = try WashEngine.advance(assigned["session"], action: "start", actor: "watch", now: 2000)
+        for _ in watch["plan"]["steps"].array {
+            watch = try WashEngine.advance(watch, action: "next", actor: "watch", now: 3000)
+        }
+        let cancelled = WashEngine.cancel(assigned, sessionID: watch.id)
+        XCTAssertEqual(try WashEngine.acceptWatchProgress(cancelled, incoming: watch), cancelled)
+        let next = try WashEngine.assignWatch(WashEngine.prepare(cancelled, now: 4000, id: "another-watch"))
+        XCTAssertEqual(try WashEngine.acceptWatchProgress(next, incoming: watch), next)
+    }
     func testSameBottleAggregatesAcrossSteps() throws {
         var state = try seed()
         let step = state["plan"]["steps"].array[0].replacing(["id": .string("extra")])
@@ -254,6 +294,20 @@ final class WashCoreTests: XCTestCase {
     func testActiveWatchBackupCannotCreateSecondExecutor() throws {
         let assigned = try WashEngine.assignWatch(prepared())
         XCTAssertThrowsError(try Backup.decode(Backup.encode(assigned)))
+    }
+    func testPendingWatchCancellationsStayWithLocalPairing() throws {
+        let ids: JSON = .array([.string("previous-wash")])
+        let original = try seed().replacing(["pendingWatchCancellations": ids])
+        let directory = FileManager.default.temporaryDirectory.appendingPathComponent(identifier())
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let repo = StateRepository(url: directory.appendingPathComponent("State.json"))
+        try repo.save(original)
+        let reloaded = try repo.load { XCTFail("Expected saved state"); return .null }
+        XCTAssertEqual(reloaded["pendingWatchCancellations"], ids)
+        var backup = try JSON.read(Backup.encode(original))
+        XCTAssertEqual(backup["data"]["pendingWatchCancellations"], .null)
+        backup["data"]["pendingWatchCancellations"] = ids
+        XCTAssertEqual(try Backup.decode(backup.encoded())["pendingWatchCancellations"], .null)
     }
     func testPendingNotesOnlyForCurrentVehicle() throws {
         var state = try completed()
