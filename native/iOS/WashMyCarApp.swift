@@ -12,6 +12,7 @@ struct WashMyCarApp: App {
                 .preferredColorScheme(store.state["settings"]["theme"].text == "dark" ? .dark : store.state["settings"]["theme"].text == "light" ? .light : nil)
                 .onChange(of: phase) { _, next in
                     if next == .active {
+                        store.writeWidget()
                         store.connection.checkConnection()
                         store.retryWatchHandoff()
                     }

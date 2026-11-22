@@ -175,6 +175,29 @@ final class WashCoreTests: XCTestCase {
         return state
     }
     func testSeedIsValid() throws { try Backup.validate(seed()) }
+
+    func testWidgetsReflectDeletingAndRestoringARecordAndBottle() throws {
+        let state = try completed()
+        let record = try XCTUnwrap(state["washes"].array.first)
+        let bottle = try XCTUnwrap(state["products"].array.first)
+        let original = WidgetSummary(state: state, stockText: WashEngine.stockText)
+        XCTAssertEqual(original.lastWashName, record["name"].text)
+        XCTAssertEqual(original.lastWash?.timeIntervalSince1970, record["finishedAt"].number.map { $0 / 1000 })
+        XCTAssertEqual(original.bottleLines.first, "\(bottle["name"].text) · \(WashEngine.stockText(bottle))")
+
+        let deleted = PersonalLibrary.removeProduct(PersonalLibrary.removeRecord(state, id: record.id), id: bottle.id)
+        let afterDelete = WidgetSummary(state: deleted, stockText: WashEngine.stockText)
+        XCTAssertNil(afterDelete.lastWash)
+        XCTAssertNil(afterDelete.lastWashName)
+        XCTAssertEqual(afterDelete.bottleCount, original.bottleCount - 1)
+        XCTAssertFalse(afterDelete.bottleLines.contains(try XCTUnwrap(original.bottleLines.first)))
+
+        let restored = PersonalLibrary.restoreRecord(PersonalLibrary.restoreProduct(deleted, id: bottle.id), id: record.id)
+        let afterRestore = WidgetSummary(state: restored, stockText: WashEngine.stockText)
+        XCTAssertEqual(afterRestore.lastWash, original.lastWash)
+        XCTAssertEqual(afterRestore.bottleCount, original.bottleCount)
+    }
+
     func testRealDemoV5ExportImportsWithoutLosingLedgerOrSnapshots() throws {
         let url = Bundle.module.url(forResource: "DemoV5Backup", withExtension: "json", subdirectory: "Fixtures")!
         let data = try Data(contentsOf: url), original = try JSON.read(data)["data"]

@@ -156,7 +156,7 @@ struct SessionView: View {
                 if s == .null { ContentUnavailableView("还没有准备流程", systemImage: "car.side") }
                 else if s["done"].flag {
                     Celebration(session: s)
-                    if let record = store.state["washes"].array.first(where: { $0.id == s.id }) { NavigationLink { RecordDetail(recordID: record.id) } label: { Text("查看这次洗车记录").foregroundStyle(Style.onAccent) }.buttonStyle(.borderedProminent) }
+                    if let record = store.state["washes"].array.first(where: { $0.id == s.id }) { NavigationLink { RecordDetail(snapshot: record) } label: { Text("查看这次洗车记录").foregroundStyle(Style.onAccent) }.buttonStyle(.borderedProminent) }
                 } else if s["startedAt"] == .null {
                     PageHeading(title: "准备好了，\n到现场再开始。", subtitle: "库存取用已保存，尚未计时。")
                     Label("\(s["plan"]["steps"].array.count) 个步骤 · \(s["plan"]["name"].text)", systemImage: "checkmark.circle")

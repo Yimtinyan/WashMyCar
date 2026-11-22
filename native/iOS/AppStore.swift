@@ -5,6 +5,7 @@ import WidgetKit
 @MainActor
 final class AppStore: ObservableObject {
     @Published private(set) var state: JSON = .null
+    @Published private(set) var widgetSyncError: String?
     @Published var error: String?
     @Published var loadFailed = false
     let connection = Connectivity()
@@ -126,13 +127,14 @@ final class AppStore: ObservableObject {
         try repository.restore(next)
         state = next; loadFailed = false; writeWidget()
     }
-    private func writeWidget() {
-        #if !LOCAL_DEVICE_PREVIEW
-        guard state != .null, let group = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.yimtinyan.WashMyCar") else { return }
-        let snapshot: JSON = .object(["lastWash": state["washes"].array.first?["finishedAt"] ?? .null,
-                                      "planName": state["plan"]["name"], "bottles": .number(Double(state["products"].array.count))])
-        do { try snapshot.encoded().write(to: group.appendingPathComponent("Widget.json"), options: .atomic); WidgetCenter.shared.reloadAllTimelines() }
-        catch { /* Widget failure must not invalidate the committed inventory transaction. */ }
-        #endif
+    func writeWidget() {
+        guard !loadFailed, state != .null else { return }
+        do {
+            let summary = WidgetSummary(state: state, stockText: WashEngine.stockText)
+            if try summary.saveIfChanged() { WidgetCenter.shared.reloadAllTimelines() }
+            widgetSyncError = nil
+        } catch {
+            widgetSyncError = "小组件资料同步失败。\n\(error.localizedDescription)"
+        }
     }
 }

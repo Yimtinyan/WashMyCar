@@ -15,7 +15,9 @@ struct InventoryView: View {
                     (category == "全部用途" || PersonalLibrary.uses(p).contains(category)) && (query.isEmpty || ([p["brand"].text, p["name"].text, p["code"].text, p["searchTerms"].text].joined(separator: " ")).localizedCaseInsensitiveContains(query))
                 }, id: \.id) { p in
                     NavigationLink { ProductDetail(productID: p.id) } label: { ProductSummary(product: p) }
-                        .swipeActions { Button("删除", role: .destructive) { productToDelete = p } }
+                        .swipeActions(allowsFullSwipe: false) {
+                            Button("删除") { productToDelete = p }.tint(.red)
+                        }
                 }
             }
             Button("添加药剂", systemImage: "plus") { add = true }

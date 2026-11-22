@@ -48,13 +48,14 @@ targets = [
     {"name": "WashMyCarWatch", "folder": "Watch", "product": "WashMyCarWatch.app", "type": "com.apple.product-type.application", "sdk": "watchos", "platforms": "watchos watchsimulator", "family": "4", "bundle": "com.yimtinyan.WashMyCar.watchkitapp"},
     {"name": "WashWidgets", "folder": "Widgets", "product": "WashWidgets.appex", "type": "com.apple.product-type.app-extension", "sdk": "iphoneos", "platforms": "iphoneos iphonesimulator", "family": "1,2", "bundle": "com.yimtinyan.WashMyCar.widgets"},
 ]
+widget_group = "$(AppIdentifierPrefix)com.yimtinyan.WashMyCar.widget-summary"
 shared = sorted(str(p.relative_to(ROOT)) for p in (ROOT/"Shared").glob("*.swift"))
 platform = ["Platform/Connectivity.swift"]
 products = []
 for t in targets:
     name = t["name"]
     source_paths = sorted(str(p.relative_to(ROOT)) for p in (ROOT/t["folder"]).glob("*.swift"))
-    source_paths += shared if t["folder"] != "Widgets" else ["Shared/JSON.swift"]
+    source_paths += shared if t["folder"] != "Widgets" else ["Shared/JSON.swift", "Shared/WidgetSummary.swift"]
     if t["folder"] in ("iOS", "Watch"):
         source_paths += platform
     source_files = [add(name+":"+path, "PBXBuildFile", fileRef=ref(path)) for path in source_paths]
@@ -87,13 +88,17 @@ for t in targets:
         info.update({"WKApplication": True, "WKCompanionAppBundleIdentifier": "com.yimtinyan.WashMyCar", "WKRunsIndependentlyOfCompanionApp": False})
     else:
         info["NSExtension"] = {"NSExtensionPointIdentifier": "com.apple.widgetkit-extension"}
+    if name in ("WashMyCar", "WashWidgets"):
+        info["WashWidgetAccessGroup"] = widget_group
+    if name == "WashMyCar":
+        info["NSHealthShareUsageDescription"] = "读取洗车开始至结束期间 Apple 健康中已有的活动能量，在洗车记录中显示千卡。"
     (CONFIG/(name+"-Info.plist")).write_bytes(plistlib.dumps(info, sort_keys=False))
     settings = {
         "PRODUCT_NAME": "$(TARGET_NAME)", "PRODUCT_BUNDLE_IDENTIFIER": t["bundle"],
         "INFOPLIST_FILE": "Config/"+name+"-Info.plist", "GENERATE_INFOPLIST_FILE": "YES",
         "SDKROOT": t["sdk"], "SUPPORTED_PLATFORMS": t["platforms"], "TARGETED_DEVICE_FAMILY": t["family"],
         "SWIFT_VERSION": "5.0", "SWIFT_STRICT_CONCURRENCY": "targeted", "CODE_SIGN_STYLE": "Automatic",
-        "CURRENT_PROJECT_VERSION": "6", "MARKETING_VERSION": "0.1.0", "ENABLE_USER_SCRIPT_SANDBOXING": "YES",
+        "CURRENT_PROJECT_VERSION": "7", "MARKETING_VERSION": "0.1.0", "ENABLE_USER_SCRIPT_SANDBOXING": "YES",
         "SWIFT_EMIT_LOC_STRINGS": "YES", "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
         "IPHONEOS_DEPLOYMENT_TARGET": "17.0", "WATCHOS_DEPLOYMENT_TARGET": "10.0",
         "ENABLE_PREVIEWS": "YES", "LOCALIZATION_PREFERS_STRING_CATALOGS": "YES",
@@ -107,7 +112,9 @@ for t in targets:
     if name == "WashMyCarWatch":
         settings["ASSETCATALOG_COMPILER_APPICON_NAME"] = "AppIcon"
     if name in ("WashMyCar", "WashWidgets"):
-        entitlement = {"com.apple.security.application-groups": ["group.com.yimtinyan.WashMyCar"]}
+        entitlement = {"keychain-access-groups": [widget_group]}
+        if name == "WashMyCar":
+            entitlement["com.apple.developer.healthkit"] = True
         (CONFIG/(name+".entitlements")).write_bytes(plistlib.dumps(entitlement))
         settings["CODE_SIGN_ENTITLEMENTS"] = "Config/"+name+".entitlements"
         settings["SUPPORTS_MACCATALYST"] = "YES"

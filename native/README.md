@@ -7,21 +7,21 @@
 1. 打开 [`WashMyCar.xcodeproj`](WashMyCar.xcodeproj)。工程已包含共享 schemes，不需要安装第三方依赖。
 2. 选择 `WashMyCar` scheme 和 iPhone 模拟器或已连接的 iPhone，点击 Run。最低 iOS 17。
 3. 真机运行前，在三个 targets 的 **Signing & Capabilities** 中选择同一个 Apple Development Team。默认 bundle IDs 为 `com.yimtinyan.WashMyCar`、`com.yimtinyan.WashMyCar.watchkitapp` 和 `com.yimtinyan.WashMyCar.widgets`。如果调整标识，同时更新 Watch 的 companion bundle ID。
-4. 在 iPhone App 和小组件 target 中启用同一个 App Group：`group.com.yimtinyan.WashMyCar`。若更换 group ID，同时修改 `iOS/AppStore.swift`、`Widgets/WashWidgets.swift` 和工程生成脚本中的对应值。它只存放小组件最小摘要，主资料仍保存在 App 的 Application Support 中。
+4. iPhone 与小组件共用钥匙串访问组 `$(AppIdentifierPrefix)com.yimtinyan.WashMyCar.widget-summary`。工程生成脚本把组名同时写入两个 target 的 Info.plist 和 entitlements。iPhone target 另需启用 HealthKit。
 5. 选择 `WashMyCarWatch` scheme，运行到与 iPhone 配对的 Apple Watch，最低 watchOS 10。iPhone target 已嵌入 Watch App 和 Widget 扩展。
 
 本机 Xcode 27.2 具备 iOS/watchOS SDK。2026-11-11 已使用本机开发证书构建并安装 iPhone 真机测试版；用户完成开发者信任后确认已显示原生首页，Mac 端随后也查询到手机上的 App 运行进程。模拟器可另外在 Xcode 的 Settings → Components 中下载运行时后创建。
 
 ### 个人开发团队的真机测试版
 
-本次个人团队生成的描述文件没有 App Group 权限，直接构建默认工程会发生 entitlement 不匹配。可以使用以下专门的测试脚本，不修改正式工程的权限配置：
+使用原开发团队在本机覆盖安装：
 
 ```sh
 WASHMYCAR_TEAM_ID=YOURTEAM WASHMYCAR_DEVICE_ID=YOURDEVICE \
   bash native/Scripts/run_device.sh
 ```
 
-脚本构建、安装并尝试启动 App；使用 `LOCAL_DEVICE_PREVIEW` 编译条件并移除本次构建的 App Group entitlement。手机的方案、库存、履历与记录照常保存于 App 本机目录，安装更新不会主动卸载或清空资料。此测试版不写共享摘要，小组件明确提示“共享未启用”；正式构建仍使用原来的 App Group 配置。手表 App 会一起签名嵌入，但安装至手表及双端通信需另行验收。
+脚本按工程配置签名，覆盖安装后尝试启动 App。安装前会检查签名中 iPhone 的 HealthKit 权限，以及手机和小组件的共享钥匙串权限。打开一次 App 即可写入主屏幕小组件需要的摘要。库存、履历与记录保存在原有的 Application Support 目录。
 
 如果已连接配对手表，增加 `WASHMYCAR_PAIRED_WATCH_ID=YOURWATCH`。安装前的 `verify_companion.py` 会检查手机/嵌入手表的 bundle ID 关联、版本与构建号、签名团队和签名完整性，并确认嵌入描述文件覆盖这块手表。未传入此参数时会明确提示未检查手表设备授权，不应把手机安装成功当作手表关联成功。
 
@@ -58,7 +58,7 @@ WASHMYCAR_TEAM_ID=YOURTEAM WASHMYCAR_WATCH_ID=YOURWATCH \
 
 ## 应用图标
 
-iPhone 的 AppIcon 提供明亮与暗夜两版，按主屏幕图标外观选择；Watch 使用同一明亮版主图，配置在独立的 Watch 资产目录。工程和生成脚本均已接入图标，图标于构建 3 接入；当前迭代构建号为 6。图标与提示词见 [设计说明](../design/app-icon/README.md)。
+iPhone 的 AppIcon 提供明亮与暗夜两版，按主屏幕图标外观选择；Watch 使用同一明亮版主图，配置在独立的 Watch 资产目录。工程和生成脚本均已接入图标，图标于构建 3 接入；当前迭代构建号为 7。图标与提示词见 [设计说明](../design/app-icon/README.md)。
 
 2026-11-11 已签名构建并覆盖安装至 iPhone 16 Pro Max 与 Apple Watch Series 10，两端已安装列表确认 0.1.0（3），更新前后业务资料完全一致。手表启动成功，手机自动启动因锁屏被拒绝，解锁后可打开；详见 [验证记录](verification.md)。
 
@@ -74,7 +74,8 @@ iPhone 的 AppIcon 提供明亮与暗夜两版，按主屏幕图标外观选择�
 | Watch | WatchConnectivity 发送 SHA-256 内容摘要；手表原子保存后回传确认；手表本地开始、暂停、逐步完成及离线保存；重复包不会重置进度；旧进度不会覆盖新进度 |
 | 记录 | 自动保存一次完成记录；当时药剂快照只读；洗后备注可编辑、标记已处理或在本轮暂缓提醒；自动完成彩蛋，遵循减少动态效果 |
 | 备份 | 导入 `WashMyCarBackup` v2—v7，导出 v7；保留额外字段、购买资料、履历和快照；12 MB 上限、结构与关联校验、恢复数量预览、确认替换和本机回退副本 |
-| 小组件 | 两个 WidgetKit 组件：距上次洗车时间、药剂瓶数；App Group 最小摘要；点击深链进入记录/药剂 |
+| 小组件 | 「距上次洗车」显示最近完成的时间和方案，「药剂库」显示在库瓶数及余量。支持小号和中号，轻点进入记录或药剂页 |
+| Apple 健康 | 在设置或记录详情授权读取「活动能量」。在有起止时间的已完成记录中显示同期千卡、样本来源及可用的覆盖时长。仅在设备上查询 |
 | 快捷入口 | App Intents / App Shortcut 打开 App；用户可在系统快捷指令或操作按钮中配置；不会静默扣库存或完成步骤 |
 | 外观 | 系统导航/Tab 栏、浅深色、Dynamic Type 字体、系统 VoiceOver 标签和原生触感 |
 
@@ -107,7 +108,7 @@ native/
   Widgets/        WidgetKit 扩展
   Resources/      从现有 Demo 派生的初始资料
   Tests/          业务测试和 Demo 导出兼容样本
-  Config/         Info.plist 与 App Group entitlements
+  Config/         Info.plist 与签名 entitlements
   Scripts/        不依赖 XcodeGen 的可重复工程生成脚本
 ```
 
@@ -127,7 +128,7 @@ xcodebuild -project native/WashMyCar.xcodeproj -scheme WashMyCarWatch \
 
 这两条无签名构建命令用于编译检查，产物不能直接当作已签名真机安装包。共享业务层也可单独在 Xcode 打开 `Package.swift` 后运行测试。
 
-本轮验证详见 [`verification.md`](verification.md)。尚未实现 HealthKit 读取、拍照附件、Camera Control、真实可旋转 3D 模型、云同步、完整英文界面和复杂车辆材质适用性判断；没有将这些入口伪装为已接入。
+本轮验证详见 [`verification.md`](verification.md)。尚未实现拍照附件、Camera Control、真实可旋转 3D 模型、云同步、完整英文界面和复杂车辆材质适用性判断；没有将这些入口伪装为已接入。
 
 ## 2026-11-12 个人需求迭代 · 构建 4
 

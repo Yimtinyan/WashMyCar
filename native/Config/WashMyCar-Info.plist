@@ -40,5 +40,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>WashWidgetAccessGroup</key>
+	<string>$(AppIdentifierPrefix)com.yimtinyan.WashMyCar.widget-summary</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>读取洗车开始至结束期间 Apple 健康中已有的活动能量，在洗车记录中显示千卡。</string>
 </dict>
 </plist>

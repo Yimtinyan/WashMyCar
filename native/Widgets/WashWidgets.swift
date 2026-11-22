@@ -3,66 +3,69 @@ import WidgetKit
 
 struct WashEntry: TimelineEntry {
     let date: Date
-    let lastWash: Date?
-    let bottles: Int?
-    let name: String
+    let summary: WidgetSummary?
 }
+
 struct WashProvider: TimelineProvider {
-    func placeholder(in context: Context) -> WashEntry { WashEntry(date: .now, lastWash: nil, bottles: nil, name: "准备下一次洗车") }
+    func placeholder(in context: Context) -> WashEntry { WashEntry(date: .now, summary: nil) }
     func getSnapshot(in context: Context, completion: @escaping (WashEntry) -> Void) { completion(read()) }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<WashEntry>) -> Void) { completion(Timeline(entries: [read()], policy: .after(.now.addingTimeInterval(3600)))) }
-    private func read() -> WashEntry {
-        #if LOCAL_DEVICE_PREVIEW
-        return WashEntry(date: .now, lastWash: nil, bottles: nil, name: "此测试版未启用共享资料")
-        #else
-        guard let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.yimtinyan.WashMyCar")?.appendingPathComponent("Widget.json"),
-              let data = try? Data(contentsOf: url), let json = try? JSON.read(data) else {
-            return WashEntry(date: .now, lastWash: nil, bottles: nil, name: "打开 App 同步资料")
-        }
-        return WashEntry(date: .now, lastWash: json["lastWash"].number.map { Date(timeIntervalSince1970: $0 / 1000) }, bottles: json["bottles"].number.map(Int.init), name: json["planName"].text)
-        #endif
+    func getTimeline(in context: Context, completion: @escaping (Timeline<WashEntry>) -> Void) {
+        let entry = read()
+        // A device restarted before first unlock can retry once its keychain becomes available.
+        let delay: TimeInterval = entry.summary == nil ? 15 * 60 : 60 * 60
+        completion(Timeline(entries: [entry], policy: .after(entry.date.addingTimeInterval(delay))))
     }
+    private func read() -> WashEntry { WashEntry(date: .now, summary: try? WidgetSummary.read()) }
 }
+
 struct WashWidgetView: View {
+    @Environment(\.widgetFamily) private var family
     let entry: WashEntry
     let inventory: Bool
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Label(inventory ? "我的药剂库" : "上次认真洗护", systemImage: inventory ? "flask" : "car.side").font(.caption)
+        VStack(alignment: .leading, spacing: 6) {
+            Label(inventory ? "我的药剂库" : "距上次洗车", systemImage: inventory ? "flask" : "car.side")
+                .font(.caption.weight(.semibold)).widgetAccentable()
             Spacer(minLength: 0)
-            if inventory {
-                if let bottles = entry.bottles { Text("\(bottles) 瓶").font(.largeTitle).fontWeight(.medium) }
-                else {
-                    #if LOCAL_DEVICE_PREVIEW
-                    Text("共享未启用").font(.title3)
-                    #else
-                    Text("等待同步").font(.title3)
-                    #endif
+            if let summary = entry.summary {
+                if inventory {
+                    Text("\(summary.bottleCount) 瓶").font(.largeTitle.weight(.medium))
+                    ForEach(Array(summary.bottleLines.prefix(family == .systemMedium ? 2 : 1).enumerated()), id: \.offset) { _, line in
+                        Text(line).font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                    }
+                } else if let last = summary.lastWash {
+                    Text(last, style: .relative).font(.title.weight(.medium)).minimumScaleFactor(0.7)
+                    if let name = summary.lastWashName {
+                        Text(name).font(.caption).foregroundStyle(.secondary).lineLimit(2)
+                    }
+                } else {
+                    Text("暂无洗车记录").font(.headline)
                 }
-            } else if let last = entry.lastWash { Text(last, style: .relative).font(.title2).fontWeight(.medium) }
-            else { Text("留一点时间，\n给爱车。").font(.title3) }
-            #if LOCAL_DEVICE_PREVIEW
-            Text(entry.name).font(.caption2).lineLimit(2).foregroundStyle(.secondary)
-            #else
-            Text(inventory ? "核对余量，再从容出发。" : entry.name).font(.caption2).lineLimit(2).foregroundStyle(.secondary)
-            #endif
-        }.frame(maxWidth: .infinity, alignment: .leading)
-            .containerBackground(Color(red: 0.08, green: 0.27, blue: 0.25).gradient, for: .widget).foregroundStyle(.white)
-            .widgetURL(URL(string: inventory ? "washmycar://inventory" : "washmycar://records"))
+            } else {
+                Text("打开 App 同步").font(.headline)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .containerBackground(.background, for: .widget)
+        .widgetURL(URL(string: inventory ? "washmycar://inventory" : "washmycar://records"))
     }
 }
+
 struct LastWashWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "LastWash", provider: WashProvider()) { WashWidgetView(entry: $0, inventory: false) }
-            .configurationDisplayName("距上次洗车").description("留一点时间，给爱车。").supportedFamilies([.systemSmall, .systemMedium])
+            .configurationDisplayName("距上次洗车").description("查看距离上次洗车的时间和当时的方案。").supportedFamilies([.systemSmall, .systemMedium])
     }
 }
+
 struct InventoryWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "Inventory", provider: WashProvider()) { WashWidgetView(entry: $0, inventory: true) }
-            .configurationDisplayName("药剂库").description("随时查看药剂瓶数。").supportedFamilies([.systemSmall, .systemMedium])
+            .configurationDisplayName("药剂库").description("查看在库瓶数及余量。").supportedFamilies([.systemSmall, .systemMedium])
     }
 }
+
 @main
 struct WashWidgetBundle: WidgetBundle {
     var body: some Widget { LastWashWidget(); InventoryWidget() }
