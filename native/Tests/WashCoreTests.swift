@@ -183,19 +183,39 @@ final class WashCoreTests: XCTestCase {
         let original = WidgetSummary(state: state, stockText: WashEngine.stockText)
         XCTAssertEqual(original.lastWashName, record["name"].text)
         XCTAssertEqual(original.lastWash?.timeIntervalSince1970, record["finishedAt"].number.map { $0 / 1000 })
-        XCTAssertEqual(original.bottleLines.first, "\(bottle["name"].text) · \(WashEngine.stockText(bottle))")
+        XCTAssertEqual(original.bottles.first?.name, bottle["name"].text)
+        XCTAssertEqual(original.bottles.first?.stock, WashEngine.stockText(bottle))
 
         let deleted = PersonalLibrary.removeProduct(PersonalLibrary.removeRecord(state, id: record.id), id: bottle.id)
         let afterDelete = WidgetSummary(state: deleted, stockText: WashEngine.stockText)
         XCTAssertNil(afterDelete.lastWash)
         XCTAssertNil(afterDelete.lastWashName)
         XCTAssertEqual(afterDelete.bottleCount, original.bottleCount - 1)
-        XCTAssertFalse(afterDelete.bottleLines.contains(try XCTUnwrap(original.bottleLines.first)))
+        XCTAssertFalse(afterDelete.bottles.contains { $0.id == bottle.id })
 
         let restored = PersonalLibrary.restoreRecord(PersonalLibrary.restoreProduct(deleted, id: bottle.id), id: record.id)
         let afterRestore = WidgetSummary(state: restored, stockText: WashEngine.stockText)
         XCTAssertEqual(afterRestore.lastWash, original.lastWash)
         XCTAssertEqual(afterRestore.bottleCount, original.bottleCount)
+    }
+
+    func testCabinetKeepsFullCountAndSharesOnlyTheShelfContents() throws {
+        let products = try ownedCatalog().array
+        let summary = WidgetSummary(state: .object(["products": .array(products)]), stockText: WashEngine.stockText)
+        XCTAssertEqual(summary.bottleCount, products.count)
+        XCTAssertEqual(summary.bottles.map(\.id), products.prefix(8).map(\.id))
+        XCTAssertEqual(summary.bottles.first?.coverAsset, "Product-gsf")
+        XCTAssertEqual(try JSONDecoder().decode(WidgetSummary.self, from: JSONEncoder().encode(summary)), summary)
+    }
+
+    func testCabinetCanDisplayThePreviousWidgetsCachedInventory() throws {
+        let old = Data(#"{"bottleCount":9,"bottleLines":["A · B · 120 mL","Reset · 余量未知"],"lastWashName":"周末洗车"}"#.utf8)
+        let summary = try JSONDecoder().decode(WidgetSummary.self, from: old)
+        XCTAssertEqual(summary.lastWashName, "周末洗车")
+        XCTAssertEqual(summary.bottleCount, 9)
+        XCTAssertEqual(summary.bottles.map(\.name), ["A · B", "Reset"])
+        XCTAssertEqual(summary.bottles.map(\.stock), ["120 mL", "余量未知"])
+        XCTAssertTrue(summary.bottles.allSatisfy { $0.coverAsset == nil })
     }
 
     func testRealDemoV5ExportImportsWithoutLosingLedgerOrSnapshots() throws {

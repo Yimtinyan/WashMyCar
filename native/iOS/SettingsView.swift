@@ -43,7 +43,7 @@ struct SettingsView: View {
             }
             WashEnergySettingsSection()
             Section("主屏幕小组件") {
-                Text("长按 iPhone 主屏幕空白处，点「编辑」→「添加小组件」，搜索 WashMyCar。可添加「距上次洗车」和「药剂库」。")
+                Text("长按 iPhone 主屏幕空白处，点「编辑」→「添加小组件」，搜索 WashMyCar。可添加「距上次洗车」和「药剂柜」。")
                 if let error = store.widgetSyncError {
                     Text(error).font(.footnote).foregroundStyle(.secondary)
                     Button("重新同步小组件") { store.writeWidget() }

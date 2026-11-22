@@ -2,7 +2,10 @@ import SwiftUI
 
 struct RecordsView: View {
     @EnvironmentObject private var store: AppStore
-    @State private var recordToDelete: JSON?
+    private func deleteRecord(_ id: String) {
+        store.perform { try store.commit(PersonalLibrary.removeRecord(store.state, id: id)) }
+    }
+
     var body: some View {
         let washes = store.state["washes"].array
         List {
@@ -19,11 +22,11 @@ struct RecordsView: View {
                             Text("\(w["location"].text) · \(clockText(w["durationMs"].number ?? 0))").font(.caption).foregroundStyle(.secondary)
                         }.padding(.vertical, 7)
                     }
-                    // Destructive swipe roles remove the row optimistically. Only the confirmation may do that.
+                    // Keep the row until the store has successfully saved the change.
                     .swipeActions(allowsFullSwipe: false) {
-                        Button("删除") { recordToDelete = w }.tint(.red)
+                        Button("删除") { deleteRecord(w.id) }.tint(.red)
                     }
-                    .contextMenu { Button("删除记录") { recordToDelete = w } }
+                    .contextMenu { Button("删除记录", role: .destructive) { deleteRecord(w.id) } }
                 }
             } header: {
                 if !washes.isEmpty { Text("\(washes.count) 次认真洗护") }
@@ -31,8 +34,7 @@ struct RecordsView: View {
             if !store.state["deletedWashes"].array.isEmpty {
                 NavigationLink("已删除的记录（\(store.state["deletedWashes"].array.count)）") { DeletedRecordsView() }
             }
-        }.modifier(RecordDeletion(record: $recordToDelete))
-            .navigationTitle("记录").navigationBarTitleDisplayMode(.inline)
+        }.navigationTitle("记录").navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -43,8 +45,7 @@ struct RecordDetail: View {
     private var recordID: String { snapshot.id }
     @State private var note = ""
     @State private var loaded = false
-    @State private var recordToDelete: JSON?
-    // Keep the visible detail intact while the confirmed deletion pops this screen.
+    // Keep the visible detail intact while deletion pops this screen.
     private var record: JSON { store.state["washes"].array.first { $0.id == recordID } ?? snapshot }
     var body: some View {
         List {
@@ -77,33 +78,15 @@ struct RecordDetail: View {
         }.navigationTitle("洗车详情").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("删除记录", role: .destructive) { recordToDelete = record }
+                    Button("删除记录", role: .destructive) {
+                        store.perform {
+                            try store.commit(PersonalLibrary.removeRecord(store.state, id: recordID))
+                            dismiss()
+                        }
+                    }
                 }
             }
-            .modifier(RecordDeletion(record: $recordToDelete) { dismiss() })
             .onAppear { if !loaded { note = record["notes"].text; loaded = true } }
-    }
-}
-
-private struct RecordDeletion: ViewModifier {
-    @EnvironmentObject private var store: AppStore
-    @Binding var record: JSON?
-    var onDelete: () -> Void = {}
-
-    func body(content: Content) -> some View {
-        content.confirmationDialog("删除这条洗车记录？", isPresented: Binding(
-            get: { record != nil }, set: { if !$0 { record = nil } }
-        ), titleVisibility: .visible, presenting: record) { selected in
-            Button("删除记录", role: .destructive) {
-                store.perform {
-                    try store.commit(PersonalLibrary.removeRecord(store.state, id: selected.id))
-                    onDelete()
-                }
-            }
-            Button("保留", role: .cancel) {}
-        } message: { selected in
-            Text("“\(selected["name"].text)”将移至「已删除的记录」，可随时恢复。已取用的药剂保留在使用履历中。")
-        }
     }
 }
 
