@@ -12,7 +12,7 @@ struct WashProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<WashEntry>) -> Void) {
         let entry = read()
         // A device restarted before first unlock can retry once its keychain becomes available.
-        let delay: TimeInterval = entry.summary == nil ? 15 * 60 : 60 * 60
+        let delay: TimeInterval = entry.summary?.cabinet == nil ? 15 * 60 : 60 * 60
         completion(Timeline(entries: [entry], policy: .after(entry.date.addingTimeInterval(delay))))
     }
     private func read() -> WashEntry { WashEntry(date: .now, summary: try? WidgetSummary.read()) }
@@ -60,8 +60,8 @@ struct CabinetView: View {
             HStack(alignment: .firstTextBaseline) {
                 Text("药剂柜").font(.system(size: 19, weight: .bold, design: .rounded))
                 Spacer(minLength: 3)
-                if let count = entry.summary?.bottleCount {
-                    Text("\(count) 瓶").font(.system(size: 12, weight: .semibold, design: .rounded))
+                if let count = entry.summary?.cabinet?.bottleCount {
+                    Text("\(count) 款瓶装").font(.system(size: 12, weight: .semibold, design: .rounded))
                         .monospacedDigit().widgetAccentable()
                 }
             }
@@ -71,10 +71,10 @@ struct CabinetView: View {
 
             VStack(spacing: 2) {
                 ForEach(0..<rows, id: \.self) { row in
-                    let bottles = entry.summary?.bottles ?? []
+                    let bottles = entry.summary?.cabinet?.bottles ?? []
                     let contents = Array(bottles.dropFirst(row * columns).prefix(columns))
                     let emptyMessage = row == 0 && contents.isEmpty
-                        ? (entry.summary == nil ? "打开 App 同步" : "柜内暂无药剂") : nil
+                        ? (entry.summary?.cabinet == nil ? "打开 App 同步" : "暂无可展示的瓶装药剂") : nil
                     CabinetShelf(bottles: contents, columns: columns, emptyMessage: emptyMessage)
                 }
             }
@@ -200,17 +200,13 @@ private struct CabinetPhoto: View {
         ZStack(alignment: .bottom) {
             Ellipse().fill(.black.opacity(0.15))
                 .frame(maxWidth: 28, maxHeight: 3).offset(y: -3)
-            if let asset = bottle.coverAsset, let photo = UIImage(named: asset) {
+            if let photo = UIImage(named: bottle.coverAsset) {
                 let image = Image(uiImage: photo)
                 if #available(iOS 18.0, *) {
                     image.resizable().widgetAccentedRenderingMode(.fullColor).scaledToFit()
                 } else {
                     image.resizable().scaledToFit()
                 }
-            } else {
-                Image(systemName: "waterbottle")
-                    .resizable().scaledToFit().foregroundStyle(.secondary)
-                    .padding(.vertical, 4)
             }
         }
         .padding(.horizontal, 3)
@@ -229,7 +225,7 @@ struct LastWashWidget: Widget {
 struct InventoryWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "Inventory", provider: WashProvider()) { CabinetView(entry: $0) }
-            .configurationDisplayName("药剂柜").description("在架上查看药剂的瓶身、名称和余量。")
+            .configurationDisplayName("瓶装药剂柜").description("陈列在库药剂的单瓶实拍、名称和余量。")
             .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
             .contentMarginsDisabled()
     }

@@ -27,9 +27,13 @@ final class AppStore: ObservableObject {
         writeWidget()
     }
     var active: Bool { WashEngine.isActive(state) }
-    static func applyPersonalLibrary(to state: JSON) throws -> JSON {
+    static let ownedCatalog = Result {
         guard let url = Bundle.main.url(forResource: "OwnedProducts", withExtension: "json") else { throw WashError("缺少个人药剂清单。") }
-        return PersonalLibrary.importOwned(state, catalog: try JSON.read(Data(contentsOf: url)))
+        return try JSON.read(Data(contentsOf: url))
+    }
+
+    static func applyPersonalLibrary(to state: JSON) throws -> JSON {
+        PersonalLibrary.importOwned(state, catalog: try ownedCatalog.get())
     }
     func perform(_ work: () throws -> Void) { do { try work() } catch { self.error = error.localizedDescription } }
     func commit(_ next: JSON) throws {
@@ -127,11 +131,17 @@ final class AppStore: ObservableObject {
         try repository.restore(next)
         state = next; loadFailed = false; writeWidget()
     }
-    func writeWidget() {
+    func writeWidget(onActivation: Bool = false) {
         guard !loadFailed, state != .null else { return }
         do {
-            let summary = WidgetSummary(state: state, stockText: WashEngine.stockText)
-            if try summary.saveIfChanged() { WidgetCenter.shared.reloadAllTimelines() }
+            let summary = WidgetSummary(state: state, catalog: try Self.ownedCatalog.get(), stockText: WashEngine.stockText)
+            let changed = try summary.saveIfChanged()
+            let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String
+            let key = "widgetLastActiveBuild"
+            let upgraded = onActivation && build != nil && UserDefaults.standard.string(forKey: key) != build
+            // Artwork and widget layouts can change in an upgrade even when the stock is identical.
+            if changed || upgraded { WidgetCenter.shared.reloadAllTimelines() }
+            if upgraded { UserDefaults.standard.set(build, forKey: key) }
             widgetSyncError = nil
         } catch {
             widgetSyncError = "小组件资料同步失败。\n\(error.localizedDescription)"

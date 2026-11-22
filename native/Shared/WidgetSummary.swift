@@ -1,52 +1,60 @@
 import Foundation
 import Security
 
+/// Resolve bundled product artwork without modifying inventory or historical snapshots.
+enum BottleArtwork: Equatable {
+    case verified(String)
+    case noBottlePhoto
+    case customURL(String)
+    case original
+
+    static func resolve(_ product: JSON, catalog: JSON) -> Self {
+        guard let entry = catalog.array.first(where: {
+            $0.id == product.id || ($0["name"] == product["name"] && $0["brand"] == product["brand"])
+        }) else { return .original }
+        let asset = product["coverAsset"].text
+        let bottle = entry["cabinetBottleAsset"].text
+        if !asset.isEmpty && asset != entry["coverAsset"].text && asset != bottle { return .original }
+        let url = product["coverURL"].text
+        if !url.isEmpty && url != entry["coverURL"].text { return .customURL(url) }
+        return bottle.isEmpty ? .noBottlePhoto : .verified(bottle)
+    }
+}
+
 struct CabinetBottle: Codable, Equatable, Identifiable {
     let id: String
     let name: String
     let stock: String
-    let coverAsset: String?
+    let coverAsset: String
+}
+
+struct CabinetContents: Codable, Equatable {
+    let bottleCount: Int
+    let bottles: [CabinetBottle]
 }
 
 /// Only the values displayed by the home-screen widgets leave the app's data container.
 struct WidgetSummary: Codable, Equatable {
     let lastWash: Date?
     let lastWashName: String?
-    let bottleCount: Int
-    let bottles: [CabinetBottle]
+    // Older summaries contain unfiltered inventory. Show the last wash until the app refreshes the shelf.
+    let cabinet: CabinetContents?
 
-    init(state: JSON, stockText: (JSON) -> String) {
+    init(state: JSON, catalog: JSON, stockText: (JSON) -> String) {
         let last = state["washes"].array.max { ($0["finishedAt"].number ?? 0) < ($1["finishedAt"].number ?? 0) }
         lastWash = last?["finishedAt"].number.map { Date(timeIntervalSince1970: $0 / 1_000) }
         lastWashName = last.map { String($0["name"].text.prefix(80)) }
-        let products = state["products"].array
-        bottleCount = products.count
-        bottles = products.prefix(8).map { product in
-            let cover = product["coverAsset"].text
-            let localCover = cover.hasPrefix("Product-") && cover.utf8.count <= 96 ? cover : nil
-            return CabinetBottle(id: product.id, name: String(product["name"].text.prefix(48)),
-                                 stock: stockText(product), coverAsset: localCover)
-        }
-    }
-
-    init(from decoder: Decoder) throws {
-        let data = try decoder.container(keyedBy: CodingKeys.self)
-        lastWash = try data.decodeIfPresent(Date.self, forKey: .lastWash)
-        lastWashName = try data.decodeIfPresent(String.self, forKey: .lastWashName)
-        bottleCount = try data.decode(Int.self, forKey: .bottleCount)
-        if let entries = try data.decodeIfPresent([CabinetBottle].self, forKey: .bottles) {
-            bottles = entries
-        } else {
-            // Build 7 widgets can be refreshed before the updated phone app first opens.
-            enum LegacyKeys: String, CodingKey { case bottleLines }
-            let legacy = try decoder.container(keyedBy: LegacyKeys.self)
-            let lines = try legacy.decode([String].self, forKey: .bottleLines)
-            bottles = lines.enumerated().map { offset, line in
-                let parts = line.range(of: " · ", options: .backwards)
-                return CabinetBottle(id: "legacy-\(offset)", name: parts.map { String(line[..<$0.lowerBound]) } ?? line,
-                                     stock: parts.map { String(line[$0.upperBound...]) } ?? "", coverAsset: nil)
+        var count = 0
+        var bottles: [CabinetBottle] = []
+        for product in state["products"].array {
+            guard case .verified(let asset) = BottleArtwork.resolve(product, catalog: catalog) else { continue }
+            count += 1
+            if bottles.count < 8 {
+                bottles.append(CabinetBottle(id: product.id, name: String(product["name"].text.prefix(48)),
+                                             stock: stockText(product), coverAsset: asset))
             }
         }
+        cabinet = CabinetContents(bottleCount: count, bottles: bottles)
     }
 
     private static func item() throws -> [String: Any] {

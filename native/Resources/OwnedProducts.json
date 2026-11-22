@@ -4,6 +4,7 @@
     "brand": "Koch-Chemie",
     "name": "Gentle Snow Foam",
     "shelfName": "考赫 GSF",
+    "cabinetBottleAsset": "Bottle-gsf",
     "uses": [
       "预洗",
       "正洗"
@@ -47,6 +48,7 @@
     "brand": "Koch-Chemie",
     "name": "Super Foam Fruit Bowl",
     "shelfName": "考赫 SFF",
+    "cabinetBottleAsset": "Bottle-sff",
     "uses": [
       "预洗"
     ],
@@ -68,6 +70,7 @@
     "brand": "Koch-Chemie",
     "name": "Green Star",
     "shelfName": "考赫 GS",
+    "cabinetBottleAsset": "Bottle-gs",
     "uses": [
       "预洗",
       "正洗"
@@ -112,6 +115,7 @@
     "brand": "Chemical Guys",
     "name": "Citrus Wash & Gloss",
     "shelfName": "柑橘增亮",
+    "cabinetBottleAsset": "Bottle-citrus",
     "uses": [
       "正洗"
     ],
@@ -133,6 +137,7 @@
     "brand": "P&S",
     "name": "Frostbite Snow Foam",
     "shelfName": "P&S 冰霜",
+    "cabinetBottleAsset": "Bottle-frost",
     "uses": [
       "正洗"
     ],
@@ -154,6 +159,7 @@
     "brand": "CARPRO",
     "name": "Reset",
     "shelfName": "卡普 Reset",
+    "cabinetBottleAsset": "Bottle-reset",
     "uses": [
       "正洗"
     ],
@@ -175,6 +181,7 @@
     "brand": "CARPRO",
     "name": "ReTyre",
     "shelfName": "卡普 ReTyre",
+    "cabinetBottleAsset": "Bottle-retyre",
     "uses": [
       "轮胎清洁"
     ],
@@ -196,6 +203,7 @@
     "brand": "3D",
     "name": "Bug Remover",
     "shelfName": "3D 去虫胶",
+    "cabinetBottleAsset": "Bottle-bug",
     "uses": [
       "去虫胶"
     ],
@@ -217,6 +225,7 @@
     "brand": "Koch-Chemie",
     "name": "Glass Cleaner",
     "shelfName": "考赫 GC",
+    "cabinetBottleAsset": "Bottle-gc",
     "uses": [
       "玻璃清洁"
     ],
@@ -238,6 +247,7 @@
     "brand": "Fireball",
     "name": "Glass",
     "shelfName": "火球 Glass",
+    "cabinetBottleAsset": "Bottle-glass",
     "uses": [
       "玻璃清洁",
       "脱脂"
@@ -282,6 +292,7 @@
     "brand": "Fireball",
     "name": "Tar Remover",
     "shelfName": "火球去柏油",
+    "cabinetBottleAsset": "Bottle-tar",
     "uses": [
       "柏油清洁"
     ],
@@ -303,6 +314,7 @@
     "brand": "Fireball",
     "name": "Nappa Cleaner",
     "shelfName": "Nappa 清洁",
+    "cabinetBottleAsset": "Bottle-nappaclean",
     "uses": [
       "内饰清洁"
     ],
@@ -324,6 +336,7 @@
     "brand": "P&S",
     "name": "Xpress Interior Cleaner",
     "shelfName": "P&S XPRESS",
+    "cabinetBottleAsset": "Bottle-xpress",
     "uses": [
       "内饰清洁"
     ],
@@ -345,6 +358,7 @@
     "brand": "Fireball",
     "name": "Nappa Coat",
     "shelfName": "Nappa 养护",
+    "cabinetBottleAsset": "Bottle-nappacoat",
     "uses": [
       "内饰养护"
     ],
@@ -366,6 +380,7 @@
     "brand": "Fireball",
     "name": "Tire SiO2 Satin",
     "shelfName": "SiO₂ Satin",
+    "cabinetBottleAsset": "Bottle-satin",
     "uses": [
       "轮胎养护"
     ],
@@ -387,6 +402,7 @@
     "brand": "Koch-Chemie",
     "name": "Plast Star siliconölfrei",
     "shelfName": "考赫 PSS",
+    "cabinetBottleAsset": "Bottle-pss",
     "uses": [
       "轮胎养护"
     ],
@@ -429,6 +445,7 @@
     "brand": "Fireball",
     "name": "Glass Shield",
     "shelfName": "Glass Shield",
+    "cabinetBottleAsset": "Bottle-shield",
     "uses": [
       "镀晶"
     ],

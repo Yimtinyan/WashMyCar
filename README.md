@@ -8,7 +8,7 @@ WashMyCar 是为自己动手洗车的车主设计的 iPhone 与 Apple Watch 应�
 
 打开 [`native/WashMyCar.xcodeproj`](native/WashMyCar.xcodeproj)，选择 `WashMyCar` 或 `WashMyCarWatch` scheme。工程包含 iPhone、Apple Watch、WidgetKit 扩展和共享业务测试，无第三方依赖。运行与签名步骤见 [原生版说明](native/README.md)，范围与实测结果见 [验证记录](native/verification.md)。
 
-原生版支持方案编排、备液扣库、药剂资料与履历、手机现场引导、WatchConnectivity 传输及手表离线执行代码、历史快照、备注与 JSON 备份恢复。可在 Demo 设置导出备份后导入原生 App。iPhone 主屏幕可添加「距上次洗车」和「药剂柜」。药剂柜按库存陈列瓶身和余量。授权读取 Apple 健康的「活动能量」后，可在已完成的记录中查看洗车时段内的千卡和样本来源。
+原生版支持方案编排、备液扣库、药剂资料与履历、手机现场引导、WatchConnectivity 传输及手表离线执行代码、历史快照、备注与 JSON 备份恢复。可在 Demo 设置导出备份后导入原生 App。iPhone 主屏幕可添加「距上次洗车」和「瓶装药剂柜」。药剂柜按库存陈列有瓶装照片的药剂，显示透明瓶身与余量。授权读取 Apple 健康的「活动能量」后，可在已完成的记录中查看洗车时段内的千卡和样本来源。
 
 ## 体验当前版本
 

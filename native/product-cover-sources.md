@@ -1,6 +1,20 @@
 # 个人药剂封面来源
 
-核验日期：2026-11-12。21 款药剂按用户清单分类，同一药剂的多个用途共用库存。19 张已核对的商品图以等比例缩小的 PNG 随 iPhone App 打包，不改画面或标签；同时保留图片地址和来源页，供以后核对包装版本。封面仅作识别，不代表用户实际购买的包装容量或剩余量。
+0.1.1 的药剂柜和 iPhone 药剂列表、详情使用同一套单瓶透明照片。21 款药剂中有 17 款已核实瓶装图。考赫 AFS、AUTOGLYM High Foam TFR 仅核实到桶装，乘境 17、XIDEA 香蕉 QD 暂缺可核实的单瓶图。这四款保留库存条目。封面仅作识别，库存和用量以用户资料为准。
+
+### 瓶装图来源
+
+其余瓶图沿用下表登记的原始商品照。多规格合照只取单瓶。
+
+
+- 考赫 SFF，1 L 瓶。[经销商商品页](https://koch.ru/katalog/moyka-avtomobilya/ruchnoy-shampun/super-foam-fruit-bowl-aktivnaya-pena-dlya-glubokogo-ochishcheniya-1l/) · [原图](https://koch.ru/upload/iblock/7ac/dbwlxgmd3qprv6olm0579484hn0kqxhj/64be4b5d94eea.png)
+- 考赫 GS，1 L 瓶。[经销商商品页](https://koch.ru/katalog/interer/tkanevyy-salon/khimchistka-tkanevogo-salona-i-polov/green-star-nta-frei-nta-1-/) · [原图](https://koch.ru/upload/iblock/65f/57971_n244rprd5dlo48vieiqfa98ilg_64820.png)
+- 考赫 GC，1 L 瓶。[经销商商品页](https://koch.ru/katalog/dom/styekla-zerkala-monitory-tv/glass-cleaner-professionalnyy-sostav-dlya-chistki-stekla-i-monitorov-10-l/) · [原图](https://koch.ru/upload/iblock/340/vpitsdzhiohkx68yvd7csxh6dnz73c39/6492b0ce44130.png)
+- 考赫 PSS，1 L 瓶。[经销商商品页](https://koch.ru/katalog/shiny-plastik/chernenie-shin-pokryshek/plast-star-siliconolfrei-kruglogodichnoe-sredstvo-po-ukhodu-za-naruzhnym-i-vnutrennim-plastikom-rezi/) · [原图](https://koch.ru/upload/iblock/732/jer5lhwl1hu09qx67crrv5eclt9d5xv7/6ad72e7d24d33.png)
+- 3D Bug Remover，473 mL 喷瓶。[3D 商品页](https://3dproducts.com/products/3d-bug-remover-spray) · [原图](https://3dproducts.com/cdn/shop/files/103OZ16_3D_Bug_Remover_-_White_Background.png?v=1746108800&width=1000)
+- Fireball Glass Shield，50 mL 单瓶。采用日本官方照片旋正并分离背景，保留原瓶标。[Fireball Japan 商品页](https://www.fireball-japan.com/products/glass-shield) · [原图](https://www.fireball-japan.com/cdn/shop/files/7.GLASSSHIELD_80c52cff-6d6f-465c-8ac4-271ae92a5bef.png?v=1768893188)
+
+### 2026-11-12 原始目录封面
 
 | 药剂 | 来源 | 状态 |
 | --- | --- | --- |

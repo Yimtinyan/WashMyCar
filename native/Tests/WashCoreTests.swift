@@ -1,3 +1,5 @@
+import CoreGraphics
+import ImageIO
 import XCTest
 @testable import WashCore
 
@@ -180,42 +182,92 @@ final class WashCoreTests: XCTestCase {
         let state = try completed()
         let record = try XCTUnwrap(state["washes"].array.first)
         let bottle = try XCTUnwrap(state["products"].array.first)
-        let original = WidgetSummary(state: state, stockText: WashEngine.stockText)
+        let catalog = JSON.array([bottle.replacing(["cabinetBottleAsset": .string("Product-reset")])])
+        func widget(_ state: JSON) -> WidgetSummary {
+            WidgetSummary(state: state, catalog: catalog, stockText: WashEngine.stockText)
+        }
+        let original = widget(state)
+        let shelf = try XCTUnwrap(original.cabinet)
         XCTAssertEqual(original.lastWashName, record["name"].text)
         XCTAssertEqual(original.lastWash?.timeIntervalSince1970, record["finishedAt"].number.map { $0 / 1000 })
-        XCTAssertEqual(original.bottles.first?.name, bottle["name"].text)
-        XCTAssertEqual(original.bottles.first?.stock, WashEngine.stockText(bottle))
+        XCTAssertEqual(shelf.bottles.first?.name, bottle["name"].text)
+        XCTAssertEqual(shelf.bottles.first?.stock, WashEngine.stockText(bottle))
 
         let deleted = PersonalLibrary.removeProduct(PersonalLibrary.removeRecord(state, id: record.id), id: bottle.id)
-        let afterDelete = WidgetSummary(state: deleted, stockText: WashEngine.stockText)
+        let afterDelete = widget(deleted)
         XCTAssertNil(afterDelete.lastWash)
         XCTAssertNil(afterDelete.lastWashName)
-        XCTAssertEqual(afterDelete.bottleCount, original.bottleCount - 1)
-        XCTAssertFalse(afterDelete.bottles.contains { $0.id == bottle.id })
+        XCTAssertEqual(afterDelete.cabinet?.bottleCount, 0)
+        XCTAssertEqual(afterDelete.cabinet?.bottles, [])
 
         let restored = PersonalLibrary.restoreRecord(PersonalLibrary.restoreProduct(deleted, id: bottle.id), id: record.id)
-        let afterRestore = WidgetSummary(state: restored, stockText: WashEngine.stockText)
+        let afterRestore = widget(restored)
         XCTAssertEqual(afterRestore.lastWash, original.lastWash)
-        XCTAssertEqual(afterRestore.bottleCount, original.bottleCount)
+        XCTAssertEqual(afterRestore.cabinet, original.cabinet)
     }
 
-    func testCabinetKeepsFullCountAndSharesOnlyTheShelfContents() throws {
+    func testEveryCabinetPhotoHasATransparentBackground() throws {
+        let assets = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
+            .deletingLastPathComponent().appendingPathComponent("Widgets/Cabinet.xcassets")
+        let names = Set(try ownedCatalog().array.map { $0["cabinetBottleAsset"].text }.filter { !$0.isEmpty })
+        let directories = try FileManager.default.contentsOfDirectory(at: assets, includingPropertiesForKeys: nil)
+        XCTAssertFalse(names.isEmpty)
+        XCTAssertEqual(names, Set(directories.filter { $0.pathExtension == "imageset" }.map { $0.deletingPathExtension().lastPathComponent }))
+        for name in names {
+            let file = assets.appendingPathComponent("\(name).imageset/Cover.png")
+            let source = try XCTUnwrap(CGImageSourceCreateWithURL(file as CFURL, nil), name)
+            let photo = try XCTUnwrap(CGImageSourceCreateImageAtIndex(source, 0, nil), name)
+            let width = photo.width, height = photo.height
+            let bitmap = try XCTUnwrap(CGContext(data: nil, width: width, height: height, bitsPerComponent: 8,
+                                                 bytesPerRow: width * 4, space: CGColorSpaceCreateDeviceRGB(),
+                                                 bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+            bitmap.draw(photo, in: CGRect(x: 0, y: 0, width: width, height: height))
+            let bytes = try XCTUnwrap(bitmap.data).assumingMemoryBound(to: UInt8.self)
+            func alpha(at pixel: Int) -> UInt8 { bytes[pixel * 4 + 3] }
+            let corners = [0, width - 1, (height - 1) * width, height * width - 1]
+            XCTAssertTrue(corners.allSatisfy { alpha(at: $0) < 32 }, "Opaque background on \(name)")
+            XCTAssertGreaterThan(alpha(at: (height / 2) * width + width / 2), 160, "Missing bottle on \(name)")
+        }
+    }
+
+    func testCabinetFiltersBeforeSelectingEightBottles() throws {
         let products = try ownedCatalog().array
-        let summary = WidgetSummary(state: .object(["products": .array(products)]), stockText: WashEngine.stockText)
-        XCTAssertEqual(summary.bottleCount, products.count)
-        XCTAssertEqual(summary.bottles.map(\.id), products.prefix(8).map(\.id))
-        XCTAssertEqual(summary.bottles.first?.coverAsset, "Product-gsf")
+        // The first nine have no verified bottle photograph. Later products must fill the shelf.
+        let photographed = products.dropFirst(9).map { $0.replacing(["cabinetBottleAsset": .string("Bottle-" + $0.id)]) }
+        let unverified = products.prefix(9).map { $0.removing(["cabinetBottleAsset"]) }
+        let catalog = JSON.array(unverified + photographed)
+        let state = JSON.object(["products": .array(products)])
+        let summary = WidgetSummary(state: state, catalog: catalog, stockText: WashEngine.stockText)
+        let cabinet = try XCTUnwrap(summary.cabinet)
+        XCTAssertEqual(cabinet.bottleCount, photographed.count)
+        XCTAssertEqual(cabinet.bottles.map(\.id), photographed.prefix(8).map(\.id))
+        XCTAssertEqual(cabinet.bottles.map(\.coverAsset), photographed.prefix(8).map { $0["cabinetBottleAsset"].text })
         XCTAssertEqual(try JSONDecoder().decode(WidgetSummary.self, from: JSONEncoder().encode(summary)), summary)
     }
 
-    func testCabinetCanDisplayThePreviousWidgetsCachedInventory() throws {
-        let old = Data(#"{"bottleCount":9,"bottleLines":["A · B · 120 mL","Reset · 余量未知"],"lastWashName":"周末洗车"}"#.utf8)
-        let summary = try JSONDecoder().decode(WidgetSummary.self, from: old)
-        XCTAssertEqual(summary.lastWashName, "周末洗车")
-        XCTAssertEqual(summary.bottleCount, 9)
-        XCTAssertEqual(summary.bottles.map(\.name), ["A · B", "Reset"])
-        XCTAssertEqual(summary.bottles.map(\.stock), ["120 mL", "余量未知"])
-        XCTAssertTrue(summary.bottles.allSatisfy { $0.coverAsset == nil })
+    func testPreviousWidgetCachesPreserveLastWashAndWaitForVerifiedBottles() throws {
+        let legacyInventories = [
+            #""bottleLines":["桶装 · 5 L"]"#,
+            #""bottles":[{"id":"jug","name":"桶装","stock":"5 L","coverAsset":"Product-jug"}]"#
+        ]
+        for inventory in legacyInventories {
+            let old = Data(#"{"bottleCount":9,"lastWashName":"周末洗车",\#(inventory)}"#.utf8)
+            let summary = try JSONDecoder().decode(WidgetSummary.self, from: old)
+            XCTAssertEqual(summary.lastWashName, "周末洗车")
+            XCTAssertNil(summary.cabinet)
+        }
+    }
+
+    func testBottleArtworkRespectsOriginalAndCustomCovers() throws {
+        let canonical = try XCTUnwrap(ownedCatalog().array.first).replacing(["cabinetBottleAsset": .string("Bottle-test")])
+        let catalog = JSON.array([canonical])
+        let renamed = canonical.replacing(["name": .string("我的预洗剂")])
+        XCTAssertEqual(BottleArtwork.resolve(renamed, catalog: catalog), .verified("Bottle-test"))
+        let customURL = "https://example.com/custom.png"
+        XCTAssertEqual(BottleArtwork.resolve(renamed.replacing(["coverURL": .string(customURL)]), catalog: catalog), .customURL(customURL))
+        XCTAssertEqual(BottleArtwork.resolve(renamed.replacing(["coverAsset": .string("CustomCover")]), catalog: catalog), .original)
+        let jugCatalog = JSON.array([canonical.removing(["cabinetBottleAsset"])])
+        XCTAssertEqual(BottleArtwork.resolve(canonical, catalog: jugCatalog), .noBottlePhoto)
     }
 
     func testRealDemoV5ExportImportsWithoutLosingLedgerOrSnapshots() throws {

@@ -63,7 +63,7 @@ for t in targets:
     phases.append(add(name+":frameworks", "PBXFrameworksBuildPhase", buildActionMask=2147483647, files=[], runOnlyForDeploymentPostprocessing=0))
     resources = []
     if t["folder"] == "iOS":
-        resources = [add(name+":resource:"+path, "PBXBuildFile", fileRef=ref(path)) for path in ["iOS/Assets.xcassets", "Resources/Seed.json", "Resources/OwnedProducts.json"]]
+        resources = [add(name+":resource:"+path, "PBXBuildFile", fileRef=ref(path)) for path in ["iOS/Assets.xcassets", "Widgets/Cabinet.xcassets", "Resources/Seed.json", "Resources/OwnedProducts.json"]]
     elif t["folder"] == "Watch":
         resources = [add(name+":resource:Watch/Assets.xcassets", "PBXBuildFile", fileRef=ref("Watch/Assets.xcassets"))]
     elif t["folder"] == "Widgets":
@@ -100,7 +100,7 @@ for t in targets:
         "INFOPLIST_FILE": "Config/"+name+"-Info.plist", "GENERATE_INFOPLIST_FILE": "YES",
         "SDKROOT": t["sdk"], "SUPPORTED_PLATFORMS": t["platforms"], "TARGETED_DEVICE_FAMILY": t["family"],
         "SWIFT_VERSION": "5.0", "SWIFT_STRICT_CONCURRENCY": "targeted", "CODE_SIGN_STYLE": "Automatic",
-        "CURRENT_PROJECT_VERSION": "8", "MARKETING_VERSION": "0.1.0", "ENABLE_USER_SCRIPT_SANDBOXING": "YES",
+        "CURRENT_PROJECT_VERSION": "10", "MARKETING_VERSION": "0.1.1", "ENABLE_USER_SCRIPT_SANDBOXING": "YES",
         "SWIFT_EMIT_LOC_STRINGS": "YES", "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
         "IPHONEOS_DEPLOYMENT_TARGET": "17.0", "WATCHOS_DEPLOYMENT_TARGET": "10.0",
         "ENABLE_PREVIEWS": "YES", "LOCALIZATION_PREFERS_STRING_CATALOGS": "YES",

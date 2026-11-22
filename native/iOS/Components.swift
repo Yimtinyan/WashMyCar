@@ -33,23 +33,44 @@ struct BottleView: View {
     let product: JSON
     var body: some View {
         Group {
-            if !product["coverAsset"].text.isEmpty, let cover = UIImage(named: product["coverAsset"].text) {
-                Image(uiImage: cover).resizable().scaledToFit()
-            } else if !product["coverURL"].text.isEmpty {
-                CachedProductCover(url: product["coverURL"].text)
-            } else if product["coverPending"].flag {
-                VStack { Image(systemName: "photo"); Text("封面待补充").font(.caption2) }.foregroundStyle(.secondary)
-            } else if product.id == "gsf" || product.id == "hydro" {
-                Image(product.id == "gsf" ? "GSF" : "Hydro").resizable().scaledToFit()
-            } else {
-                VStack(spacing: 0) {
-                    RoundedRectangle(cornerRadius: 3).fill(.gray).frame(width: 19, height: 12)
-                    RoundedRectangle(cornerRadius: 9).fill(Style.green.opacity(0.85))
-                        .overlay { Text(product["brand"].text).font(.system(size: 8, weight: .bold)).foregroundStyle(.white).minimumScaleFactor(0.5).padding(4) }
-                        .frame(width: 43, height: 75)
+            switch BottleArtwork.resolve(product, catalog: (try? AppStore.ownedCatalog.get()) ?? .null) {
+            case .verified(let asset):
+                if let photo = UIImage(named: asset) {
+                    Image(uiImage: photo).resizable().scaledToFit()
+                } else {
+                    missingPhoto
                 }
+            case .noBottlePhoto:
+                missingPhoto
+            case .customURL(let url):
+                CachedProductCover(url: url)
+            case .original:
+                originalCover
             }
         }.accessibilityHidden(true)
+    }
+
+    private var missingPhoto: some View {
+        VStack { Image(systemName: "photo"); Text("暂无瓶装图").font(.caption2) }.foregroundStyle(.secondary)
+    }
+
+    @ViewBuilder private var originalCover: some View {
+        if !product["coverAsset"].text.isEmpty, let cover = UIImage(named: product["coverAsset"].text) {
+            Image(uiImage: cover).resizable().scaledToFit()
+        } else if !product["coverURL"].text.isEmpty {
+            CachedProductCover(url: product["coverURL"].text)
+        } else if product["coverPending"].flag {
+            VStack { Image(systemName: "photo"); Text("封面待补充").font(.caption2) }.foregroundStyle(.secondary)
+        } else if product.id == "gsf" || product.id == "hydro" {
+            Image(product.id == "gsf" ? "GSF" : "Hydro").resizable().scaledToFit()
+        } else {
+            VStack(spacing: 0) {
+                RoundedRectangle(cornerRadius: 3).fill(.gray).frame(width: 19, height: 12)
+                RoundedRectangle(cornerRadius: 9).fill(Style.green.opacity(0.85))
+                    .overlay { Text(product["brand"].text).font(.system(size: 8, weight: .bold)).foregroundStyle(.white).minimumScaleFactor(0.5).padding(4) }
+                    .frame(width: 43, height: 75)
+            }
+        }
     }
 }
 struct ProductSummary: View {

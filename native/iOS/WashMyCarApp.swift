@@ -10,9 +10,9 @@ struct WashMyCarApp: App {
             RootView().environmentObject(store)
                 .tint(Style.green)
                 .preferredColorScheme(store.state["settings"]["theme"].text == "dark" ? .dark : store.state["settings"]["theme"].text == "light" ? .light : nil)
-                .onChange(of: phase) { _, next in
+                .onChange(of: phase, initial: true) { _, next in
                     if next == .active {
-                        store.writeWidget()
+                        store.writeWidget(onActivation: true)
                         store.connection.checkConnection()
                         store.retryWatchHandoff()
                     }
