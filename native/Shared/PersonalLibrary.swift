@@ -6,18 +6,44 @@ public enum PersonalLibrary {
     public static func uses(_ p: JSON) -> [String] {
         p["uses"].array.isEmpty ? (p["use"].text.isEmpty ? [] : [p["use"].text]) : p["uses"].array.map(\.text)
     }
-    /// User-requested additions are applied once; stock, purchases and snapshots are never replaced.
+    /// Each catalog change runs once, leaving later inventory edits and restores alone.
     public static func importOwned(_ state: JSON, catalog: JSON) -> JSON {
-        let token = "20261112-01"
-        guard !state["catalogImports"].array.contains(.string(token)) else { return state }
+        let addition = JSON.string("20261112-01"), cleanup = JSON.string("20261122-owned-library")
+        var imports = state["catalogImports"].array
+        guard !catalog.array.isEmpty, !imports.contains(cleanup) else { return state }
         var products = state["products"].array
-        for item in catalog.array {
-            if let i = products.firstIndex(where: { $0.id == item.id || ($0["brand"] == item["brand"] && $0["name"] == item["name"]) }) {
-                let union = Array(Set(uses(products[i]) + uses(item))).sorted()
-                products[i] = products[i].replacing(["uses": .array(union.map(JSON.string)), "searchTerms": item["searchTerms"], "coverAsset": item["coverAsset"], "coverURL": item["coverURL"], "coverPending": item["coverPending"], "coverSource": item["coverSource"], "referenceURL": item["referenceURL"]])
-            } else { products.append(item) }
+        var deleted = state["deletedProducts"].array
+        func matches(_ product: JSON, _ item: JSON) -> Bool {
+            product.id == item.id || (product["brand"] == item["brand"] && product["name"] == item["name"])
         }
-        return state.replacing(["products": .array(products), "catalogImports": .array(state["catalogImports"].array + [.string(token)])])
+        if !imports.contains(addition) {
+            for item in catalog.array {
+                if let i = products.firstIndex(where: { matches($0, item) }) {
+                    let union = Array(Set(uses(products[i]) + uses(item))).sorted()
+                    products[i] = products[i].replacing(["uses": .array(union.map(JSON.string)), "searchTerms": item["searchTerms"], "coverAsset": item["coverAsset"], "coverURL": item["coverURL"], "coverPending": item["coverPending"], "coverSource": item["coverSource"], "referenceURL": item["referenceURL"]])
+                } else if !deleted.contains(where: { matches($0, item) }) {
+                    products.append(item)
+                }
+            }
+            imports.append(addition)
+        }
+        // Move complete bottles, including purchase metadata, without editing any historical snapshot.
+        products.removeAll { product in
+            guard !catalog.array.contains(where: { matches(product, $0) }) else { return false }
+            deleted.append(product)
+            return true
+        }
+        return state.replacing(["products": .array(products), "deletedProducts": .array(deleted), "catalogImports": .array(imports + [cleanup])])
+    }
+    public static func removeProduct(_ state: JSON, id: String) -> JSON {
+        guard let product = state["products"].array.first(where: { $0.id == id }) else { return state }
+        return state.replacing(["products": .array(state["products"].array.filter { $0.id != id }),
+                                "deletedProducts": .array([product] + state["deletedProducts"].array)])
+    }
+    public static func restoreProduct(_ state: JSON, id: String) -> JSON {
+        guard let product = state["deletedProducts"].array.first(where: { $0.id == id }) else { return state }
+        return state.replacing(["products": .array(state["products"].array + [product]),
+                                "deletedProducts": .array(state["deletedProducts"].array.filter { $0.id != id })])
     }
     public static func removeRecord(_ state: JSON, id: String) -> JSON {
         guard let record = state["washes"].array.first(where: { $0.id == id }) else { return state }

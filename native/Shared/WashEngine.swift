@@ -25,6 +25,9 @@ public enum WashEngine {
             guard !step["name"].text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
                   let water = step["water"].number, water.isFinite, water >= 0 else { throw WashError("请核对步骤名称与清水用量。") }
             if !step["productId"].text.isEmpty {
+                if let deleted = state["deletedProducts"].array.first(where: { $0.id == step["productId"].text }) {
+                    throw WashError("「\(step["name"].text)」使用的 \(deleted["name"].text) 已删除，请编辑步骤更换药剂，或先在药剂库恢复。")
+                }
                 guard let amount = step["amount"].number, amount.isFinite, amount > 0 else { throw WashError("请填写有效的药剂取用量。") }
             }
         }

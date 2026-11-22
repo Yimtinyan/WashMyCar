@@ -18,16 +18,18 @@ final class AppStore: ObservableObject {
                 guard let url = Bundle.main.url(forResource: "Seed", withExtension: "json") else { throw WashError("缺少初始资料。") }
                 return Backup.migrate(try JSON.read(Data(contentsOf: url)))
             }
-            if let url = Bundle.main.url(forResource: "OwnedProducts", withExtension: "json") {
-                let merged = PersonalLibrary.importOwned(state, catalog: try JSON.read(Data(contentsOf: url)))
-                if merged != state { try repository.save(merged); state = merged }
-            }
+            let merged = try Self.applyPersonalLibrary(to: state)
+            if merged != state { try repository.save(merged); state = merged }
         } catch { self.error = "本机资料读取失败，原文件已保留。\n\(error.localizedDescription)"; loadFailed = true }
         connection.receive = { [weak self] kind, payload, checksum in self?.receive(kind, payload, checksum) }
         connection.available = { [weak self] in self?.retryWatchHandoff() }
         writeWidget()
     }
     var active: Bool { WashEngine.isActive(state) }
+    static func applyPersonalLibrary(to state: JSON) throws -> JSON {
+        guard let url = Bundle.main.url(forResource: "OwnedProducts", withExtension: "json") else { throw WashError("缺少个人药剂清单。") }
+        return PersonalLibrary.importOwned(state, catalog: try JSON.read(Data(contentsOf: url)))
+    }
     func perform(_ work: () throws -> Void) { do { try work() } catch { self.error = error.localizedDescription } }
     func commit(_ next: JSON) throws {
         guard !loadFailed else { throw WashError("原资料读取失败，请先检查或恢复备份。") }
@@ -40,6 +42,7 @@ final class AppStore: ObservableObject {
         try commit(state.replacing(["plan": plan, "session": .null]))
     }
     func saveProduct(_ product: JSON) throws {
+        guard !state["deletedProducts"].array.contains(where: { $0.id == product.id }) else { throw WashError("这瓶药剂已删除，请先恢复。") }
         var products = state["products"].array
         if let index = products.firstIndex(where: { $0.id == product.id }) { products[index] = product }
         else { products.append(product) }

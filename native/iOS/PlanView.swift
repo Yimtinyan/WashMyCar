@@ -81,7 +81,8 @@ struct PlanView: View {
             .onAppear { if !loaded { draft = store.state["plan"]; loaded = true } }
             .sheet(isPresented: Binding(get: { editingStep != nil }, set: { if !$0 { editingStep = nil } })) {
                 if let id = editingStep, let step = draft["steps"].array.first(where: { $0.id == id }) {
-                    NavigationStack { StepEditor(step: step, products: store.state["products"].array) { changed in
+                    NavigationStack { StepEditor(step: step, products: store.state["products"].array,
+                                                 removed: store.state["deletedProducts"].array.first { $0.id == step["productId"].text }) { changed in
                         draft["steps"] = .array(draft["steps"].array.map { $0.id == id ? changed : $0 }); editingStep = nil
                     } }
                 }
@@ -111,6 +112,7 @@ struct StepEditor: View {
     @Environment(\.dismiss) private var dismiss
     @State var step: JSON
     let products: [JSON]
+    let removed: JSON?
     let onSave: (JSON) -> Void
     private let tools = ["PA壶", "雾化壶", "洗车桶", "洗车手套", "预洗手套", "轮毂刷", "玻璃毛巾", "长绒擦车巾", "高压水枪"]
     var body: some View {
@@ -119,9 +121,13 @@ struct StepEditor: View {
                 TextField("步骤名称", text: textBinding($step, "name"))
                 Picker("使用药剂", selection: textBinding($step, "productId")) {
                     Text("无需药剂").tag("")
+                    if let removed, step["productId"].text == removed.id {
+                        Text("\(removed["name"].text)（已删除，请重选）").tag(removed.id)
+                    }
                     ForEach(products, id: \.id) { p in Text("\(p["brand"].text) · \(p["name"].text)").tag(p.id) }
                 }
-                LabeledContent("取用量 · \(products.first(where: { $0.id == step["productId"].text }).map(PersonalLibrary.unit) ?? "mL")") { TextField("用量", value: numberBinding($step, "amount"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) }.disabled(step["productId"].text.isEmpty)
+                let selected = products.first { $0.id == step["productId"].text } ?? (removed?.id == step["productId"].text ? removed : nil)
+                LabeledContent("取用量 · \(selected.map(PersonalLibrary.unit) ?? "mL")") { TextField("用量", value: numberBinding($step, "amount"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) }.disabled(step["productId"].text.isEmpty)
                 LabeledContent("另加清水 · mL") { TextField("用量", value: numberBinding($step, "water"), format: .number).keyboardType(.decimalPad).multilineTextAlignment(.trailing) }
             }
             Section("搭配工具") {

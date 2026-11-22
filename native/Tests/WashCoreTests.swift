@@ -16,8 +16,11 @@ final class WashCoreTests: XCTestCase {
         XCTAssertEqual(imported["history"], original["history"])
         XCTAssertEqual(imported["session"], original["session"])
         XCTAssertEqual(imported["plan"], original["plan"])
+        XCTAssertEqual(Set(imported["products"].array.map(\.id)), Set(catalog.array.map(\.id)))
+        XCTAssertEqual(Set(imported["deletedProducts"].array.map(\.id)), ["beast", "ironx", "wetcoat", "hydro"])
+        let all = imported["products"].array + imported["deletedProducts"].array
         for old in original["products"].array {
-            let current = try XCTUnwrap(imported["products"].array.first { $0.id == old.id })
+            let current = try XCTUnwrap(all.first { $0.id == old.id })
             for key in ["capacity", "remaining", "stockStatus", "price", "date", "place", "instructions", "customTag"] { XCTAssertEqual(current[key], old[key]) }
         }
         let gsf = try XCTUnwrap(imported["products"].array.first { $0.id == "gsf" })
@@ -25,6 +28,62 @@ final class WashCoreTests: XCTestCase {
         XCTAssertTrue(PersonalLibrary.uses(gsf).contains("正洗"))
         let edited = imported.replacing(["products": .array(imported["products"].array.filter { $0.id != "qd" }.map { $0.replacing(["coverURL": .string("https://example.com/my-cover.png")]) })])
         XCTAssertEqual(PersonalLibrary.importOwned(edited, catalog: catalog), edited)
+    }
+    func testBuild5BackupAndActiveWashMigrateToOwnedListWithoutTouchingSnapshots() throws {
+        let catalog = try ownedCatalog()
+        var old = try completed()
+        let bottle = try XCTUnwrap(old["products"].array.first { $0.id == "hydro" })
+        let personal = bottle.replacing(["id": .string("personal-bottle"), "name": .string("自定义药剂"), "place": .string("保留购买信息")])
+        let oldProducts = old["products"].array
+        old["products"] = .array(oldProducts + [personal] + catalog.array.filter { item in !oldProducts.contains { $0.id == item.id } })
+        old["catalogImports"] = .array([.string("20261112-01")])
+        old = try WashEngine.prepare(old, now: 10000, id: "already-prepared")
+        old = old.removing(["deletedProducts"]).replacing(["version": .number(6)])
+        var backup = try JSON.read(Backup.encode(old))
+        backup["appVersion"] = .number(6)
+        let updated = PersonalLibrary.importOwned(try Backup.decode(backup.encoded()), catalog: catalog)
+        try Backup.validate(updated)
+        XCTAssertEqual(updated["products"].array.count, 21)
+        XCTAssertTrue(updated["deletedProducts"].array.contains(personal))
+        for key in ["session", "history", "washes", "plan", "templates"] { XCTAssertEqual(updated[key], old[key]) }
+        XCTAssertEqual(updated["version"], .number(7))
+        let started = try WashEngine.advance(updated["session"], action: "start", actor: "phone", now: 11000)
+        try Backup.validate(WashEngine.replacingSession(updated, with: started))
+        let restoredBottle = PersonalLibrary.restoreProduct(updated, id: personal.id)
+        let newBottle = personal.replacing(["id": .string("bought-later")])
+        let changed = restoredBottle.replacing(["products": .array(restoredBottle["products"].array + [newBottle])])
+        let restarted = PersonalLibrary.importOwned(try Backup.decode(Backup.encode(changed)), catalog: catalog)
+        XCTAssertEqual(restarted, changed)
+    }
+    func testManualProductDeletionBlocksPreparationAndPreservesAllReferences() throws {
+        let catalog = try ownedCatalog(), state = PersonalLibrary.importOwned(try completed(), catalog: catalog)
+        let product = try XCTUnwrap(state["products"].array.first { $0.id == "gsf" })
+        let deleted = PersonalLibrary.removeProduct(state, id: product.id)
+        XCTAssertEqual(PersonalLibrary.removeProduct(deleted, id: product.id), deleted)
+        XCTAssertFalse(deleted["products"].array.contains(product))
+        XCTAssertTrue(deleted["deletedProducts"].array.contains(product))
+        for key in ["plan", "templates", "history", "washes", "session"] { XCTAssertEqual(deleted[key], state[key]) }
+        XCTAssertThrowsError(try WashEngine.prepare(deleted)) { XCTAssertTrue($0.localizedDescription.contains(product["name"].text)) }
+        XCTAssertThrowsError(try WashEngine.manualUsage(deleted, productID: product.id, amount: 1, location: ""))
+        let reloaded = PersonalLibrary.importOwned(try Backup.decode(Backup.encode(deleted)), catalog: catalog)
+        XCTAssertEqual(reloaded, deleted)
+        let restored = PersonalLibrary.restoreProduct(reloaded, id: product.id)
+        XCTAssertEqual(PersonalLibrary.restoreProduct(restored, id: product.id), restored)
+        XCTAssertTrue(restored["products"].array.contains(product))
+        XCTAssertFalse(restored["deletedProducts"].array.contains(product))
+        XCTAssertNoThrow(try WashEngine.prepare(restored))
+        XCTAssertThrowsError(try Backup.encode(deleted.replacing(["products": state["products"]])))
+        let malformed = product.replacing(["remaining": .number(-1)])
+        XCTAssertThrowsError(try Backup.encode(deleted.replacing(["deletedProducts": .array([malformed])])))
+    }
+    func testOwnedCatalogMatchesExistingBottleByNameAndBrand() throws {
+        let catalog = try ownedCatalog(), state = try seed()
+        let bottle = try XCTUnwrap(catalog.array.first { $0.id == "retyre" })
+            .replacing(["id": .string("my-id"), "place": .string("原购买地点")])
+        let updated = PersonalLibrary.importOwned(state.replacing(["products": .array(state["products"].array + [bottle])]), catalog: catalog)
+        XCTAssertEqual(updated["products"].array.count, 21)
+        XCTAssertFalse(updated["products"].array.contains { $0.id == "retyre" })
+        XCTAssertEqual(updated["products"].array.first { $0.id == "my-id" }?["place"], bottle["place"])
     }
     func testOwnedLibraryUnknownCapacityAndGramUnitsRoundTrip() throws {
         let imported = PersonalLibrary.importOwned(try seed(), catalog: try ownedCatalog())

@@ -7,7 +7,7 @@ public enum Backup {
         guard data.count <= maxBytes else { throw WashError("备份超过 12 MB。") }
         let b = try JSON.read(data)
         guard b["format"].text == "WashMyCarBackup", b["schemaVersion"].number == 1,
-              let version = b["appVersion"].number, (2...6).contains(version),
+              let version = b["appVersion"].number, (2...7).contains(version),
               b["volumeUnit"].text == "mL", b["healthDataIncluded"] == .bool(false),
               b["attachments"] == .array([]) else { throw WashError("备份格式、版本或单位不兼容。") }
         // Delivery state belongs to the local phone/Watch pairing.
@@ -27,7 +27,7 @@ public enum Backup {
         var sanitized = state.removing(["pendingWatchCancellations"])
         for key in ["washes", "deletedWashes"] { sanitized[key] = .array(state[key].array.map { $0.removing(["health", "heartRateSamples"]) }) }
         if sanitized["session"] != .null { sanitized["session"] = sanitized["session"].removing(["health", "heartRateSamples"]) }
-        let b: JSON = .object(["format": .string("WashMyCarBackup"), "schemaVersion": .number(1), "appVersion": .number(6),
+        let b: JSON = .object(["format": .string("WashMyCarBackup"), "schemaVersion": .number(1), "appVersion": .number(7),
                                "volumeUnit": .string("mL"), "healthDataIncluded": .bool(false), "attachments": .array([]),
                                "createdAt": .string(isoDate(milliseconds())), "data": sanitized])
         let data = try b.encoded()
@@ -117,7 +117,7 @@ public enum Backup {
         }
     }
     public static func validate(_ state: JSON, requireVehicles: Bool = true) throws {
-        try require([2.0, 3, 4, 5, 6].contains(state["version"].number ?? 0), "不支持此资料版本。")
+        try require([2.0, 3, 4, 5, 6, 7].contains(state["version"].number ?? 0), "不支持此资料版本。")
         if state["pendingWatchCancellations"] != .null {
             var ids = Set<String>()
             for id in try list(state["pendingWatchCancellations"], "待同步取消的流程") {
@@ -125,7 +125,12 @@ public enum Backup {
                 try require(!id.text.isEmpty && ids.insert(id.text).inserted, "待同步取消的流程 ID 为空或重复。")
             }
         }
-        try validateProducts(state["products"]); try validatePlan(state["plan"], products: state["products"])
+        try validateProducts(state["products"])
+        if state["deletedProducts"] != .null { try validateProducts(state["deletedProducts"]) }
+        let products = state["products"].array + state["deletedProducts"].array
+        try require(Set(products.map(\.id)).count == products.count, "药剂与已删除药剂 ID 重复。")
+        let planProducts = JSON.array(products)
+        try validatePlan(state["plan"], products: planProducts)
         let visible = try entries(state["washes"] == .null ? .array([]) : state["washes"], "记录")
         let archived = try entries(state["deletedWashes"] == .null ? .array([]) : state["deletedWashes"], "已删除记录")
         let washes = visible + archived
@@ -133,7 +138,7 @@ public enum Backup {
         let templates = try entries(state["templates"] == .null ? .array([]) : state["templates"], "已存方案")
         let vehicles = try entries(state["vehicles"] == .null ? .array([]) : state["vehicles"], "车辆")
         for v in vehicles { try text(v["name"], "车辆名称", max: 200) }
-        for t in templates { try text(t["name"], "方案名称", max: 200); try validatePlan(t["plan"], products: state["products"]) }
+        for t in templates { try text(t["name"], "方案名称", max: 200); try validatePlan(t["plan"], products: planProducts) }
         for w in washes {
             try validateProducts(w["products"]); try validatePlan(w, products: w["products"])
             try number(w["durationMs"], "洗车时长"); try number(w["finishedAt"], "完成时间")
@@ -179,6 +184,7 @@ public enum Backup {
         state["deletedWashes"] = .array(input["deletedWashes"].array.map { associate($0) })
         state["templates"] = .array(input["templates"].array.map { $0.replacing(["plan": associate($0["plan"]), "builtIn": .bool($0["builtIn"].flag || $0.id.hasPrefix("preset-"))]) })
         state["products"] = .array(input["products"].array.map { $0.replacing(["stockStatus": .string(WashEngine.stockKind($0))]) })
+        state["deletedProducts"] = .array(input["deletedProducts"].array)
         state["history"] = .array(input["history"].array)
         state["deferredNoteIds"] = .array(input["deferredNoteIds"].array)
         state["settings"] = input["settings"].replacing(["theme": input["settings"]["theme"] == .null ? .string("system") : input["settings"]["theme"], "easterEggs": .bool(true)])
@@ -208,7 +214,7 @@ public enum Backup {
             state["session"] = s
         }
         state["vehicles"] = .array(vehicles)
-        state["version"] = .number(6)
+        state["version"] = .number(7)
         return state
     }
 }

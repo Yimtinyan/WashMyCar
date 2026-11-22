@@ -5,6 +5,7 @@ struct InventoryView: View {
     @State private var query = ""
     @State private var category = "全部用途"
     @State private var add = false
+    @State private var productToDelete: JSON?
     var body: some View {
         List {
             Section { PageHeading(title: "每一瓶，\n各有所长。", subtitle: "记住来处，也记住每一次取用。") }
@@ -12,20 +13,29 @@ struct InventoryView: View {
                 Picker("用途", selection: $category) { ForEach(PersonalLibrary.categories, id: \.self) { Text($0) } }
                 ForEach(store.state["products"].array.filter { p in
                     (category == "全部用途" || PersonalLibrary.uses(p).contains(category)) && (query.isEmpty || ([p["brand"].text, p["name"].text, p["code"].text, p["searchTerms"].text].joined(separator: " ")).localizedCaseInsensitiveContains(query))
-                }, id: \.id) { p in NavigationLink { ProductDetail(productID: p.id) } label: { ProductSummary(product: p) } }
+                }, id: \.id) { p in
+                    NavigationLink { ProductDetail(productID: p.id) } label: { ProductSummary(product: p) }
+                        .swipeActions { Button("删除", role: .destructive) { productToDelete = p } }
+                }
             }
             Button("添加药剂", systemImage: "plus") { add = true }
+            if !store.state["deletedProducts"].array.isEmpty {
+                NavigationLink("已删除的药剂（\(store.state["deletedProducts"].array.count)）") { DeletedProductsView() }
+            }
         }.searchable(text: $query, prompt: "搜索品牌或药剂").navigationTitle("药剂").navigationBarTitleDisplayMode(.inline)
+            .modifier(ProductDeletion(product: $productToDelete))
             .sheet(isPresented: $add) { NavigationStack { ProductEditor(product: .object(["id": .string(identifier()), "brand": .string(""), "name": .string(""), "use": .string("正洗"), "capacity": .number(500), "remaining": .number(500), "stockStatus": .string("estimated"), "price": .string("")])) } }
     }
 }
 
 struct ProductDetail: View {
     @EnvironmentObject private var store: AppStore
+    @Environment(\.dismiss) private var dismiss
     let productID: String
     var snapshot: JSON? = nil
     @State private var edit = false
     @State private var usage = false
+    @State private var productToDelete: JSON?
     private var product: JSON { snapshot ?? store.state["products"].array.first(where: { $0.id == productID }) ?? .null }
     var body: some View {
         List {
@@ -64,8 +74,55 @@ struct ProductDetail: View {
                 }
             }
         }.navigationTitle(snapshot == nil ? "药剂资料" : "历史快照").navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                if snapshot == nil {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("删除药剂", role: .destructive) { productToDelete = product }
+                    }
+                }
+            }
+            .modifier(ProductDeletion(product: $productToDelete) { dismiss() })
             .sheet(isPresented: $edit) { NavigationStack { ProductEditor(product: product) } }
             .sheet(isPresented: $usage) { NavigationStack { UsageEditor(product: product) } }
+    }
+}
+
+private struct ProductDeletion: ViewModifier {
+    @EnvironmentObject private var store: AppStore
+    @Binding var product: JSON?
+    var onDelete: () -> Void = {}
+
+    func body(content: Content) -> some View {
+        content.confirmationDialog("删除这瓶药剂？", isPresented: Binding(
+            get: { product != nil }, set: { if !$0 { product = nil } }
+        ), titleVisibility: .visible, presenting: product) { selected in
+            Button("删除药剂", role: .destructive) {
+                store.perform {
+                    try store.commit(PersonalLibrary.removeProduct(store.state, id: selected.id))
+                    onDelete()
+                }
+            }
+            Button("保留", role: .cancel) {}
+        } message: { selected in
+            Text("“\(selected["name"].text)”将移至已删除的药剂，可随时恢复。已取用的用量与洗车记录会保留。")
+        }
+    }
+}
+
+private struct DeletedProductsView: View {
+    @EnvironmentObject private var store: AppStore
+    var body: some View {
+        List {
+            if store.state["deletedProducts"].array.isEmpty {
+                ContentUnavailableView("暂无已删除药剂", systemImage: "trash")
+            }
+            ForEach(store.state["deletedProducts"].array, id: \.id) { product in
+                VStack(alignment: .leading) {
+                    ProductSummary(product: product)
+                    Button("恢复药剂") { store.perform { try store.commit(PersonalLibrary.restoreProduct(store.state, id: product.id)) } }
+                }
+            }
+        }.navigationTitle("已删除的药剂")
     }
 }
 

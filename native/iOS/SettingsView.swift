@@ -33,7 +33,7 @@ struct SettingsView: View {
             Section("资料备份") {
                 Button("导出完整 JSON 备份", systemImage: "square.and.arrow.up") { store.perform { document = BackupDocument(data: try Backup.encode(store.state)); exporting = true } }.disabled(store.loadFailed)
                 Button("从备份恢复", systemImage: "square.and.arrow.down") { importing = true }.disabled(store.active)
-                Text("可导入 v2—v6 的 WashMyCarBackup，本版导出 v6；旧版 Demo 无法读取 v6。包含车辆、库存、购买资料、方案、取用履历、洗车记录与已删除记录。恢复前先预览，确认后替换本机资料，并保存一份本机回退副本。不包含健康明细与附件。").font(.caption).foregroundStyle(.secondary)
+                Text("可导入 v2—v7 的 WashMyCarBackup，本版导出 v7。备份包含车辆、药剂和购买资料、方案、取用履历、洗车记录，以及可恢复的已删除药剂和记录。恢复前先预览，确认后替换本机资料，并保存一份本机回退副本。不包含健康明细与附件。").font(.caption).foregroundStyle(.secondary)
                 if !backupStatus.isEmpty { Text(backupStatus).font(.footnote) }
             }
             Section("Apple Watch") {
@@ -61,7 +61,7 @@ struct SettingsView: View {
                     defer { if access { url.stopAccessingSecurityScopedResource() } }
                     let size = try url.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0
                     guard size <= Backup.maxBytes else { throw WashError("备份超过 12 MB。") }
-                    pending = try Backup.decode(Data(contentsOf: url)); preview = true
+                    pending = try AppStore.applyPersonalLibrary(to: Backup.decode(Data(contentsOf: url))); preview = true
                 }
             }
             .sheet(isPresented: $preview) {
@@ -70,6 +70,9 @@ struct SettingsView: View {
                         Section("将恢复以下资料") {
                             LabeledContent("车辆", value: "\(pending["vehicles"].array.count)")
                             LabeledContent("药剂", value: "\(pending["products"].array.count)")
+                            if !pending["deletedProducts"].array.isEmpty {
+                                LabeledContent("已删除的药剂", value: "\(pending["deletedProducts"].array.count)")
+                            }
                             LabeledContent("洗车记录", value: "\(pending["washes"].array.count)")
                             LabeledContent("使用履历", value: "\(pending["history"].array.count)")
                             LabeledContent("已存方案", value: "\(pending["templates"].array.count)")

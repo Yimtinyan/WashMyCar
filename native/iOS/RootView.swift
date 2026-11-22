@@ -120,9 +120,13 @@ struct PreparationView: View {
             PreparationNotes()
             Section("本次原液取用") {
                 ForEach(WashEngine.totals(store.state["plan"]).keys.sorted(), id: \.self) { id in
-                    let product = store.state["products"].array.first { $0.id == id }
+                    let available = store.state["products"].array.first { $0.id == id }
+                    let product = available ?? store.state["deletedProducts"].array.first { $0.id == id }
                     HStack {
-                        VStack(alignment: .leading) { Text(product?["name"].text ?? "药剂不存在"); Text(product.map(WashEngine.stockText) ?? "").font(.caption).foregroundStyle(.secondary) }
+                        VStack(alignment: .leading) {
+                            Text(product?["name"].text ?? "药剂不存在")
+                            Text(available.map(WashEngine.stockText) ?? "已删除，请编辑步骤或恢复药剂").font(.caption).foregroundStyle(.secondary)
+                        }
                         Spacer()
                         Text("\(volume(WashEngine.totals(store.state["plan"])[id] ?? 0)) \(product.map(PersonalLibrary.unit) ?? "mL")").monospacedDigit()
                     }

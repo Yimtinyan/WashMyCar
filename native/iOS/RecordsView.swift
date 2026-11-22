@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RecordsView: View {
     @EnvironmentObject private var store: AppStore
-    @State private var deletingID: String?
+    @State private var recordToDelete: JSON?
     var body: some View {
         List {
             Section { PageHeading(title: "把用心，\n留成记录。", subtitle: "时间、地点与用量，都在这里。") }
@@ -18,25 +18,26 @@ struct RecordsView: View {
                                 Text("\(w["location"].text) · \(clockText(w["durationMs"].number ?? 0))").font(.caption).foregroundStyle(.secondary)
                             }.padding(.vertical, 7)
                         }
-                        .swipeActions { Button("删除", role: .destructive) { deletingID = w.id } }
-                        .contextMenu { Button("删除记录", role: .destructive) { deletingID = w.id } }
+                        .swipeActions { Button("删除", role: .destructive) { recordToDelete = w } }
+                        .contextMenu { Button("删除记录", role: .destructive) { recordToDelete = w } }
                     }
                 }
             }
             if !store.state["deletedWashes"].array.isEmpty {
                 NavigationLink("已删除的记录（\(store.state["deletedWashes"].array.count)）") { DeletedRecordsView() }
             }
-        }.confirmationDialog("删除这条洗车记录？", isPresented: Binding(get: { deletingID != nil }, set: { if !$0 { deletingID = nil } }), titleVisibility: .visible) {
-            Button("删除记录", role: .destructive) { if let id = deletingID { store.perform { try store.commit(PersonalLibrary.removeRecord(store.state, id: id)) } }; deletingID = nil }
-        } message: { Text("记录将移至已删除列表，可恢复。库存和取用履历不变，不返还备液用量。") }.navigationTitle("记录").navigationBarTitleDisplayMode(.inline)
+        }.modifier(RecordDeletion(record: $recordToDelete))
+            .navigationTitle("记录").navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct RecordDetail: View {
     @EnvironmentObject private var store: AppStore
+    @Environment(\.dismiss) private var dismiss
     let recordID: String
     @State private var note = ""
     @State private var loaded = false
+    @State private var recordToDelete: JSON?
     private var record: JSON { store.state["washes"].array.first { $0.id == recordID } ?? .null }
     var body: some View {
         List {
@@ -67,7 +68,36 @@ struct RecordDetail: View {
             Section("完成的步骤") { ForEach(record["steps"].array, id: \.id) { s in Label(s["name"].text, systemImage: "checkmark") } }
             Section("同期活动能量与心率") { Text("尚未接入 HealthKit，暂无健康样本。").foregroundStyle(.secondary) }
         }.navigationTitle("洗车详情").navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("删除记录", role: .destructive) { recordToDelete = record }
+                        .disabled(record == .null)
+                }
+            }
+            .modifier(RecordDeletion(record: $recordToDelete) { dismiss() })
             .onAppear { if !loaded { note = record["notes"].text; loaded = true } }
+    }
+}
+
+private struct RecordDeletion: ViewModifier {
+    @EnvironmentObject private var store: AppStore
+    @Binding var record: JSON?
+    var onDelete: () -> Void = {}
+
+    func body(content: Content) -> some View {
+        content.confirmationDialog("删除这条洗车记录？", isPresented: Binding(
+            get: { record != nil }, set: { if !$0 { record = nil } }
+        ), titleVisibility: .visible, presenting: record) { selected in
+            Button("删除记录", role: .destructive) {
+                store.perform {
+                    try store.commit(PersonalLibrary.removeRecord(store.state, id: selected.id))
+                    onDelete()
+                }
+            }
+            Button("保留", role: .cancel) {}
+        } message: { selected in
+            Text("“\(selected["name"].text)”将移至「已删除的记录」，可随时恢复。已取用的药剂保留在使用履历中。")
+        }
     }
 }
 
